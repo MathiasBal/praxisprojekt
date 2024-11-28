@@ -2,26 +2,22 @@
 if (!require("sf")) install.packages("sf")
 if (!require("ggplot2")) install.packages("ggplot2")
 if (!require("dplyr")) install.packages("dplyr")
-if (!require("readxl")) install.packages("readxl")
 
 library(sf)
 library(ggplot2)
 library(dplyr)
-library(readxl)
 
-# Daten laden
-wohn_data <- read_data("anf_park_ws24")
-
+# Annahme: Der DataFrame "anf_park_ws24" ist bereits im Arbeitsspeicher
 # "Preistreiber" berechnen: 1 = Preistreiber, 0 = kein Preistreiber
-wohn_data <- wohn_data %>%
+anf_park_ws24 <- anf.park.ws24 %>%
   mutate(preistreiber = ifelse(nmqm > ovm21, 1, 0))
 
 # Durchschnittlicher Anteil der Preistreiber pro Bezirk berechnen
-preistreiber_by_bezirk <- wohn_data %>%
+preistreiber_by_bezirk <- anf_park_ws24 %>%
   group_by(SBez) %>%
   summarise(anteil_preistreiber = mean(preistreiber, na.rm = TRUE))
 
-# Geodaten der Münchner Stadtbezirke laden (Shapefile oder OpenStreetMap)
+# Geodaten der Münchner Stadtbezirke aus OpenStreetMap laden
 if (!require("osmdata")) install.packages("osmdata")
 library(osmdata)
 
@@ -34,17 +30,13 @@ munich_boundaries <- opq("München") %>%
 # Stadtbezirksgrenzen extrahieren
 munich_districts <- munich_boundaries$osm_multipolygons
 
-# Filter auf 25 Stadtbezirke (ggf. mit Namen oder IDs anpassen)
-# Ersetze `valid_districts` durch die tatsächlichen IDs der Bezirke, falls bekannt
-valid_districts <- c(1:25)  # Beispiel für Stadtbezirke
-munich_districts <- munich_districts %>%
-  filter(as.numeric(name) %in% valid_districts)  # Passe "name" an tatsächliche Spalte an
-
 # Verknüpfe Geodaten mit den berechneten Preistreiber-Daten
+# Angenommen, munich_districts hat eine ID oder Namen der Bezirke, die mit `SBez` übereinstimmen
+# Prüfen und anpassen!
 munich_districts <- munich_districts %>%
   left_join(preistreiber_by_bezirk, by = c("name" = "SBez"))  # Passe `name` ggf. an
 
-# Karte erstellen
+# Karte erstellen mit Preistreiber-Anteil
 ggplot(data = munich_districts) +
   geom_sf(aes(fill = anteil_preistreiber), color = "white") +
   scale_fill_viridis_c(
@@ -57,7 +49,4 @@ ggplot(data = munich_districts) +
     subtitle = "Farbliche Hervorhebung der Bezirke mit hohem Preistreiber-Anteil",
     caption = "Quelle: Eigene Berechnung und OpenStreetMap"
   ) +
-  theme_void() +  # Entfernt Hintergrund, Achsen und Gitterlinien
-  theme(
-    legend.position = "right"  # Positioniert die Legende rechts
-  )
+  theme_minimal()
