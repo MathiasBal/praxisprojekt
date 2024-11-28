@@ -1,51 +1,84 @@
 # Libraries
-install.packages("stringr")
+if (!require("stringr")) install.packages("stringr")
+if (!require("sf")) install.packages("sf")
+if (!require("ggplot2")) install.packages("ggplot2")
+if (!require("dplyr")) install.packages("dplyr")
+if (!require("osmdata")) install.packages("osmdata")
+
+library(osmdata)
+library(sf)
+library(ggplot2)
+library(dplyr)
 library(stringr)
 
 # Data Prepping
+anf.park.ws24 <- anf_park_ws24
 anf.park.ws24$bj <- floor(anf.park.ws24$bj)
 wl <- anf.park.ws24$WL
+
 wl <- str_replace(wl, "beste", "3")
 wl <- str_replace(wl, "gute", "2")
 wl <- str_replace(wl, "durchschnittliche", "1")
 anf.park.ws24 <- transform(anf.park.ws24, WL = as.integer(WL))
 
-# Third Normform
-apt <- data.frame(
-  apt_id = integer(),                           # primary key
-  net_rent_per_qm = anf.park.ws24$nmqm,         # Nettokaltmiete je Quadratmeter in Euro
-  space_per_qm = anf.park.ws24$wfl.gekappt,     # Wohnfläche in Quadratmetern
-  year_of_construction = anf.park.ws24$bj,      # Baujahr
-  landlord_type = anf.park.ws24$vermietertyp,   # Vermietertyp
-  contract_type = anf.park.ws24$art.vertrag,    # Vertragsart
-  residential_area = anf.park.ws24$WL,          # Wohnlage
-  is_central = anf.park.ws24$Zentral,           # Zentral (ja/nein)
-  is_new_contract = anf.park.ws24$Neuvertrag,   # Neuvertrag (ja/nein)
-  house_type = anf.park.ws24$Haustyp,           # Haustyp
-  building_type = anf.park.ws24$Gebäudetyp      # Gebäudetyp
-)
+anf.park.ws24 <- anf.park.ws24 %>% 
+  rename(net_rent_per_qm = nmqm) %>% 
+  rename(space_per_qm = wfl.gekappt) %>% 
+  rename(year_of_construction = bj) %>% 
+  rename(landlord_type = vermietertyp) %>% 
+  rename(contract_type = art.vertrag) %>% 
+  rename(residential_area = WL) %>% 
+  rename(is_central = Zentral) %>% 
+  rename(is_new_contract = Neuvertrag) %>% 
+  rename(first_occupancy = erstbezug) %>% 
+  rename(district_name = SBez) %>% 
+  rename(district_no = bezirk.nr) %>% 
+  rename(avg_comparative_rent = ovm21) %>% 
+  rename(house_type = Haustyp) %>% 
+  rename(building_type = Gebäudetyp) %>% 
+  rename(rent_increase_month = mieterhöhung_monat) %>% 
+  rename(rent_increase_year = mieterhöhung_jahr) %>% 
+  rename(start_lease_month = beginn_mietverh_monat) %>% 
+  rename(start_lease_year = beginn_mietverh_jahr) %>% 
+  rename(price_driver = preistreiber)
 
-district <- data.frame(
-  district_no = anf.park.ws24$bezirk.nr,        # primary key
-  district_name = anf.park.ws24$SBez            # Stadtbezirk Name
-)
+# Annahme: Der DataFrame "anf_park_ws24" ist bereits im Arbeitsspeicher
+# "Preistreiber" berechnen: 1 = Preistreiber, 0 = kein Preistreiber
+data <- anf.park.ws24 %>%
+  mutate(price_driver = ifelse(net_rent_per_qm > avg_comparative_rent, 1, 0))
 
-rent_index <- data.frame(
-  rent_index_id = integer(),                    # primary key
-  district_no = district$district_no,           # foreign key zu district_no$district_no
-  avg_comparative_rent = anf.park.ws24$ovm21    # Mittlere Ortsübliche Vergleichsmiete gemäß Mietspiegel 2021
-)
+# Durchschnittlicher Anteil der Preistreiber pro Bezirk berechnen
+price_driver_by_district <- data %>%
+  group_by(district_name) %>%
+  summarise(share_price_driver = mean(price_driver, na.rm = TRUE))
 
-rental_agreement <- data.frame(
-  rental_agreement_id = integer(),  # primary key
-  apt_id = apt$id,          # Fremdschlüssel zu wohnung$wohnung_id
-  rent_increase_month = anf.park.ws24$mieterhöhung_monat,  # Mieterhöhung Monat
-  rent_increase_year = anf.park.ws24$mieterhöhung_jahr,   # Mieterhöhung Jahr
-  start_lease_month = anf.park.ws24$beginn_mietverh_monat,  # Beginn Mietverhältnis Monat
-  start_lease_year = anf.park.ws24$beginn_mietverh_jahr    # Beginn Mietverhältnis Jahr
-)
+# Lade Stadtbezirksgrenzen für München
+munich_boundaries <- opq("München") %>%
+  add_osm_feature(key = "boundary", value = "administrative") %>%
+  add_osm_feature(key = "admin_level", value = "10") %>%
+  osmdata_sf()
 
-year_of_construction_first_occupancy <- data.frame(
-  year_of_construction = apt$year_of_construction,   # primary key Baujahr
-  first_occupancy = anf.park.ws24$erstbezug          # Erstbezug Jahr
-)
+# Stadtbezirksgrenzen extrahieren
+munich_districts <- munich_boundaries$osm_multipolygons
+
+# Verknüpfe Geodaten mit den berechneten Preistreiber-Daten
+# Angenommen, munich_districts hat eine ID oder Namen der Bezirke, die mit `SBez` übereinstimmen
+# Prüfen und anpassen!
+munich_districts <- munich_districts %>%
+  left_join(price_driver_by_district, by = c("name" = "district_name"))  # Passe `name` ggf. an
+
+# Karte erstellen mit Preistreiber-Anteil
+ggplot(data = munich_districts) +
+  geom_sf(aes(fill = share_price_driver), color = "white") +
+  scale_fill_viridis_c(
+    option = "plasma", 
+    na.value = "grey90", 
+    name = "Preistreiber-Anteil"
+  ) +
+  labs(
+    title = "Preistreiber im Münchner Mietwohnungsmarkt",
+    subtitle = "Farbliche Hervorhebung der Bezirke mit hohem Preistreiber-Anteil",
+    caption = "Quelle: Eigene Berechnung und OpenStreetMap"
+  ) +
+  theme_minimal()
+
