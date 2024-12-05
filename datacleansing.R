@@ -82,3 +82,13 @@ ggplot(data = munich_districts) +
   ) +
   theme_minimal()
 
+ggplot(data, aes(x = residential_area)) +
+  geom_bar() +
+  labs(
+    title = "Wohnlagen im Münchner Mietwohnungsmarkt",
+    x = "Wohnlage",
+    y = "Anzahl"
+  ) +
+  scale_x_continuous(breaks = c(1, 2, 3),
+                     labels = c("Durchschnittlich", "Gut", "Best")) +
+  theme_minimal()
