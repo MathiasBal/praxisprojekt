@@ -1,0 +1,41 @@
+---
+title: "Münchner Mietspiegel 2023"
+author: "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
+format:
+  revealjs:
+    css: customstyle.css
+    embed-resources: true
+    slide-number: c
+    logo: "LMU_Logo.svg"
+editor: visual
+---
+
+
+## Agenda
+
+::: incremental
+1.  Überblick und Terminologie
+
+2.  Datenanalyse
+
+    Verlauf über die Runden\
+    Zusammenhang\
+    Antikörper
+
+3.  Zusammenfassung und Diskussion
+:::
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
