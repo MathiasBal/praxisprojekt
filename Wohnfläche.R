@@ -29,6 +29,26 @@ pricedrivers %>%
   theme_minimal() +
   theme(
     axis.text.x = element_text(size = 10),
-    plot.title = element_text(size = 14), 
+    plot.title = element_text(size = 14, hjust = 0.5), 
     axis.text = element_text(size = 10)
   )
+
+
+#Anteil der Preistreiber deren Nettomieter pro m² über der mittleren ortsüblichen Vergleichsmiete liegt in %
+Prozent <- pricedrivers %>% 
+  select(nmqm, ovm21)
+
+prozentdrüber <- (((Prozent$nmqm / Prozent$ovm21) -1) * 100)
+prozentdrüber <- floor(prozentdrüber)
+glimpse(prozentdrüber)
+
+
+#Wohnfläche Verteilung auf Nettomiete pro m²
+library(ggplot2)
+ggplot(pricedrivers, aes(x = wfl.gekappt, y = prozentdrüber)) +
+  geom_point(color = "black", alpha = 0.5, size = 0.8) +
+  labs(x = "Wohnungsgröße (m²)", 
+       y = " Anteil Preistreiber Nettomiete pro m² über ortsüblichen Vergleichsmiete (%)",
+       title = "Verteilung der Wohnfläche in Verhältnis zur ortsüblichen Vergleichsmiete") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
