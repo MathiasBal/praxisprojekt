@@ -1,13 +1,23 @@
-/*-- scss:defaults --*/
+/* Custom Styles for Reveal.js Presentation */
 
-/*-- scss:rules --*/
-
-.author {
-  text-align: right;
+/* Global logo styling */
+.global-logo {
+  position: fixed;       /* Fix the logo on the screen */
+  top: 10px;             /* Distance from the top */
+  right: 20px;           /* Distance from the right */
+  height: 20%;          /* Set desired height */
+  width: auto;           /* Maintain aspect ratio */
+  z-index: 1000;         /* Ensure it stays on top of slides */
 }
 
+/* Hide logo on slides with .no-logo class */
+.reveal .slides section.no-logo ~ .global-logo {
+  display: none !important;
+}
+
+/* Footer Styling */
 .reveal .footer {
-  font-size: 0.25em !important;
+  font-size: 0.25em !important; /* Small footer text */
   text-align: left !important;
   display: block;
   position: fixed;
@@ -15,21 +25,18 @@
   right: 90px;
 }
 
+/* Fragments semi-fade-out */
 .reveal .slides section .fragment.semi-fade-out {
-	opacity: 1;
-	visibility: inherit;
-
-	&.visible {
-		opacity: 0.25;
-		visibility: inherit;
-	}
+  opacity: 1;
+  visibility: inherit;
 }
 
-.reveal .result {
-  max-height: 100%;
+.reveal .slides section .fragment.semi-fade-out.visible {
+  opacity: 0.25;
+  visibility: inherit;
 }
 
-// Slide numbers to the bottom-right
+/* Slide numbers to the bottom-right */
 .slide-number, .reveal.has-logo .slide-number {
   bottom: 14px !important;
   right: 50px !important;
@@ -37,19 +44,11 @@
   color: #777777 !important;
 }
 
-.reveal .slide-logo {
-  height: 100px !important;
-  width: 100px!important;
-  max-width: unset !important;
-  max-height: unset !important;
-  top: 14px !important;
-  right: 50px !important;
-}
-
+/* Custom styling for smaller text */
 .custom-smaller {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .custom-smaller2 {
-    font-size: 0.75em;
+  font-size: 0.75em;
 }

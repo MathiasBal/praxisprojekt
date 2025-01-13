@@ -1,3 +1,14 @@
+```{html}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.createElement('img');
+    logo.src = 'LMU_Logo.svg'; // Ensure the path is correct
+    logo.alt = 'Logo';
+    logo.className = 'global-logo';
+    document.body.appendChild(logo);
+  });
+</script>
+
 ---
 title: "Münchner Mietspiegel 2023"
 author: "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
@@ -6,21 +17,18 @@ format:
     css: customstyle.css
     embed-resources: true
     slide-number: c
-    logo: "LMU_Logo.svg"
+    theme: simple
 editor: visual
 ---
 
-## Agenda
+## Slide 1
 
-::: incremental
-1.  Überblick und Terminologie
+This slide will display the logo.
 
-2.  Datenanalyse
+## Agenda {.no-logo}
 
-    Wohnlage\
-    Zusammenhang\
-    Mietpreise
+This slide will **not** display the logo.
 
-3.  Zusammenfassung und Diskussion
-:::
+## Slide 2
 
+The logo will appear again here.
