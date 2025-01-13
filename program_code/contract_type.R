@@ -12,7 +12,6 @@ pd <- pricedrivers %>%
     )
   )
 
-
 #genaue Anzahl
 g.mietverträge <- pd
 g.mietverträge_count <- g.mietverträge %>%

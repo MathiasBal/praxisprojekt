@@ -1,3 +1,4 @@
+#Verteilung der Wohnungsgrößen
 library(dplyr)
 library(ggplot2)
 library(scales)
@@ -43,12 +44,12 @@ prozentdrüber <- floor(prozentdrüber)
 glimpse(prozentdrüber)
 
 
-#Wohnfläche Verteilung auf Nettomiete pro m²
+#Verteilung Wohnungsgrößen auf Nettomiete pro m²
 library(ggplot2)
 ggplot(pricedrivers, aes(x = wfl.gekappt, y = prozentdrüber)) +
   geom_point(color = "black", alpha = 0.5, size = 0.8) +
   labs(x = "Wohnungsgröße (m²)", 
        y = " Anteil Preistreiber Nettomiete pro m² über ortsüblichen Vergleichsmiete (%)",
-       title = "Verteilung der Wohnfläche in Verhältnis zur ortsüblichen Vergleichsmiete") +
+       title = "Verteilung der Wohnungsgrößen in Verhältnis zur ortsüblichen Vergleichsmiete") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))
