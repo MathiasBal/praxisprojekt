@@ -1,0 +1,34 @@
+```{html}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.createElement('img');
+    logo.src = 'LMU_Logo.svg'; // Ensure the path is correct
+    logo.alt = 'Logo';
+    logo.className = 'global-logo';
+    document.body.appendChild(logo);
+  });
+</script>
+
+---
+title: "Münchner Mietspiegel 2023"
+author: "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
+format:
+  revealjs:
+    css: customstyle.css
+    embed-resources: true
+    slide-number: c
+    theme: simple
+editor: visual
+---
+
+## Slide 1
+
+This slide will display the logo.
+
+## Agenda {.no-logo}
+
+This slide will **not** display the logo.
+
+## Slide 2
+
+The logo will appear again here.
