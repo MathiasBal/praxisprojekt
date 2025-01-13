@@ -71,3 +71,18 @@ ggplot(data = pd_miete_jahr, aes(x = overrent_start)) +
     y = "Anzahl"
   ) +
   theme_minimal()
+
+
+##Louis Grafik
+
+Prozent <- pricedrivers %>%
+  select(net_rent_per_qm, avg_comparative_rent, space_per_qm)
+
+Prozent$`nmqm/ovm21` <- percent(Prozent$`nmqm/ovm21`)
+Prozent$`nmqm/ovm21` <- Prozent$`nmqm/ovm21`- 100
+glimpse(Prozent)
+
+prozentdrüber <- (((Prozent$net_rent_per_qm / Prozent$avg_comparative_rent) - 1) * 100)
+Prozent1 <- cbind(Prozent, prozentdrüber)
+Prozent1$prozentdrüber <- floor(Prozent1$prozentdrüber)
+glimpse(Prozent1)
