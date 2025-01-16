@@ -1,13 +1,22 @@
-/*-- scss:defaults --*/
+/* Custom Styles for Reveal.js Presentation */
 
-/*-- scss:rules --*/
-
-.author {
-  text-align: right;
+/* Global logo styling using background-image */
+.reveal:before {
+  content: '';
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  height: 15%; /* Set the desired height */
+  width: 15%; /* Adjust width if needed or use auto for aspect ratio */
+  background-image: url('LMU_Logo.svg');
+  background-size: contain; /* Ensure the logo scales proportionally */
+  background-repeat: no-repeat; /* Prevent tiling */
+  z-index: 1000;
 }
 
+/* Footer Styling */
 .reveal .footer {
-  font-size: 0.25em !important;
+  font-size: 0.25em !important; /* Small footer text */
   text-align: left !important;
   display: block;
   position: fixed;
@@ -15,21 +24,17 @@
   right: 90px;
 }
 
+/* Fragments semi-fade-out */
 .reveal .slides section .fragment.semi-fade-out {
-	opacity: 1;
-	visibility: inherit;
-
-	&.visible {
-		opacity: 0.25;
-		visibility: inherit;
-	}
+  opacity: 1;
+  visibility: inherit;
+}
+.reveal .slides section .fragment.semi-fade-out.visible {
+  opacity: 0.25;
+  visibility: inherit;
 }
 
-.reveal .result {
-  max-height: 100%;
-}
-
-// Slide numbers to the bottom-right
+/* Slide numbers to the bottom-right */
 .slide-number, .reveal.has-logo .slide-number {
   bottom: 14px !important;
   right: 50px !important;
@@ -37,19 +42,28 @@
   color: #777777 !important;
 }
 
-.reveal .slide-logo {
-  height: 100px !important;
-  width: 100px!important;
-  max-width: unset !important;
-  max-height: unset !important;
-  top: 14px !important;
-  right: 50px !important;
-}
-
+/* Custom styling for smaller text */
 .custom-smaller {
-    font-size: 0.9em;
+  font-size: 0.9em;
+}
+.custom-smaller2 {
+  font-size: 0.75em;
 }
 
-.custom-smaller2 {
-    font-size: 0.75em;
+/* Optional: Styling for images directly in the slides */
+.logo {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  height: 5%; /* Adjust as needed */
+  width: auto; /* Maintain aspect ratio */
+  z-index: 1000;
+}
+
+/* Additional utility classes for padding and margins */
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
 }

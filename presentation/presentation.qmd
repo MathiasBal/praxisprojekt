@@ -6,7 +6,6 @@ format:
     css: customstyle.css
     embed-resources: true
     slide-number: c
-    logo: "LMU_Logo.svg"
 editor: visual
 ---
 
