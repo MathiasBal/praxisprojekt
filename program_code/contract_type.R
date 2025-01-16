@@ -6,7 +6,7 @@ pd <- pricedrivers %>%
     labels = c(
       "Index",
       "Staffel",
-      "keine Regelung",
+      "keine Regelung zur Mieterhöhung",
       "unbekannt"
     )
   )
