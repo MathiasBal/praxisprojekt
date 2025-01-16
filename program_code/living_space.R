@@ -25,7 +25,7 @@ pricedrivers %>%
     vjust = -0.2,
     size = 3,
     color = "black") +
-  labs(x = "Wohnungsgröße (m²)", y = "Anteil (%)", title = "Prozentuale Verteilung der Wohnungsgrößen") +
+  labs(x = "Wohnungsgröße (m²)", y = "Anteil (%)", title = "Verteilung der Wohnungsgrößen") +
   scale_y_continuous(labels = scales::percent, limits = c(0, 0.5)) +
   theme_minimal() +
   theme(
