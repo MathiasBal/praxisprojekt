@@ -23,10 +23,9 @@ pricedrivers %>%
   geom_text(
     aes(label = paste0(percentage, "%")),
     vjust = -0.2,
-    size = 3,
-    color = "black") +
+    size = 3) +
   labs(x = "Wohnungsgröße (m²)", y = "Anteil (%)", title = "Verteilung der Wohnungsgrößen") +
-  scale_y_continuous(labels = scales::percent, limits = c(0, 0.5)) +
+  scale_y_continuous(labels = scales::number_format(scale = 100), limits = c(0, 1)) +
   theme_minimal() +
   theme(
     axis.text.x = element_text(size = 10),
