@@ -60,6 +60,22 @@
   z-index: 1000;
 }
 
+.reveal .slides h1 {
+  text-align: left; /* Align the title to the left */
+  margin-left: 0;
+  padding-left: 0;
+  
+}
+
+.quarto-title-author-name {
+  font-size: 30px;
+  padding: 0;
+}
+
+.quarto-title-institute-name{
+  font-size: 20px;
+}
+
 /* Additional utility classes for padding and margins */
 .no-padding {
   padding: 0 !important;
@@ -67,3 +83,4 @@
 .no-margin {
   margin: 0 !important;
 }
+

@@ -1,14 +1,42 @@
 ---
 title: "Münchner Mietspiegel 2023"
-author: "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
+subtitle: "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Lisa Kleinlein"
+author: 
+- "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
 format:
   revealjs:
     css: customstyle.css
     embed-resources: true
     slide-number: c
+    theme: simple
 editor: visual
 ---
 
-## Slide 1
+## Gliederung
 
-This slide will display the logo.
+::: incremental
+- Datensatz
+- Begriffserklärung (Preistreiber & Ortsvergleichmiete)
+- Limitationen
+- Datenanalyse
+- 
+:::
+
+
+## Datensatz
+
++ Datenerhebung: Querschnittstudie
++ Art der Erhebung: Einwohnermeldedaten
+++ Zuvor war es eine Telefonumfrage
+++ Der Ziehungsrahmen geänderet
++ Stichprobengröße: 3380 Observations
+
+
+## Datensatz
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+

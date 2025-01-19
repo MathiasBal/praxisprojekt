@@ -10,7 +10,7 @@ library(dplyr)
 library(stringr)
 
 # Data Prepping
-anf.park.ws24 <- anf_park_ws24
+anf.prak.ws24 <- anf.park.ws24
 anf.park.ws24$bj <- floor(anf.park.ws24$bj)
 wl <- anf.park.ws24$WL
 
@@ -37,8 +37,7 @@ anf.park.ws24 <- anf.park.ws24 %>%
   rename(rent_increase_month = mieterhöhung_monat) %>% 
   rename(rent_increase_year = mieterhöhung_jahr) %>% 
   rename(start_lease_month = beginn_mietverh_monat) %>% 
-  rename(start_lease_year = beginn_mietverh_jahr) %>% 
-  rename(price_driver = preistreiber)
+  rename(start_lease_year = beginn_mietverh_jahr)
 
 # Annahme: Der DataFrame "anf_park_ws24" ist bereits im Arbeitsspeicher
 # "Preistreiber" berechnen: 1 = Preistreiber, 0 = kein Preistreiber
