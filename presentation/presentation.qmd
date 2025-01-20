@@ -15,28 +15,53 @@ editor: visual
 ## Gliederung
 
 ::: incremental
-- Datensatz
-- Begriffserklärung (Preistreiber & Ortsvergleichmiete)
-- Limitationen
-- Datenanalyse
-- 
+- Einführung
+- Überblick
+- Terminologie
+- Betrachtete Merkmale
+- Forschungsfragen
+- Limitationen & Fazit
 :::
 
 
-## Datensatz
+## Einführung
+* Wo sind die Preistreiber in München?
+* Legale Vorraussetzungen
+  +
+  +
+  +
+  
+## Überblick
 
-+ Datenerhebung: Querschnittstudie
-+ Art der Erhebung: Einwohnermeldedaten
-++ Zuvor war es eine Telefonumfrage
-++ Der Ziehungsrahmen geänderet
-+ Stichprobengröße: 3380 Observations
+* Datenerhebung: Querschnittstudie
+* Art der Erhebung: Einwohnermeldedaten
+  + Zuvor: Telefonumfrage
+  + Ziehungsrahmen geänderet
 
 
-## Datensatz
+## Betrachtete Merkmale
 
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
+| nnqm | wfl.gekappt | bj | vermietertyp | art vertrag |
+|:----:|:-----------:|:--:|:------------:|:-----------:|
+|   12 |        12   | 12 |          12  |             |
+|  123 |  123        | 123|         123  |             |
+|    1 |    1        | 1  |           1  |             |
 
+
+## Terminologie
+* Preistreiber
+* Ortsvergleichsmiete
+* Mietspiegel
+
+## Forschungsfragen
+Wo sind die Preistreiber?
+
+* Wo liegen die Mieten der "gesetzlich " Miete? 
+*
+*
+*
+
+## Wo liegen die Mieten der "gesetzlich " Miete? 
+GRAPH
+
+## Fazit
