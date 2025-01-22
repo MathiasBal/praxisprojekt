@@ -19,26 +19,30 @@ preistreiber_by_bezirk <- anf_park_ws24 %>%
 # Sortierung für Facets anpassen
 preistreiber_by_bezirk$SBez <- factor(preistreiber_by_bezirk$SBez, levels = preistreiber_by_bezirk$SBez)
 
-# Darstellung mit angepasster Farbskala
-ggplot(data = preistreiber_by_bezirk, aes(x = 1, y = 1, fill = anteil_preistreiber)) +
-  geom_tile(width = 0.9, height = 0.9) +  # Kästchen zeichnen
-  geom_text(aes(label = scales::percent(anteil_preistreiber, accuracy = 1)), color = "white", size = 4) +  # Werte einfügen
-  facet_wrap(~ SBez, ncol = 4) +  # Facetierung mit 4 Spalten
+# Darstellung mit optimierter Nutzung der Plot-Fläche und größerer Schrift
+ggplot(data = preistreiber_by_bezirk, aes(x = SBez, y = anteil_preistreiber, fill = anteil_preistreiber)) +
+  geom_bar(stat = "identity", width = 0.9, color = "black") +  # Höhenbalken zeichnen
+  geom_text(
+    aes(label = scales::percent(anteil_preistreiber, accuracy = 1)),
+    position = position_stack(vjust = 0.5),  # Mittig im Balken platzieren
+    color = "white", size = 5  # Schriftgröße der Werte erhöhen
+  ) +
+  facet_wrap(~ SBez, scales = "free_x", ncol = 5) +  # Facetierung mit 5 Spalten
+  scale_y_continuous(limits = c(0, 1), labels = scales::percent) +  # Einheitliche Y-Achse für alle
   scale_fill_gradient(low = "blue", high = "red", name = "Anteil\nPreistreiber", labels = scales::percent) +
   labs(
     title = "Anteil der Preistreiber pro Bezirk",
-    subtitle = "Absteigend sortierte Bezirke nach Anteil der Preistreiber",
     x = NULL,
-    y = NULL,
-    caption = "Quelle: Eigene Berechnung"
+    y = "Anteil der Preistreiber"
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(size = 10, face = "bold"),  # Titel der Facets (Bezirke)
-    axis.text = element_blank(),  # Keine Achsenbeschriftungen
-    axis.ticks = element_blank(),  # Keine Achsenticks
-    panel.grid = element_blank(),  # Keine Gitterlinien
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-    plot.subtitle = element_text(hjust = 0.5, size = 10),
+    strip.text = element_text(size = 12, face = "bold"),  # Größere Schrift für Facet-Titel
+    axis.text.x = element_blank(),  # X-Achse Text entfernen
+    axis.ticks.x = element_blank(),  # X-Achse Ticks entfernen
+    panel.grid.major.x = element_blank(),  # Gitterlinien für X entfernen
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),  # Größere Titel-Schrift
+    plot.subtitle = element_text(hjust = 0.5, size = 12),
     legend.position = "bottom"  # Legende unterhalb der Darstellung
   )
