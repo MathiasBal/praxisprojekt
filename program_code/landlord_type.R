@@ -40,6 +40,6 @@ lndlrds_ctrl_count <- lndlrds_ctrl %>%
 ggplot(data = lndlrds_ctrl, aes(x = fct_infreq(landlord_type))) +
   geom_bar(fill = "skyblue") +
   labs(x = "Vermietertyp", y = "Anzahl") +
-  theme(axis.text.x = element_text(angle = 15, hjust = 1)) +
+  theme(axis.text.x = element_text(angle = 0, hjust = 1)) +
   geom_text(data = lndlrds_ctrl_count, aes(y = count, label = count),
             size = 3.5, vjust = -0.5)
