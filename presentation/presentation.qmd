@@ -27,9 +27,11 @@ editor: visual
 ## Einführung
 * Wo sind die Preistreiber in München?
 * Legale Vorraussetzungen
-  +
-  +
-  +
+  + Vor 2014 erstmals bezogen
+  + Mietvertrag muss ab 2019 abgeschlossen sein
+  + Miete des Vormieters höher
+  + Miete darf 10% über der Ortsvergleichsmiete 
+
   
 ## Überblick
 
