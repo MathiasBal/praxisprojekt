@@ -1,7 +1,4 @@
 #Verteilung der Wohnungsgrößen (nur Preistreiber)
-library(dplyr)
-library(ggplot2)
-library(scales)
 pricedrivers %>%
   select(net_rent_per_qm, avg_comparative_rent, space_per_qm) %>%
   filter(avg_comparative_rent < net_rent_per_qm) %>%

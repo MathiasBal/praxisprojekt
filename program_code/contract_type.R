@@ -11,8 +11,6 @@ pd <- pricedrivers %>%
     )
   )
   )
-install.packages("forcats")
-library(forcats)
 
 #genaue Anzahl (nur Preistreibern)
 g.mietverträge <- pd

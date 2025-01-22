@@ -1,12 +1,3 @@
-# Benötigte Pakete installieren und laden
-if (!require("sf")) install.packages("sf")
-if (!require("ggplot2")) install.packages("ggplot2")
-if (!require("dplyr")) install.packages("dplyr")
-
-library(sf)
-library(ggplot2)
-library(dplyr)
-
 # Annahme: Der DataFrame "anf_park_ws24" ist bereits im Arbeitsspeicher
 # "Preistreiber" berechnen: 1 = Preistreiber, 0 = kein Preistreiber
 anf_park_ws24 <- anf.park.ws24 %>%
