@@ -14,18 +14,23 @@ anf_park_ws24 <- anf_park_ws24 %>%
 preistreiber_by_bezirk <- anf_park_ws24 %>%
   group_by(SBez) %>%
   summarise(anteil_preistreiber = mean(preistreiber, na.rm = TRUE)) %>%
-  arrange(anteil_preistreiber)  # Aufsteigend sortieren
+  arrange(desc(anteil_preistreiber))  # Sortieren der Bezirke absteigend
 
-# Darstellung mit gefüllten Kästchen und Prozentwerten
+# Sortierung für Facets anpassen
+preistreiber_by_bezirk$SBez <- factor(preistreiber_by_bezirk$SBez, levels = preistreiber_by_bezirk$SBez)
+
+# Darstellung mit angepasster Farbskala
 ggplot(data = preistreiber_by_bezirk, aes(x = 1, y = 1, fill = anteil_preistreiber)) +
   geom_tile(width = 0.9, height = 0.9) +  # Kästchen zeichnen
   geom_text(aes(label = scales::percent(anteil_preistreiber, accuracy = 1)), color = "white", size = 4) +  # Werte einfügen
   facet_wrap(~ SBez, ncol = 4) +  # Facetierung mit 4 Spalten
-  scale_fill_viridis_c(option = "plasma", name = "Anteil\nPreistreiber", labels = scales::percent) +
+  scale_fill_gradient(low = "blue", high = "red", name = "Anteil\nPreistreiber", labels = scales::percent) +
   labs(
     title = "Anteil der Preistreiber pro Bezirk",
+    subtitle = "Absteigend sortierte Bezirke nach Anteil der Preistreiber",
     x = NULL,
     y = NULL,
+    caption = "Quelle: Eigene Berechnung"
   ) +
   theme_minimal() +
   theme(
