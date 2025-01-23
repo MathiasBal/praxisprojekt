@@ -76,7 +76,7 @@ Content for `Tab B`
 
 :::
 
-## Art des Mietvertrages
+## Art des Mietvertrags
 
 ::: {.panel-tabset}
 
@@ -113,10 +113,6 @@ Content for `Tab B`
 =======
 >>>>>>> Stashed changes
 ## Makrolage
-
-## Größe der Wohnungen
-
-##
 
 ## Limitationen & Fazit
 <<<<<<< Updated upstream
