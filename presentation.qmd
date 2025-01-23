@@ -64,7 +64,31 @@ grafik
 
 ## Wohnfläche
 
+::: {.panel-tabset}
+
+### Wohnfläche
+
+Content for `Tab A`
+
+### Wohnfläche (nur Preistreiber)
+
+Content for `Tab B`
+
+:::
+
 ## Art des Mietvertrages
+
+::: {.panel-tabset}
+
+### Art des Mietvertrags
+
+Content for `Tab A`
+
+### Art des Mietvertrags (nur Preistreiber)
+
+Content for `Tab B`
+
+:::
 
 ## Zentral/Dezentral
 
