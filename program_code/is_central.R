@@ -1,3 +1,6 @@
+data_raw <- anf.prak.ws24
+data_filtered <- pricedrivers
+
 data_raw_summary <- data_raw %>%
   group_by(is_central) %>%
   summarise(count = n(), .groups = "drop") %>%
@@ -25,8 +28,7 @@ ggplot(data_raw_summary, aes(x = group, y = percent, fill = is_central)) +
     x = "Dataset",
     y = "Prozent",
     fill = "Mietlage in Stadtbezirken"
-  ) +
-  theme_minimal()
+  )
 
 ggplot(data_filtered_summary, aes(x = group, y = percent, fill = is_central)) +
   geom_bar(stat = "identity", width = 0.5) +
@@ -36,7 +38,6 @@ ggplot(data_filtered_summary, aes(x = group, y = percent, fill = is_central)) +
     x = "Dataset",
     y = "Prozent",
     fill = "Mietlage in Stadtbezirken"
-  ) +
-  theme_minimal()
+  )
 
 
