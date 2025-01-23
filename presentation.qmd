@@ -53,41 +53,39 @@ knitr::kable(head(anf.park.ws24, 4))
 
 ::: {.panel-tabset}
 
-### Mit Preistreiber
+### Alle Mieten
 
-![](result_graphs/vermietertyp_preistreiber.png)
+![](result_graphs/vermieter.png){fig-align="center"}
 
-### Ohne Preistreiber
+### Preistreiber
 
-![](result_graphs/vermieter.png)
-
+![](result_graphs/vermietertyp_preistreiber.png){fig-align="center"}
 :::
 
 ## Wohnfläche
 
 ::: {.panel-tabset}
 
+### Alle Mieten
+
+![](result_graphs/wohnfläche.png){fig-align="center"}
+
 ### Preistreiber
 
-![](result_graphs/wohnfläche_preistreiber.png)
-
-### alle Mieten
-
-![](result_graphs/wohnfläche.png)
-
+![](result_graphs/wohnfläche_preistreiber.png){fig-align="center"}
 :::
 
 ## Art des Mietvertrags
 
 ::: {.panel-tabset}
 
-### alle Mieten
+### Alle Mieten
 
-![](result_graphs/mietvertrag.png)
+![](result_graphs/mietvertrag.png){fig-align="center"}
 
-### nur Preistreiber
+### Preistreiber
 
-![](result_graphs/mietvertrag_preistreiber.png)
+![](result_graphs/mietvertrag_preistreiber.png){fig-align="center"}
 
 :::
 
@@ -95,19 +93,19 @@ knitr::kable(head(anf.park.ws24, 4))
 
 ::: {.panel-tabset}
 
-### alle Mieten
+### Alle Mieten
 
-![](result_graphs/makro.png)
+![](result_graphs/makro.png){fig-align="center"}
 
-### nur Preistreiber
+### Preistreiber
 
-![](result_graphs/makro_preistreiber.png)
+![](result_graphs/makro_preistreiber.png){fig-align="center"}
 
 :::
 
 ## Lage
 
-![](result_graphs/city_district.png)
+![](result_graphs/city_district.png){fig-align="center"}
 
 ## Limitationen
 
