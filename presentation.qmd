@@ -49,29 +49,31 @@ knitr::kable(head(anf.park.ws24, 4))
 </div> 
 :::
 
-## Welchen Vermietertyp haben Preistreiberwohnungen
-
 ## Vermietertyp
 
-::: {panel-tabset}
-##Vergleichsgrafik 
+::: {.panel-tabset}
 
-grafik
+### Mit Preistreiber
 
-##Vermietertypen grafik
+![](result_graphs/vermietertyp_preistreiber.png)
+
+### Ohne Preistreiber
+
+![](result_graphs/vermieter.png)
+
 :::
 
 ## Wohnfläche
 
 ::: {.panel-tabset}
 
+### Preistreiber
+
+![](result_graphs/wohnfläche_preistreiber.png)
+
 ### alle Mieten
 
-Content for `Tab A`
-
-### nur Preistreiber
-
-Content for `Tab B`
+![](result_graphs/wohnfläche.png)
 
 :::
 
@@ -81,17 +83,31 @@ Content for `Tab B`
 
 ### alle Mieten
 
-Content for `Tab A`
+![](result_graphs/mietvertrag.png)
 
 ### nur Preistreiber
 
-Content for `Tab B`
+![](result_graphs/mietvertrag_preistreiber.png)
 
 :::
 
 ## Makrolage
 
+::: {.panel-tabset}
+
+### alle Mieten
+
+![](result_graphs/makro.png)
+
+### nur Preistreiber
+
+![](result_graphs/makro_preistreiber.png)
+
+:::
+
 ## Lage
+
+![](result_graphs/city_district.png)
 
 ## Limitationen
 
