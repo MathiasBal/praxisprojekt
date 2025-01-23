@@ -25,11 +25,17 @@ editor: visual
 ## Einführung
 
 -   Zentrale Frage: Wo sind die Preistreiber in München?
--   Legale Vorraussetzungen
-    -   Vor 2014 erstmals bezogen
-    -   Mietvertrag nach 2019
-    -   Miete des Vormieters höher, darfs so bleiben
-    -   Miete darf 10% über der Ortsvergleichsmiete
+-   Legaler Stand (Mietpreisbremse)
+    -   Wiedervermietung: max. 10% über der ortsüblichen Vergleichsmiete
+    -   Bestenende Mietverhältnis: max. bis zur ortsüblichen Vergleichsmiete
+    -   Neubau/Erstbezug: keine gesetzlichen Einschränkungen
+
+## Einführung
+
+- Legaler Stand (Vertragsarten)
+  - Indexmietverträge: an die Inflationsrate gekoppelt
+  - Staffelmietverträge: Mieterhöhung in festgelegten Stufen
+  - keine vertragliche Regelung: es gelten die allgemeinen gesetzlichen Bedingungen
 
 ## Überblick
 
@@ -55,7 +61,7 @@ knitr::kable(head(anf.park.ws24, 4))
 ## Vermietertyp
 
 ::: {panel-tabset}
-##Vergleichsgrafik
+##Vergleichsgrafik 
 
 grafik
 
