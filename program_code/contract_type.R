@@ -76,3 +76,4 @@ g.mietverträge_count2 %>%
   theme_minimal() +
   theme(axis.text.x = element_text(size = 10),
         plot.title = element_text(hjust = 0.5))
+
