@@ -95,7 +95,7 @@ Content for `Tab B`
 
 :::
 
-## Zentral/Dezentral
+## Makrolage
 
 ## Lage
 ## Limitationen
@@ -110,5 +110,4 @@ Content for `Tab B`
 -   Preistreiber haben keine expliziten Eigenschaften
 -   Kleine Unterschiede, aber keine Auffälligkeiten
 
-<<<<<<< HEAD
 ## Q&A
