@@ -517,10 +517,12 @@ right: 90px;
 justify-content: flex-start !important; 
 text-align: left !important; 
 padding-left: 20px !important; 
+display: block;
 }
 .reveal .slides section {
 padding-left: 0 !important; 
 padding-right: 10px !important;
+text-align: left !important;
 }
 
 .reveal .slides table {
@@ -528,6 +530,9 @@ margin-left: 0 !important;
 margin-right: auto !important; 
 text-align: left !important; 
 width: auto !important; 
+}
+td {
+text-align: center;
 }
 
 .slide-number, .reveal.has-logo .slide-number {
@@ -553,10 +558,19 @@ padding-left: 0;
 }
 .quarto-title-author-name {
 font-size: 30px; 
-padding: 0;
+text-align: left !important;
+margin-left: 0 !important;
+padding-left: 0 !important;
+max-width: 80%; 
+display: block !important; 
 }
 .quarto-title-institute-name {
-font-size: 20px; 
+font-size: 10px; 
+text-align: left !important;
+margin-left: 0 !important;
+padding-left: 0 !important;
+max-width: 80%; 
+display: block !important; 
 }
 
 .no-padding {
@@ -567,7 +581,7 @@ margin: 0 !important;
 }
 
 .custom-smaller {
-font-size: 0.9em;
+font-size: 0.5em;
 }
 .custom-smaller2 {
 font-size: 0.75em;
@@ -1237,14 +1251,16 @@ margin-right: 0; }
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Münchner Mietspiegel 2023</h1>
-  <p class="subtitle">Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Lisa Kleinlein</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
 Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Lisa Kleinlein
+          </p>
+    </div>
 </div>
 
 </section>
@@ -1253,7 +1269,6 @@ Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal
 <ul>
 <li>Einführung</li>
 <li>Überblick</li>
-<li>Terminologie</li>
 <li>Betrachtete Merkmale</li>
 <li>Forschungsfragen</li>
 <li>Limitationen &amp; Fazit</li>
@@ -1262,11 +1277,11 @@ Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal
 <section id="einführung" class="slide level2">
 <h2>Einführung</h2>
 <ul>
-<li>Wo sind die Preistreiber in München?</li>
+<li>Zentrale Frage: Wo sind die Preistreiber in München?</li>
 <li>Legale Vorraussetzungen
 <ul>
 <li>Vor 2014 erstmals bezogen</li>
-<li>Mietvertrag m</li>
+<li>Mietvertrag nach 2019</li>
 <li>Miete des Vormieters höher, darfs so bleiben</li>
 <li>Miete darf 10% über der Ortsvergleichsmiete</li>
 </ul></li>
@@ -1285,10 +1300,8 @@ Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal
 </section>
 <section id="betrachtete-merkmale" class="slide level2">
 <h2>Betrachtete Merkmale</h2>
-</section>
-<section id="a" class="slide level2">
-<h2>A</h2>
-<div class="column" data-align="left" style="width:300%;">
+<div class="column custom-smaller" data-align="left" style="width:300%;">
+<div class="custom-smaller">
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -1419,31 +1432,23 @@ Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal
 </table>
 </div>
 </div>
+</div>
 </div></section>
-<section id="terminologie" class="slide level2">
-<h2>Terminologie</h2>
-<ul>
-<li>Preistreiber</li>
-<li>Ortsvergleichsmiete</li>
-<li>Mietspiegel</li>
-</ul>
-</section>
-<section id="forschungsfragen" class="slide level2">
-<h2>Forschungsfragen</h2>
-<p>Wo sind die Preistreiber?</p>
-<ul>
-<li>Wo liegen die Mieten der “gesetzlich” Miete?</li>
-<li></li>
-<li></li>
-<li></li>
-</ul>
-</section>
-<section id="wo-liegen-die-mieten-der-gesetzlich-miete" class="slide level2">
-<h2>Wo liegen die Mieten der “gesetzlich” Miete?</h2>
+<section id="welchen-vermietertyp-haben-preistreiberwohnungen" class="slide level2">
+<h2>Welchen Vermietertyp haben Preistreiberwohnungen</h2>
 <p>GRAPH</p>
 </section>
-<section id="fazit" class="slide level2">
-<h2>Fazit</h2>
+<section id="makrolage" class="slide level2">
+<h2>Makrolage</h2>
+</section>
+<section id="größe-der-wohnungen" class="slide level2">
+<h2>Größe der Wohnungen</h2>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+</section>
+<section id="limitationen-fazit" class="slide level2">
+<h2>Limitationen &amp; Fazit</h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
