@@ -30,12 +30,6 @@ editor: visual
     -   Bestenende Mietverhältnis: max. bis zur ortsüblichen Vergleichsmiete
     -   Neubau/Erstbezug: keine gesetzlichen Einschränkungen
 
-## Einführung
-
-- Legaler Stand (Vertragsarten)
-  - Indexmietverträge: an die Inflationsrate gekoppelt
-  - Staffelmietverträge: Mieterhöhung in festgelegten Stufen
-  - keine vertragliche Regelung: es gelten die allgemeinen gesetzlichen Bedingungen
 
 ## Überblick
 
@@ -98,6 +92,7 @@ Content for `Tab B`
 ## Makrolage
 
 ## Lage
+
 ## Limitationen
 
 -   Kleiner Auszug aus dem Datensatz
