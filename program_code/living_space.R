@@ -63,3 +63,4 @@ anf.prak.ws24 %>%
     plot.title = element_text(size = 14, hjust = 0.5),
     axis.text = element_text(size = 10)
   )
+
