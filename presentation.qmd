@@ -51,7 +51,15 @@ knitr::kable(head(anf.park.ws24, 4))
 
 ## Welchen Vermietertyp haben Preistreiberwohnungen
 
-GRAPH
+## Vermietertyp
+
+## Wohnfläche
+
+## Art des Mietvertrages
+
+## Zentral/Dezentral
+
+## Lage
 
 <<<<<<< Updated upstream
 ## Limitationen
