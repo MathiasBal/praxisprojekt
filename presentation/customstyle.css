@@ -1,20 +1,22 @@
-/* Custom Styles for Reveal.js Presentation */
+/* ======================================
+   Custom Styles for Reveal.js Presentation
+   ====================================== */
 
-/* Global logo styling using background-image */
+/* ========== Global Logo Styling ========== */
 .reveal:before {
   content: '';
   position: fixed;
   top: 2%;
   right: 2%;
-  height: 15%; /* Set the desired height */
-  width: 15%; /* Adjust width if needed or use auto for aspect ratio */
+  height: 15%; /* Adjust height */
+  width: 15%; /* Adjust width or auto for aspect ratio */
   background-image: url('LMU_Logo.svg');
-  background-size: contain; /* Ensure the logo scales proportionally */
+  background-size: contain; /* Ensure logo scales proportionally */
   background-repeat: no-repeat; /* Prevent tiling */
   z-index: 1000;
 }
 
-/* Footer Styling */
+/* ========== Footer Styling ========== */
 .reveal .footer {
   font-size: 0.25em !important; /* Small footer text */
   text-align: left !important;
@@ -24,17 +26,27 @@
   right: 90px;
 }
 
-/* Fragments semi-fade-out */
-.reveal .slides section .fragment.semi-fade-out {
-  opacity: 1;
-  visibility: inherit;
-}
-.reveal .slides section .fragment.semi-fade-out.visible {
-  opacity: 0.25;
-  visibility: inherit;
+/* ========== Slide Content Alignment ========== */
+.reveal .slides {
+  justify-content: flex-start !important; /* Align all slides to the left */
+  text-align: left !important; /* Left-align slide content */
+  padding-left: 20px !important; /* Add left padding */
 }
 
-/* Slide numbers to the bottom-right */
+.reveal .slides section {
+  padding-left: 0 !important; /* Adjust padding for individual slides */
+  padding-right: 10px !important;
+}
+
+/* ========== Table Styling ========== */
+.reveal .slides table {
+  margin-left: 0 !important; /* Align table to the left */
+  margin-right: auto !important; /* Prevent centering */
+  text-align: left !important; /* Left-align table text */
+  width: auto !important; /* Prevent table from stretching */
+}
+
+/* ========== Slide Number Styling ========== */
 .slide-number, .reveal.has-logo .slide-number {
   bottom: 14px !important;
   right: 50px !important;
@@ -42,45 +54,57 @@
   color: #777777 !important;
 }
 
-/* Custom styling for smaller text */
-.custom-smaller {
-  font-size: 0.9em;
-}
-.custom-smaller2 {
-  font-size: 0.75em;
+/* ========== Fragments Styling ========== */
+.reveal .slides section .fragment.semi-fade-out {
+  opacity: 1;
+  visibility: inherit;
 }
 
-/* Optional: Styling for images directly in the slides */
-.logo {
-  position: fixed;
-  top: 2%;
-  right: 2%;
-  height: 5%; /* Adjust as needed */
-  width: auto; /* Maintain aspect ratio */
-  z-index: 1000;
+.reveal .slides section .fragment.semi-fade-out.visible {
+  opacity: 0.25;
+  visibility: inherit;
 }
 
+/* ========== Text and Title Styling ========== */
 .reveal .slides h1 {
-  text-align: left; /* Align the title to the left */
+  text-align: left; /* Align title to the left */
   margin-left: 0;
   padding-left: 0;
-  
 }
 
 .quarto-title-author-name {
-  font-size: 30px;
+  font-size: 30px; /* Adjust author name size */
   padding: 0;
 }
 
-.quarto-title-institute-name{
-  font-size: 20px;
+.quarto-title-institute-name {
+  font-size: 20px; /* Adjust institute name size */
 }
 
-/* Additional utility classes for padding and margins */
+/* ========== Utility Classes ========== */
 .no-padding {
   padding: 0 !important;
 }
+
 .no-margin {
   margin: 0 !important;
 }
 
+/* ========== Optional Smaller Text Classes ========== */
+.custom-smaller {
+  font-size: 0.9em;
+}
+
+.custom-smaller2 {
+  font-size: 0.75em;
+}
+
+/* ========== Optional: Logo Class for Inline Images ========== */
+.logo {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  height: 5%; /* Adjust logo size */
+  width: auto; /* Maintain aspect ratio */
+  z-index: 1000;
+}
