@@ -16,33 +16,31 @@ preistreiber_by_bezirk <- anf_park_ws24 %>%
   summarise(anteil_preistreiber = mean(preistreiber, na.rm = TRUE)) %>%
   arrange(desc(anteil_preistreiber))  # Sortieren der Bezirke absteigend
 
-# Sortierung für Facets anpassen
+# Sortierung der Bezirke anpassen
 preistreiber_by_bezirk$SBez <- factor(preistreiber_by_bezirk$SBez, levels = preistreiber_by_bezirk$SBez)
 
-# Darstellung mit optimierter Nutzung der Plot-Fläche und größerer Schrift
-ggplot(data = preistreiber_by_bezirk, aes(x = SBez, y = anteil_preistreiber, fill = anteil_preistreiber)) +
-  geom_bar(stat = "identity", width = 0.9, color = "black") +  # Höhenbalken zeichnen
+# Darstellung als Punkte- und Liniendiagramm
+ggplot(data = preistreiber_by_bezirk, aes(x = SBez, y = anteil_preistreiber, group = 1)) +
+  geom_line(color = "black", size = 1) +  # Linie zwischen den Punkten
+  geom_point(size = 4, color = "skyblue") +  # Punkte für jeden Wert
   geom_text(
     aes(label = scales::percent(anteil_preistreiber, accuracy = 1)),
-    position = position_stack(vjust = 0.5),  # Mittig im Balken platzieren
-    color = "white", size = 5  # Schriftgröße der Werte erhöhen
+    vjust = -0.5, size = 4  # Prozentwerte leicht über die Punkte setzen
   ) +
-  facet_wrap(~ SBez, scales = "free_x", ncol = 5) +  # Facetierung mit 5 Spalten
-  scale_y_continuous(limits = c(0, 1), labels = scales::percent) +  # Einheitliche Y-Achse für alle
-  scale_fill_gradient(low = "blue", high = "red", name = "Anteil\nPreistreiber", labels = scales::percent) +
+  scale_y_continuous(limits = c(0, 1), labels = scales::percent) +  # Einheitliche Y-Achse (0-100%)
   labs(
     title = "Anteil der Preistreiber pro Bezirk",
-    x = NULL,
+    x = "Bezirk",
     y = "Anteil der Preistreiber"
   ) +
   theme_minimal() +
   theme(
-    strip.text = element_text(size = 12, face = "bold"),  # Größere Schrift für Facet-Titel
-    axis.text.x = element_blank(),  # X-Achse Text entfernen
-    axis.ticks.x = element_blank(),  # X-Achse Ticks entfernen
-    panel.grid.major.x = element_blank(),  # Gitterlinien für X entfernen
-    panel.grid.minor = element_blank(),
-    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),  # Größere Titel-Schrift
-    plot.subtitle = element_text(hjust = 0.5, size = 12),
-    legend.position = "bottom"  # Legende unterhalb der Darstellung
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),  # X-Achse beschriften (schräg gestellt)
+    axis.text.y = element_text(size = 10),  # Y-Achse beschriften
+    axis.title.x = element_text(size = 12),  # X-Achsentitel
+    axis.title.y = element_text(size = 12),  # Y-Achsentitel
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),  # Titel
+    plot.subtitle = element_text(hjust = 0.5, size = 12),  # Untertitel
+    panel.grid.major.x = element_line(color = "grey90"),  # Dezente Gitterlinien für X
+    panel.grid.major.y = element_line(color = "grey90")
   )
