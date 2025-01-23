@@ -67,4 +67,14 @@ Wo sind die Preistreiber?
 
 GRAPH
 
+## Limitationen
+
+-   sehr kleinen Auszug aus dem Datensatz
+-   615.000 Wohnungen, 3100 Stichprobengrösse
+-   gerne mehr den legalen stand betrachtet
+    -   aber: fehlende Informationen
+
 ## Fazit
+
+-   Preistreiber haben keine expliziten Eigenschaften
+-   kleine Unterschiede, aber keine Auffälligkeiten
