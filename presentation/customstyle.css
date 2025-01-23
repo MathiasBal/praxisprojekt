@@ -31,11 +31,13 @@
   justify-content: flex-start !important; /* Align all slides to the left */
   text-align: left !important; /* Left-align slide content */
   padding-left: 20px !important; /* Add left padding */
+  display: block;
 }
 
 .reveal .slides section {
   padding-left: 0 !important; /* Adjust padding for individual slides */
   padding-right: 10px !important;
+  text-align: left !important;
 }
 
 /* ========== Table Styling ========== */
@@ -44,6 +46,10 @@
   margin-right: auto !important; /* Prevent centering */
   text-align: left !important; /* Left-align table text */
   width: auto !important; /* Prevent table from stretching */
+}
+
+td {
+  text-align: center;
 }
 
 /* ========== Slide Number Styling ========== */
@@ -74,11 +80,20 @@
 
 .quarto-title-author-name {
   font-size: 30px; /* Adjust author name size */
-  padding: 0;
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  max-width: 80%; /* Optional: Restrict the width for better alignment */
+  display: block !important; /* Ensure block-level display */
 }
 
 .quarto-title-institute-name {
-  font-size: 20px; /* Adjust institute name size */
+  font-size: 10px; /* Adjust author name size */
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  max-width: 80%; /* Optional: Restrict the width for better alignment */
+  display: block !important; /* Ensure block-level display */
 }
 
 /* ========== Utility Classes ========== */
@@ -92,7 +107,7 @@
 
 /* ========== Optional Smaller Text Classes ========== */
 .custom-smaller {
-  font-size: 0.9em;
+  font-size: 0.5em;
 }
 
 .custom-smaller2 {
