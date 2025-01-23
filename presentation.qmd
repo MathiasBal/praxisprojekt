@@ -99,33 +99,16 @@ Content for `Tab B`
 ## Zentral/Dezentral
 
 ## Lage
-=======
->>>>>>> Stashed changes
-
-<<<<<<< Updated upstream
 ## Limitationen
 
--   sehr kleinen Auszug aus dem Datensatz
--   615.000 Wohnungen, 3100 Stichprobengrösse
--   gerne mehr den legalen stand betrachtet
-    -   aber: fehlende Informationen
+-   Kleiner Auszug aus dem Datensatz
+-   Von 615.000 Wohnungen beträgt Stichprobengrösse 3.100
+-   Gerne mehr den legalen Stand betrachtet
+    -   Aber: fehlende Informationen
 
-<<<<<<< Updated upstream
 ## Fazit
 
 -   Preistreiber haben keine expliziten Eigenschaften
--   kleine Unterschiede, aber keine Auffälligkeiten
-=======
-=======
->>>>>>> Stashed changes
-## Makrolage
+-   Kleine Unterschiede, aber keine Auffälligkeiten
 
-## Größe der Wohnungen
-
-##
-
-## Limitationen & Fazit
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+## Q&A
