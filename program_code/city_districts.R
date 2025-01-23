@@ -23,13 +23,9 @@ preistreiber_by_bezirk$SBez <- factor(preistreiber_by_bezirk$SBez, levels = prei
 ggplot(data = preistreiber_by_bezirk, aes(x = SBez, y = anteil_preistreiber, group = 1)) +
   geom_line(color = "black", size = 1) +  # Linie zwischen den Punkten
   geom_point(size = 4, color = "skyblue") +  # Punkte für jeden Wert
-  geom_text(
-    aes(label = scales::percent(anteil_preistreiber, accuracy = 1)),
-    vjust = -0.5, size = 4  # Prozentwerte leicht über die Punkte setzen
-  ) +
+ 
   scale_y_continuous(limits = c(0, 1), labels = scales::percent) +  # Einheitliche Y-Achse (0-100%)
   labs(
-    title = "Anteil der Preistreiber pro Bezirk",
     x = "Bezirk",
     y = "Anteil der Preistreiber"
   ) +
