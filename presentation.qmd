@@ -50,6 +50,7 @@ knitr::kable(head(anf.park.ws24, 4))
 :::
 
 ## Welchen Vermietertyp haben Preistreiberwohnungen
+<<<<<<< Updated upstream
 
 ## Vermietertyp
 
@@ -60,6 +61,8 @@ knitr::kable(head(anf.park.ws24, 4))
 ## Zentral/Dezentral
 
 ## Lage
+=======
+>>>>>>> Stashed changes
 
 <<<<<<< Updated upstream
 ## Limitationen
@@ -69,11 +72,14 @@ knitr::kable(head(anf.park.ws24, 4))
 -   gerne mehr den legalen stand betrachtet
     -   aber: fehlende Informationen
 
+<<<<<<< Updated upstream
 ## Fazit
 
 -   Preistreiber haben keine expliziten Eigenschaften
 -   kleine Unterschiede, aber keine Auffälligkeiten
 =======
+=======
+>>>>>>> Stashed changes
 ## Makrolage
 
 ## Größe der Wohnungen
@@ -81,4 +87,7 @@ knitr::kable(head(anf.park.ws24, 4))
 ##
 
 ## Limitationen & Fazit
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
