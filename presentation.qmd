@@ -72,11 +72,11 @@ grafik
 
 ::: {.panel-tabset}
 
-### Wohnfläche
+### alle Mieten
 
 Content for `Tab A`
 
-### Wohnfläche (nur Preistreiber)
+### nur Preistreiber
 
 Content for `Tab B`
 
@@ -86,11 +86,11 @@ Content for `Tab B`
 
 ::: {.panel-tabset}
 
-### Art des Mietvertrags
+### alle Mieten
 
 Content for `Tab A`
 
-### Art des Mietvertrags (nur Preistreiber)
+### nur Preistreiber
 
 Content for `Tab B`
 

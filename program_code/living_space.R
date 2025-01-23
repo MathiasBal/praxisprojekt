@@ -21,7 +21,7 @@ pricedrivers %>%
     aes(label = paste0(percentage, "%")),
     vjust = -0.2,
     size = 3) +
-  labs(x = "Wohnungsgröße (m²)", y = "Anteil (%)", title = "Verteilung der Wohnungsgrößen (nur Preistreibern") +
+  labs(x = "Wohnungsgröße (m²)", y = "Anteil (%)", title = "Verteilung der Wohnungsgrößen (nur Preistreibern)") +
   scale_y_continuous(labels = scales::number_format(scale = 100), limits = c(0, 1)) +
   theme_minimal() +
   theme(
