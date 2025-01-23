@@ -56,7 +56,6 @@ knitr::kable(head(anf.park.ws24, 4))
 :::
 
 ## Welchen Vermietertyp haben Preistreiberwohnungen
-<<<<<<< Updated upstream
 
 ## Vermietertyp
 
@@ -82,7 +81,7 @@ Content for `Tab B`
 
 :::
 
-## Art des Mietvertrages
+## Art des Mietvertrags
 
 ::: {.panel-tabset}
 
@@ -111,4 +110,5 @@ Content for `Tab B`
 -   Preistreiber haben keine expliziten Eigenschaften
 -   Kleine Unterschiede, aber keine Auffälligkeiten
 
+<<<<<<< HEAD
 ## Q&A
