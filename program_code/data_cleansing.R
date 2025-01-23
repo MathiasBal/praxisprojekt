@@ -43,4 +43,7 @@ anf.prak.ws24 <- anf.prak.ws24 %>%
   rename(rent_increase_month = mieterhöhung_monat) %>% 
   rename(rent_increase_year = mieterhöhung_jahr) %>% 
   rename(start_lease_month = beginn_mietverh_monat) %>% 
-  rename(start_lease_year = beginn_mietverh_jahr)
+  rename(start_lease_year = beginn_mietverh_jahr) %>% 
+  mutate(district_name = recode(district_name, "Fledmoching" = "Feldmoching")) %>% 
+  mutate(district_name = recode(district_name, "Aubing..." = "Aubing – Lochhausen – Langwied")) %>%
+  mutate(district_name = recode(district_name, "Thalkirchen..." = "Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln"))
