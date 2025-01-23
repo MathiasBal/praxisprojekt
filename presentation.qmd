@@ -67,6 +67,14 @@ Wo sind die Preistreiber?
 
 ## Vermietertyp
 
+::: {panel-tabset}
+##Vergleichsgrafik
+
+grafik
+
+##Vermietertypen grafik
+:::
+
 ## Wohnfläche
 
 ## Art des Mietvertrages
