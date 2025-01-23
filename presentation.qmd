@@ -1,0 +1,88 @@
+---
+title: "Münchner Mietspiegel 2023"
+subtitle: "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Lisa Kleinlein"
+author: 
+- "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
+format:
+  revealjs:
+    css: presentation/customstyle.css
+    embed-resources: true
+    slide-number: c
+    theme: simple
+editor: visual
+---
+
+## Gliederung
+
+-   Einführung
+-   Überblick
+-   Terminologie
+-   Betrachtete Merkmale
+-   Forschungsfragen
+-   Limitationen & Fazit
+
+## Einführung
+
+-   Wo sind die Preistreiber in München?
+-   Legale Vorraussetzungen
+    -   Vor 2014 erstmals bezogen
+    -   Mietvertrag m
+    -   Miete des Vormieters höher, darfs so bleiben
+    -   Miete darf 10% über der Ortsvergleichsmiete
+
+## Überblick
+
+-   Datenerhebung: Querschnittstudie
+-   Art der Erhebung: Einwohnermeldedaten
+    -   Zuvor: Telefonumfrage
+    -   Ziehungsrahmen geänderet
+
+## Betrachtete Merkmale
+
+## A
+
+::: {.column width="300%" align="left"}
+```{r}
+load("data/anfaengerprak_ws24.RData")
+knitr::kable(head(anf.park.ws24, 4)) 
+```
+:::
+
+## Terminologie
+
+-   Preistreiber
+-   Ortsvergleichsmiete
+-   Mietspiegel
+
+## Forschungsfragen
+
+Wo sind die Preistreiber?
+
+-   Wo liegen die Mieten der "gesetzlich " Miete?
+-   
+-   
+-   
+
+## Wo liegen die Mieten der "gesetzlich " Miete?
+
+## Vermietertyp
+
+## Wohnfläche
+
+## Art des Mietvertrages
+
+## Zentral/Dezentral
+
+## Lage
+
+## Limitationen
+
+-   sehr kleinen Auszug aus dem Datensatz
+-   615.000 Wohnungen, 3100 Stichprobengrösse
+-   gerne mehr den legalen stand betrachtet
+    -   aber: fehlende Informationen
+
+## Fazit
+
+-   Preistreiber haben keine expliziten Eigenschaften
+-   kleine Unterschiede, aber keine Auffälligkeiten

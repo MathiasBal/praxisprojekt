@@ -513,6 +513,30 @@ left: 50px;
 right: 90px;
 }
 
+.reveal .slides {
+justify-content: flex-start !important; 
+text-align: left !important; 
+padding-left: 20px !important; 
+}
+.reveal .slides section {
+padding-left: 0 !important; 
+padding-right: 10px !important;
+}
+
+.reveal .slides table {
+margin-left: 0 !important; 
+margin-right: auto !important; 
+text-align: left !important; 
+width: auto !important; 
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+bottom: 14px !important;
+right: 50px !important;
+top: unset !important;
+color: #777777 !important;
+}
+
 .reveal .slides section .fragment.semi-fade-out {
 opacity: 1;
 visibility: inherit;
@@ -522,11 +546,24 @@ opacity: 0.25;
 visibility: inherit;
 }
 
-.slide-number, .reveal.has-logo .slide-number {
-bottom: 14px !important;
-right: 50px !important;
-top: unset !important;
-color: #777777 !important;
+.reveal .slides h1 {
+text-align: left; 
+margin-left: 0;
+padding-left: 0;
+}
+.quarto-title-author-name {
+font-size: 30px; 
+padding: 0;
+}
+.quarto-title-institute-name {
+font-size: 20px; 
+}
+
+.no-padding {
+padding: 0 !important;
+}
+.no-margin {
+margin: 0 !important;
 }
 
 .custom-smaller {
@@ -543,25 +580,6 @@ right: 2%;
 height: 5%; 
 width: auto; 
 z-index: 1000;
-}
-.reveal .slides h1 {
-text-align: left; 
-margin-left: 0;
-padding-left: 0;
-}
-.quarto-title-author-name {
-font-size: 30px;
-padding: 0;
-}
-.quarto-title-institute-name{
-font-size: 20px;
-}
-
-.no-padding {
-padding: 0 !important;
-}
-.no-margin {
-margin: 0 !important;
 }
 </style>
   <style type="text/css">.reveal
@@ -1232,16 +1250,14 @@ Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal
 </section>
 <section id="gliederung" class="slide level2">
 <h2>Gliederung</h2>
-<div>
 <ul>
-<li class="fragment">Einführung</li>
-<li class="fragment">Überblick</li>
-<li class="fragment">Terminologie</li>
-<li class="fragment">Betrachtete Merkmale</li>
-<li class="fragment">Forschungsfragen</li>
-<li class="fragment">Limitationen &amp; Fazit</li>
+<li>Einführung</li>
+<li>Überblick</li>
+<li>Terminologie</li>
+<li>Betrachtete Merkmale</li>
+<li>Forschungsfragen</li>
+<li>Limitationen &amp; Fazit</li>
 </ul>
-</div>
 </section>
 <section id="einführung" class="slide level2">
 <h2>Einführung</h2>
@@ -1269,41 +1285,141 @@ Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal
 </section>
 <section id="betrachtete-merkmale" class="slide level2">
 <h2>Betrachtete Merkmale</h2>
+</section>
+<section id="a" class="slide level2">
+<h2>A</h2>
+<div class="column" data-align="left" style="width:300%;">
+<div class="cell">
+<div class="cell-output-display">
 <table class="caption-top">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 9%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 8%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">nnqm</th>
-<th style="text-align: center;">wfl.gekappt</th>
-<th style="text-align: center;">bj</th>
-<th style="text-align: center;">vermietertyp</th>
-<th style="text-align: center;">art vertrag</th>
+<th style="text-align: right;">nmqm</th>
+<th style="text-align: right;">wfl.gekappt</th>
+<th style="text-align: right;">bj</th>
+<th style="text-align: right;">vermietertyp</th>
+<th style="text-align: right;">art.vertrag</th>
+<th style="text-align: left;">WL</th>
+<th style="text-align: right;">Zentral</th>
+<th style="text-align: right;">Neuvertrag</th>
+<th style="text-align: right;">erstbezug</th>
+<th style="text-align: left;">SBez</th>
+<th style="text-align: right;">bezirk.nr</th>
+<th style="text-align: right;">ovm21</th>
+<th style="text-align: left;">Haustyp</th>
+<th style="text-align: left;">Gebäudetyp</th>
+<th style="text-align: right;">mieterhöhung_monat</th>
+<th style="text-align: right;">mieterhöhung_jahr</th>
+<th style="text-align: right;">beginn_mietverh_monat</th>
+<th style="text-align: right;">beginn_mietverh_jahr</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">12</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;">12.04</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">1939.0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">durchschnittliche</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Moosach</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7.584934</td>
+<td style="text-align: left;">einfacher</td>
+<td style="text-align: left;">Wohnblock</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2013</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">123</td>
-<td style="text-align: center;">123</td>
-<td style="text-align: center;">123</td>
-<td style="text-align: center;">123</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;">19.51</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">2003.5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">durchschnittliche</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Neuhausen-Nymphenburg</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">13.531889</td>
+<td style="text-align: left;">anderer</td>
+<td style="text-align: left;">anderer</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2021</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;">15.42</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">1983.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">durchschnittliche</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Neuhausen-Nymphenburg</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">11.317706</td>
+<td style="text-align: left;">anderer</td>
+<td style="text-align: left;">anderer</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2020</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">13.06</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">1972.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">durchschnittliche</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Neuhausen-Nymphenburg</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">11.352894</td>
+<td style="text-align: left;">ENb</td>
+<td style="text-align: left;">anderer</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2019</td>
 </tr>
 </tbody>
 </table>
-</section>
+</div>
+</div>
+</div></section>
 <section id="terminologie" class="slide level2">
 <h2>Terminologie</h2>
 <ul>
@@ -2410,6 +2526,44 @@ window.QuartoSupport = function () {
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
