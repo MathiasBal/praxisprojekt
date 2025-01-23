@@ -15,56 +15,55 @@ editor: visual
 ## Gliederung
 
 ::: incremental
-- Einführung
-- Überblick
-- Terminologie
-- Betrachtete Merkmale
-- Forschungsfragen
-- Limitationen & Fazit
+-   Einführung
+-   Überblick
+-   Terminologie
+-   Betrachtete Merkmale
+-   Forschungsfragen
+-   Limitationen & Fazit
 :::
 
-
-
 ## Einführung
-* Wo sind die Preistreiber in München?
-* Legale Vorraussetzungen
-  + Vor 2014 erstmals bezogen
-  + Mietvertrag m
-  + Miete des Vormieters höher, darfs so bleiben
-  + Miete darf 10% über der Ortsvergleichsmiete 
 
-  
+-   Wo sind die Preistreiber in München?
+-   Legale Vorraussetzungen
+    -   Vor 2014 erstmals bezogen
+    -   Mietvertrag m
+    -   Miete des Vormieters höher, darfs so bleiben
+    -   Miete darf 10% über der Ortsvergleichsmiete
+
 ## Überblick
 
-* Datenerhebung: Querschnittstudie
-* Art der Erhebung: Einwohnermeldedaten
-  + Zuvor: Telefonumfrage
-  + Ziehungsrahmen geänderet
-
+-   Datenerhebung: Querschnittstudie
+-   Art der Erhebung: Einwohnermeldedaten
+    -   Zuvor: Telefonumfrage
+    -   Ziehungsrahmen geänderet
 
 ## Betrachtete Merkmale
 
-| nnqm | wfl.gekappt | bj | vermietertyp | art vertrag |
-|:----:|:-----------:|:--:|:------------:|:-----------:|
-|   12 |        12   | 12 |          12  |             |
-|  123 |  123        | 123|         123  |             |
-|    1 |    1        | 1  |           1  |             |
-
+| nnqm | wfl.gekappt | bj  | vermietertyp | art vertrag |
+|:----:|:-----------:|:---:|:------------:|:-----------:|
+|  12  |     12      | 12  |      12      |             |
+| 123  |     123     | 123 |     123      |             |
+|  1   |      1      |  1  |      1       |             |
 
 ## Terminologie
-* Preistreiber
-* Ortsvergleichsmiete
-* Mietspiegel
+
+-   Preistreiber
+-   Ortsvergleichsmiete
+-   Mietspiegel
 
 ## Forschungsfragen
+
 Wo sind die Preistreiber?
 
-* Wo liegen die Mieten der "gesetzlich " Miete? 
-*
-*
-*
+-   Wo liegen die Mieten der "gesetzlich " Miete?
+-   
+-   
+-   
 
-## Wo liegen die Mieten der "gesetzlich " Miete? 
+## Wo liegen die Mieten der "gesetzlich " Miete?
+
 GRAPH
 
 ## Fazit
