@@ -47,7 +47,3 @@ anf.prak.ws24 <- anf.prak.ws24 %>%
   mutate(district_name = recode(district_name, "Fledmoching" = "Feldmoching")) %>% 
   mutate(district_name = recode(district_name, "Aubing..." = "Aubing – Lochhausen – Langwied")) %>%
   mutate(district_name = recode(district_name, "Thalkirchen..." = "Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln"))
-
-library(gridExtra)
-png("test.png", height = 50*nrow(anf.prak.ws24), width = 200*ncol(anf.park.ws24))
-grid.table(df)
