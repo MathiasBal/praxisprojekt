@@ -65,7 +65,15 @@ Wo sind die Preistreiber?
 
 ## Wo liegen die Mieten der "gesetzlich " Miete?
 
-GRAPH
+## Vermietertyp
+
+## Wohnfläche
+
+## Art des Mietvertrages
+
+## Zentral/Dezentral
+
+## Lage
 
 ## Limitationen
 
