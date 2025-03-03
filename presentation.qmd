@@ -1,7 +1,7 @@
 ---
-title: "Münchner Mietspiegel 2023"
+title: ""
 institute: 
-  - "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Lisa Kleinlein"
+  - "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Helen"
 author: 
   - "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
 
@@ -24,99 +24,19 @@ editor: visual
 
 ## Einführung
 
--   Zentrale Frage: Wo sind die Preistreiber in München?
--   Legaler Stand (Mietpreisbremse)
-    -   Wiedervermietung: max. 10% über der ortsüblichen Vergleichsmiete
-    -   Bestenende Mietverhältnis: max. bis zur ortsüblichen Vergleichsmiete
-    -   Neubau/Erstbezug: keine gesetzlichen Einschränkungen
-
+-   Zentrale Frage: 
 
 ## Überblick
 
--   Datenerhebung: Querschnittstudie
--   Art der Erhebung: Einwohnermeldedaten
-    -   Zuvor: Telefonumfrage
-    -   Ziehungsrahmen geänderet
+-   Datenerhebung: 
+-   Art der Erhebung:
 
 ## Betrachtete Merkmale
 
-::: {.column width="300%" align="left" .custom-smaller}
-<div class="custom-smaller">
-```{r}
-load("data/anfaengerprak_ws24.RData")
-knitr::kable(head(anf.park.ws24, 4)) 
-```
-</div> 
-:::
-
-## Vermietertyp
-
-::: {.panel-tabset}
-
-### Alle Mieten
-
-![](result_graphs/vermieter.png){fig-align="center"}
-
-### Preistreiber
-
-![](result_graphs/vermietertyp_preistreiber.png){fig-align="center"}
-:::
-
-## Wohnfläche
-
-::: {.panel-tabset}
-
-### Alle Mieten
-
-![](result_graphs/wohnfläche.png){fig-align="center"}
-
-### Preistreiber
-
-![](result_graphs/wohnfläche_preistreiber.png){fig-align="center"}
-:::
-
-## Art des Mietvertrags
-
-::: {.panel-tabset}
-
-### Alle Mieten
-
-![](result_graphs/mietvertrag.png){fig-align="center"}
-
-### Preistreiber
-
-![](result_graphs/mietvertrag_preistreiber.png){fig-align="center"}
-
-:::
-
-## Makrolage
-
-::: {.panel-tabset}
-
-### Alle Mieten
-
-![](result_graphs/makro.png){fig-align="center"}
-
-### Preistreiber
-
-![](result_graphs/makro_preistreiber.png){fig-align="center"}
-
-:::
-
-## Lage
-
-![](result_graphs/city_district.png){fig-align="center"}
-
 ## Limitationen
 
--   Kleiner Auszug aus dem Datensatz
--   Von 615.000 Wohnungen beträgt Stichprobengrösse 3.100
--   Gerne mehr den legalen Stand betrachtet
-    -   Aber: fehlende Informationen
 
 ## Fazit
 
--   Preistreiber haben keine expliziten Eigenschaften
--   Kleine Unterschiede, aber keine Auffälligkeiten
 
 ## Q&A
