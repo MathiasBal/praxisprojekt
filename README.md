@@ -1,6 +1,6 @@
 # Anfänger Praktikum WS 2024/25
 ## Armed conflicts - Armed conflict between different groups in Nigeria over time
-#### Betreuer: Helen Alber
+### Betreuerin: Helen Alber
 
 ### Mitglieder
 * Adrian Schneider
