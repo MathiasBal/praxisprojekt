@@ -1,6 +1,6 @@
 # Anfänger Praktikum WS 2024/25
-## Identifizierung von „Preistreibern“ im Mietspiegel für München 2023
-
+## Armed conflicts - Armed conflict between different groups in Nigeria over time
+#### Betreuer: Helen Alber
 
 ### Mitglieder
 * Adrian Schneider
