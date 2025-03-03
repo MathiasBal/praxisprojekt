@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Armed conflicts - Armed conflict between different groups in Nigeria over time"
 institute: 
   - "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Helen Alber"
 author: 
