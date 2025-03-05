@@ -28,3 +28,38 @@ library(lubridate)
 #data cleansing
 nigeria.clean <- nigeria %>% 
   mutate(event_date = mdy(event_date))
+
+
+
+
+
+unique(nigeria.clean$event_date)
+#group by month mb
+unique(nigeria.clean$year)
+#6 und NA drinne
+unique(nigeria.clean$time_precision)
+#weird variable
+View(table(nigeria.clean$event_type))
+#sehr gut zum aufräumen
+unique(nigeria.clean$sub_event_type)
+#ist ok
+unique(nigeria.clean$actor1)
+#1440 actors...
+unique(nigeria.clean$civilian_targeting)
+#2 bezeichnungen für ja/nein jeweils
+unique(nigeria.clean$region)
+#unnötig
+unique(nigeria.clean$location)
+#5200 locations...
+unique(nigeria.clean$geo_precision)
+#1,2,3,NA
+unique(nigeria.clean$source)
+#2900 sources
+unique(nigeria.clean$source_scale)
+#can combine some
+unique(nigeria.clean$fatalities)
+#convert to int and remove strings
+unique(nigeria.clean$timestamp)
+#2100 timestamps
+unique(nigeria.clean$population_best)
+#8000 entries
