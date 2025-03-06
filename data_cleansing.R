@@ -26,10 +26,13 @@ library(lubridate)
 #and UpperCamelCase for classes
 
 #data cleansing
+
 nigeria.clean <- nigeria %>% 
-  mutate(event_date = mdy(event_date))
+  mutate(event_date = mdy(event_date)) %>% 
+  select(-notes)
 
-
+nigeria.no.nas  <- nigeria.clean %>%
+  filter(if_all(everything(), ~ !is.na(.)))
 
 
 
@@ -57,9 +60,11 @@ unique(nigeria.clean$source)
 #2900 sources
 unique(nigeria.clean$source_scale)
 #can combine some
-unique(nigeria.clean$fatalities)
+unique(nigeria.no.nas$fatalities)
 #convert to int and remove strings
 unique(nigeria.clean$timestamp)
 #2100 timestamps
 unique(nigeria.clean$population_best)
 #8000 entries
+unique(nigeria.no.nas$event_id_cnty)
+nigeria.no.nas$fatalities <- as.integer(nigeria.no.nas$fatalities)
