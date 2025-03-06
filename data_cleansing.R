@@ -35,6 +35,7 @@ nigeria.no.nas  <- nigeria.clean %>%
   filter(if_all(everything(), ~ !is.na(.)))
 
 
+unique(nigeria.no.nas$event_id_cnty)
 
 unique(nigeria.clean$event_date)
 #group by month mb
@@ -66,5 +67,5 @@ unique(nigeria.clean$timestamp)
 #2100 timestamps
 unique(nigeria.clean$population_best)
 #8000 entries
-unique(nigeria.no.nas$event_id_cnty)
-nigeria.no.nas$fatalities <- as.integer(nigeria.no.nas$fatalities)
+
+
