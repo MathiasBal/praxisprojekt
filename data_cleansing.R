@@ -1,6 +1,3 @@
-#loading in the data set
-nigeria <- read.csv("C:/Users/Bob/Documents/Praxisprojekt2/1997-01-01-2025-01-01-Nigeria.csv")
-
 #loading required libraries
 if (!require("stringr")) install.packages("stringr")
 if (!require("sf")) install.packages("sf")
@@ -10,6 +7,7 @@ if (!require("osmdata")) install.packages("osmdata")
 if (!require("forcats")) install.packages("forcats")
 if (!require("scales")) install.packages("scales")
 if (!require("lubridate")) install.packages("lubridate")
+if (!require("tidyr")) install.packages("tidyr")
 
 library(osmdata)
 library(sf)
@@ -19,7 +17,12 @@ library(stringr)
 library(forcats)
 library(scales)
 library(lubridate)
+library(tidyr)
 
+#loading in the data set
+nigeria <- read.csv("C:/Users/Bob/Documents/Praxisprojekt2/1997-01-01-2025-01-01-Nigeria.csv")
+
+str(nigeria)
 
 #code convention: Use lowerCamelCase for functions, 
 #dotted.case for variables, 
@@ -28,37 +31,81 @@ library(lubridate)
 #data cleansing
 
 nigeria.clean <- nigeria %>% 
-  mutate(event_date = mdy(event_date)) %>% 
+  mutate(event_date = mdy(event_date),
+         time_precision = factor(time_precision,
+                                 levels = c("1", "2", "3"),
+                                 labels = c("most precise", "precise", "least precise")),
+         sub_event_type = sub_event_type %>% 
+           str_remove_all("\""),
+         civilian_targeting = civilian_targeting %>%
+           str_remove_all("[[:punct:]]") %>%
+           factor(levels = c("", "Civilian targeting"),
+                  labels = c("no targeting", "civilian targeting")),
+         region = region %>% 
+           str_remove_all("\""),
+         location = location %>% 
+           str_remove_all("\""),
+         geo_precision = geo_precision %>%
+           factor(levels = c("1", "2", "3"),
+                  labels = c("most precise", "precise", "least precise")),
+         fatalities = fatalities %>% 
+           str_remove_all("[[:alpha:][:space:][:punct:]]") %>%
+           as.integer(),
+         population_best = population_best %>% 
+           as.integer() %>% 
+           replace_na(0)) %>%
+  filter(latitude >= -90 & latitude <= 90,
+         longitude >= -180 & longitude <= 180,
+         year >= 1997 & year <= 2025) %>%
   select(-notes)
 
 
-nigeria.clean$sub_event_type <- str_remove_all(nigeria.clean$sub_event_type,
-                                               "\"")
-#2 ausprägungen kombiniert
 
 
-nigeria.clean$civilian_targeting <- str_remove_all(nigeria.clean$civilian_targeting,
-                                                   "[[:punct:]]")
+str(nigeria.clean)
 
-nigeria.clean$civilian_targeting <- factor(nigeria.clean$civilian_targeting,
-                                              levels = c("", "Civilian targeting"),
-                                              labels = c("no targeting", "civilian targeting"))
-#civilian targeting aufgeräumt und als factor
-
-
-nigeria.clean$geo_precision <- as.factor(nigeria.clean$geo_precision)
-#kann man als factor mit levels schreiben wenn wir wissen was er bedeutet
-
-  
-nigeria.clean$fatalities <- as.integer(str_remove_all(nigeria.clean$fatalities,
-                                           "[[:alpha:][:space:][:punct:]]"))
-#fatalities aufgeräumt und als integer nicht mehr chr gespeichert
-
-
+sum(duplicated(nigeria.clean))
+##1100 doppelte zeilen !!!
 
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
-str(nigeria.clean)
+##> sum(is.na(nigeria$event_id_cnty))
+##[1] 0
+##> sum(is.na(nigeria$event_date))
+##[1] 0
+##> sum(is.na(nigeria$year))
+##[1] 62792
+##> sum(is.na(nigeria$time_precision))
+##[1] 62793
+##> sum(is.na(nigeria$event_type))
+##[1] 0
+##> sum(is.na(nigeria$sub_event_type))
+##[1] 0
+##> sum(is.na(nigeria$actor1))
+##[1] 0
+##> sum(is.na(nigeria$civilian_targeting))
+##[1] 0
+##> sum(is.na(nigeria$region))
+##[1] 0
+##> sum(is.na(nigeria$location))
+##[1] 0
+##> sum(is.na(nigeria$latitude))
+##[1] 62794
+##> sum(is.na(nigeria$longitude))
+##[1] 62794
+##> sum(is.na(nigeria$geo_precision))
+##[1] 62794
+##> sum(is.na(nigeria$source))
+##[1] 0
+##> sum(is.na(nigeria$source_scale))
+##[1] 0
+##> sum(is.na(nigeria$fatalities))
+##[1] 0
+##> sum(is.na(nigeria$timestamp))
+##[1] 0
+##> sum(is.na(nigeria$population_best))
+##[1] 29987
+
 
 nigeria.no.nas  <- nigeria.clean %>%
   filter(if_all(everything(), ~ !is.na(.)))
