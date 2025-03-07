@@ -54,12 +54,10 @@ nigeria.clean <- nigeria %>%
          population_best = population_best %>% 
            as.integer() %>% 
            replace_na(0)) %>%
-  filter(latitude >= -90 & latitude <= 90,
-         longitude >= -180 & longitude <= 180,
-         year >= 1997 & year <= 2025) %>%
+  filter(year >= 1997 & year <= 2025,
+         latitude >= -90 & latitude <= 90,
+         longitude >= -180 & longitude <= 180) %>%
   select(-notes)
-
-
 
 
 str(nigeria.clean)
@@ -106,6 +104,11 @@ sum(duplicated(nigeria.clean))
 ##> sum(is.na(nigeria$population_best))
 ##[1] 29987
 
+###Sehr viele NAs bei year, 
+###mit 1997 <= year <= 2025 nimmt man auch alle NAs von longitude latitude raus
+###population_best NAs zu 0 umgewandelt, da diese weniger wichtig sind wenn sie fehlen, 
+###solange nur diese variable fehlt
+### doppelte zeilen müssen noch überprüft und evtl gelöscht werden
 
 nigeria.no.nas  <- nigeria.clean %>%
   filter(if_all(everything(), ~ !is.na(.)))
