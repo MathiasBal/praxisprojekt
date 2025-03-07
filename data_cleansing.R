@@ -31,41 +31,37 @@ nigeria.clean <- nigeria %>%
   mutate(event_date = mdy(event_date)) %>% 
   select(-notes)
 
+
+nigeria.clean$sub_event_type <- str_remove_all(nigeria.clean$sub_event_type,
+                                               "\"")
+#2 ausprägungen kombiniert
+
+
+nigeria.clean$civilian_targeting <- str_remove_all(nigeria.clean$civilian_targeting,
+                                                   "[[:punct:]]")
+
+nigeria.clean$civilian_targeting <- factor(nigeria.clean$civilian_targeting,
+                                              levels = c("", "Civilian targeting"),
+                                              labels = c("no targeting", "civilian targeting"))
+#civilian targeting aufgeräumt und als factor
+
+
+nigeria.clean$geo_precision <- as.factor(nigeria.clean$geo_precision)
+#kann man als factor mit levels schreiben wenn wir wissen was er bedeutet
+
+  
+nigeria.clean$fatalities <- as.integer(str_remove_all(nigeria.clean$fatalities,
+                                           "[[:alpha:][:space:][:punct:]]"))
+#fatalities aufgeräumt und als integer nicht mehr chr gespeichert
+
+
+
+#zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
+
+str(nigeria.clean)
+
 nigeria.no.nas  <- nigeria.clean %>%
   filter(if_all(everything(), ~ !is.na(.)))
 
-
-unique(nigeria.no.nas$event_id_cnty)
-
-unique(nigeria.clean$event_date)
-#group by month mb
-unique(nigeria.clean$year)
-#6 und NA drinne
-unique(nigeria.clean$time_precision)
-#weird variable
-View(table(nigeria.clean$event_type))
-#sehr gut zum aufräumen
-unique(nigeria.clean$sub_event_type)
-#ist ok
-unique(nigeria.clean$actor1)
-#1440 actors...
-unique(nigeria.clean$civilian_targeting)
-#2 bezeichnungen für ja/nein jeweils
-unique(nigeria.clean$region)
-#unnötig
-unique(nigeria.clean$location)
-#5200 locations...
-unique(nigeria.clean$geo_precision)
-#1,2,3,NA
-unique(nigeria.clean$source)
-#2900 sources
-unique(nigeria.clean$source_scale)
-#can combine some
-unique(nigeria.no.nas$fatalities)
-#convert to int and remove strings
-unique(nigeria.clean$timestamp)
-#2100 timestamps
-unique(nigeria.clean$population_best)
-#8000 entries
 
 
