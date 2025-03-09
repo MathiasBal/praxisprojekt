@@ -104,39 +104,41 @@ nigeria.clean <- nigeria %>%
            as.integer(),
          population_best = population_best %>% 
            as.integer() %>%
-           replace_na(0)) %>% 
+           replace_na(0),
+         actor1 = actor1 %>% 
+           str_trim() %>% 
+           str_to_lower(),
+         actor_group = case_when(
+           str_detect(actor1, "military forces of nigeria|police forces of nigeria") ~ "State Security Forces",
+           str_detect(actor1, "communal militia|ethnic militia") ~ "Militia",
+           str_detect(actor1, "unidentified armed group") ~ "Unidentified Armed Groups",
+           str_detect(actor1, "islamic state west africa province|boko haram") ~ "Terrorist Groups",
+           str_detect(actor1, "civilians|protesters|rioters") ~ "Civilians/Protesters",
+           str_detect(actor1, "confraternity|cult") ~ "Cult Groups",
+           TRUE ~ "Other")) %>%
+  relocate(actor_group, .after = actor1) %>% 
   filter(year >= 1997 & year <= 2025 | is.na(year),
          latitude >= -90 & latitude <= 90 | is.na(latitude),
          longitude >= -180 & longitude <= 180 | is.na(longitude)) %>%
-
-  mutate(actor_group = case_when(
-    str_detect(actor1, "Military Forces of Nigeria|Police Forces of Nigeria") ~ "State Security Forces",
-    str_detect(actor1, "Communal Militia|Ethnic Militia") ~ "Militia",
-    str_detect(actor1, "Unidentified Armed Group") ~ "Unidentified Armed Groups",
-    str_detect(actor1, "Islamic State West Africa Province|Boko Haram") ~ "Terrorist Groups",
-    str_detect(actor1, "Civilians|Protesters|Rioters") ~ "Civilians/Protesters",
-    str_detect(actor1, "Confraternity|Cult") ~ "Cult Groups",
-    TRUE ~ "Other"
-  ))
-%>%
-  relocate(actor_group, .after = actor1)
-%>%
   select(-c(notes, region, timestamp))
-
 
 nigeria.clean.nodupes <- nigeria.clean %>%
   distinct()
-  
+
 nigeria.no.nas  <- nigeria.clean.nodupes %>%
   filter(if_all(everything(), ~ !is.na(.)))
 
+überprüfen_actor_groups <- nigeria.no.nas %>%
+  select(actor_group, actor1) %>% 
+  filter(actor_group == "State Security Forces")
+unique(überprüfen_actor_groups)
 
 sum(nigeria.no.nas$source_scale == "NULL")
 ###bei event_type, sub_event_type und source scale gibt es keine NAs,
 ### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
 ### für bessere lesbarkeit und identifikation
 
-
+typeof(nigeria.clean.nodupes$actor1)
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
 ##> sum(is.na(nigeria$event_id_cnty))
