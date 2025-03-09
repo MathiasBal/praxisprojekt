@@ -22,7 +22,6 @@ library(tidyr)
 #loading in the data set
 nigeria <- read.csv("C:/Users/Bob/Documents/Praxisprojekt2/1997-01-01-2025-01-01-Nigeria.csv")
 
-str(nigeria.clean)
 
 #code convention: Use lowerCamelCase for functions, 
 #dotted.case for variables, 
@@ -109,6 +108,19 @@ nigeria.clean <- nigeria %>%
   filter(year >= 1997 & year <= 2025 | is.na(year),
          latitude >= -90 & latitude <= 90 | is.na(latitude),
          longitude >= -180 & longitude <= 180 | is.na(longitude)) %>%
+
+  mutate(actor_group = case_when(
+    str_detect(actor1, "Military Forces of Nigeria|Police Forces of Nigeria") ~ "State Security Forces",
+    str_detect(actor1, "Communal Militia|Ethnic Militia") ~ "Militia",
+    str_detect(actor1, "Unidentified Armed Group") ~ "Unidentified Armed Groups",
+    str_detect(actor1, "Islamic State West Africa Province|Boko Haram") ~ "Terrorist Groups",
+    str_detect(actor1, "Civilians|Protesters|Rioters") ~ "Civilians/Protesters",
+    str_detect(actor1, "Confraternity|Cult") ~ "Cult Groups",
+    TRUE ~ "Other"
+  ))
+%>%
+  relocate(actor_group, .after = actor1)
+%>%
   select(-c(notes, region, timestamp))
 
 
