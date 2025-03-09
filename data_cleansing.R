@@ -29,12 +29,26 @@ str(nigeria)
 #and UpperCamelCase for classes
 
 #data cleansing
+source_scale_levels <- c("International", "National", "National-International",
+                  "National-Regional", "Regional", "Regional-International",
+                  "Subnational", "Subnational-International", "Subnational-National",
+                  "Subnational-Regional", "Local partner-International", "Local partner-Other",
+                  "New media", "New media-International", "New media-National",
+                  "New media-Regional", "New media-Subnational", "Other", "Other-International",
+                  "Other-National", "Other-New media", "Other-Regional", "Other-Subnational", "")
+
+event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians", "Battles",
+                       "Explosions/Remote violence", "Protests", "")
 
 nigeria.clean <- nigeria %>% 
   mutate(event_date = mdy(event_date),
          time_precision = factor(time_precision,
                                  levels = c("1", "2", "3"),
                                  labels = c("most precise", "precise", "least precise")),
+         event_type = event_type %>% 
+           str_remove_all("[[:digit:]]") %>% 
+           factor(levels = event_type_levels,
+                  labels = event_type_levels),
          sub_event_type = sub_event_type %>% 
            str_remove_all("\""),
          civilian_targeting = civilian_targeting %>%
@@ -48,22 +62,28 @@ nigeria.clean <- nigeria %>%
          geo_precision = geo_precision %>%
            factor(levels = c("1", "2", "3"),
                   labels = c("most precise", "precise", "least precise")),
+         source_scale = source_scale %>% 
+           str_remove_all("\"") %>% 
+           factor(levels = source_scale_levels,
+                  labels = source_scale_levels),
          fatalities = fatalities %>% 
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>%
            as.integer(),
          population_best = population_best %>% 
-           as.integer() %>% 
-           replace_na(0)) %>%
-  filter(year >= 1997 & year <= 2025,
-         latitude >= -90 & latitude <= 90,
-         longitude >= -180 & longitude <= 180) %>%
-  select(-notes)
+           as.integer() %>%
+           replace_na(0)) %>% 
+  filter(year >= 1997 & year <= 2025 | is.na(year),
+         latitude >= -90 & latitude <= 90 | is.na(latitude),
+         longitude >= -180 & longitude <= 180 | is.na(longitude)) %>%
+  select(-c(notes, region, timestamp))
 
 
-str(nigeria.clean)
+nigeria.clean.nodupes <- nigeria.clean %>%
+  distinct()
+  
+nigeria.no.nas  <- nigeria.clean.nodupes %>%
+  filter(if_all(everything(), ~ !is.na(.)))
 
-sum(duplicated(nigeria.clean))
-##1100 doppelte zeilen !!!
 
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
@@ -109,9 +129,3 @@ sum(duplicated(nigeria.clean))
 ###population_best NAs zu 0 umgewandelt, da diese weniger wichtig sind wenn sie fehlen, 
 ###solange nur diese variable fehlt
 ### doppelte zeilen müssen noch überprüft und evtl gelöscht werden
-
-nigeria.no.nas  <- nigeria.clean %>%
-  filter(if_all(everything(), ~ !is.na(.)))
-
-
-
