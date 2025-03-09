@@ -22,13 +22,14 @@ library(tidyr)
 #loading in the data set
 nigeria <- read.csv("C:/Users/Bob/Documents/Praxisprojekt2/1997-01-01-2025-01-01-Nigeria.csv")
 
-str(nigeria)
+str(nigeria.clean)
 
 #code convention: Use lowerCamelCase for functions, 
 #dotted.case for variables, 
 #and UpperCamelCase for classes
 
 #data cleansing
+
 source_scale_levels <- c("International", "National", "National-International",
                   "National-Regional", "Regional", "Regional-International",
                   "Subnational", "Subnational-International", "Subnational-National",
@@ -37,8 +38,39 @@ source_scale_levels <- c("International", "National", "National-International",
                   "New media-Regional", "New media-Subnational", "Other", "Other-International",
                   "Other-National", "Other-New media", "Other-Regional", "Other-Subnational", "")
 
+source_scale_labels <- c("International", "National", "National-International",
+                         "National-Regional", "Regional", "Regional-International",
+                         "Subnational", "Subnational-International", "Subnational-National",
+                         "Subnational-Regional", "Local partner-International", "Local partner-Other",
+                         "New media", "New media-International", "New media-National",
+                         "New media-Regional", "New media-Subnational", "Other", "Other-International",
+                         "Other-National", "Other-New media", "Other-Regional", "Other-Subnational", "NULL")
+
+
 event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians", "Battles",
                        "Explosions/Remote violence", "Protests", "")
+
+event_type_labels <- c("Strategic developments", "Riots", "Violence against civilians", "Battles",
+                       "Explosions/Remote violence", "Protests", "NULL")
+
+
+sub_event_type_levels <- c("", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
+                           "Armed clash", "Arrests", "Attack", "Change to group/activity",
+                           "Disrupted weapons use", "Excessive force against protesters",
+                           "Government regains territory", "Grenade", "Headquarters or base established",
+                           "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
+                           "Non-violent transfer of territory", "Other", "Peaceful protest", 
+                           "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
+                           "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
+
+sub_event_type_labels <- c("NULL", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
+                           "Armed clash", "Arrests", "Attack", "Change to group/activity",
+                           "Disrupted weapons use", "Excessive force against protesters",
+                           "Government regains territory", "Grenade", "Headquarters or base established",
+                           "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
+                           "Non-violent transfer of territory", "Other", "Peaceful protest", 
+                           "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
+                           "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
 
 nigeria.clean <- nigeria %>% 
   mutate(event_date = mdy(event_date),
@@ -48,9 +80,11 @@ nigeria.clean <- nigeria %>%
          event_type = event_type %>% 
            str_remove_all("[[:digit:]]") %>% 
            factor(levels = event_type_levels,
-                  labels = event_type_levels),
+                  labels = event_type_labels),
          sub_event_type = sub_event_type %>% 
-           str_remove_all("\""),
+           str_remove_all("\"") %>% 
+           factor(levels = sub_event_type_levels,
+                  labels = sub_event_type_labels),
          civilian_targeting = civilian_targeting %>%
            str_remove_all("[[:punct:]]") %>%
            factor(levels = c("", "Civilian targeting"),
@@ -65,7 +99,7 @@ nigeria.clean <- nigeria %>%
          source_scale = source_scale %>% 
            str_remove_all("\"") %>% 
            factor(levels = source_scale_levels,
-                  labels = source_scale_levels),
+                  labels = source_scale_labels),
          fatalities = fatalities %>% 
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>%
            as.integer(),
@@ -85,6 +119,12 @@ nigeria.no.nas  <- nigeria.clean.nodupes %>%
   filter(if_all(everything(), ~ !is.na(.)))
 
 
+sum(nigeria.no.nas$source_scale == "NULL")
+###bei event_type, sub_event_type und source scale gibt es keine NAs,
+### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
+### für bessere lesbarkeit und identifikation
+
+
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
 ##> sum(is.na(nigeria$event_id_cnty))
@@ -97,8 +137,10 @@ nigeria.no.nas  <- nigeria.clean.nodupes %>%
 ##[1] 62793
 ##> sum(is.na(nigeria$event_type))
 ##[1] 0
+###nas sind als " " gespeichert
 ##> sum(is.na(nigeria$sub_event_type))
 ##[1] 0
+
 ##> sum(is.na(nigeria$actor1))
 ##[1] 0
 ##> sum(is.na(nigeria$civilian_targeting))
@@ -129,3 +171,5 @@ nigeria.no.nas  <- nigeria.clean.nodupes %>%
 ###population_best NAs zu 0 umgewandelt, da diese weniger wichtig sind wenn sie fehlen, 
 ###solange nur diese variable fehlt
 ### doppelte zeilen müssen noch überprüft und evtl gelöscht werden
+
+
