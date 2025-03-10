@@ -10,7 +10,6 @@ nigeria_event_deaths <- nigeria.no.nas %>%
 plot <- ggplot(nigeria_event_deaths, aes(x = year, y = total_fatalities, fill = event_type)) +
   geom_area(alpha = 0.7) +
   scale_x_continuous(breaks = seq(min(nigeria_event_deaths$year), max(nigeria_event_deaths$year), by = 1)) +
-  scale_y_continuous(expand = c(0, 0)) +
   
   labs(title = "Distribution of Fatalities by Event Type Over the Years",
        x = "Year",
