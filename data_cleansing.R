@@ -125,7 +125,7 @@ nigeria.clean <- nigeria %>%
 nigeria.clean.nodupes <- nigeria.clean %>%
   distinct()
 
-nigeria.no.nas  <- nigeria.clean.nodupes %>%
+nigeria.no.nas  <- nigeria.clean %>%
   filter(if_all(everything(), ~ !is.na(.)))
 
 überprüfen_actor_groups <- nigeria.no.nas %>%
@@ -138,7 +138,7 @@ sum(nigeria.no.nas$source_scale == "NULL")
 ### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
 ### für bessere lesbarkeit und identifikation
 
-typeof(nigeria.clean.nodupes$actor1)
+
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
 ##> sum(is.na(nigeria$event_id_cnty))
