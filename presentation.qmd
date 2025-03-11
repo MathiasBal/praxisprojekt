@@ -24,19 +24,29 @@ editor: visual
 
 ## Einführung
 
--   Zentrale Frage: 
+-   Zentrale Frage: Wie haben sich die Konflikte in Nigeria über die Zeit verändert?
+-   Zusätzliche Fragen:
+    -   Wie hängen die Akteure in Konflikten zusammen?
+    -   Ist es zu einem Anstieg an Konflikten gekommen?
+    -   Hat sich die Art der Konflikte geändert?
+    -   Gibt es "Hotspots" für Konflikte?
+    -   Welche Konflikte sind am gefährlichsten?
 
 ## Überblick
 
--   Datenerhebung: 
+-   Datenerhebung:
 -   Art der Erhebung:
 
 ## Betrachtete Merkmale
 
+| Col1 | Col2 | Col3 | Col4 | Col5 | Col6 | Col7 | Col8 | Col9 | Col10 | Col11 | Col12 | Col13 | Col14 | Col15 | Col16 | Col17 | Col18 |
+|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+
 ## Limitationen
 
-
 ## Fazit
-
 
 ## Q&A
