@@ -142,12 +142,33 @@ unique(überprüfen_actor_groups)
 ### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
 ### für bessere lesbarkeit und identifikation
 
-nigeria.wide <- nigeria.no.nas %>%
-  group_by(event_id_cnty, event_type) %>%   
-  mutate(row = row_number()) %>%      
-  pivot_wider(names_from = row, values_from = actor1, names_prefix = "actor") %>%
-  ungroup()
 
+# nigeria.wide <- nigeria.clean %>%
+#   group_by(event_id_cnty, event_type) %>%   
+#   mutate(row = row_number()) %>%      
+#   pivot_wider(names_from = row, values_from = actor1, names_prefix = "actor") %>%
+#   ungroup()
+
+# nigeria.wide
+
+# Attempt pivot
+nigeria.clean <- nigeria.clean %>%
+  mutate(
+    actor1 = replace_na(actor1, "Unknown"),
+    event_id_cnty = as.character(event_id_cnty),
+    event_type = as.character(event_type)
+  ) %>%
+  drop_na(event_id_cnty, event_type, actor1)
+
+nigeria.wide <- nigeria.clean %>%
+  group_by(event_id_cnty, event_type) %>%   
+  mutate(row = dense_rank(actor1)) %>%
+  pivot_wider(
+    names_from = row, 
+    values_from = actor1, 
+    names_prefix = "actor"
+  ) %>%
+  ungroup()
 
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
@@ -195,31 +216,3 @@ nigeria.wide <- nigeria.no.nas %>%
 ###population_best NAs zu 0 umgewandelt, da diese weniger wichtig sind wenn sie fehlen, 
 ###solange nur diese variable fehlt
 ### doppelte zeilen müssen noch überprüft und evtl gelöscht werden
-
-nigeria_paired <- nigeria.clean %>%
-  group_by(event_id_cnty) %>%
-  mutate(actor2 = lead(actor1, default = first(actor1))) %>%
-  ungroup()
-
-nigeria_wide <- nigeria_paired %>%
-  pivot_wider(
-    names_from = actor2, 
-    values_from = actor2
-  )
-
-data_paired <- nigeria.clean %>%
-  group_by(event_id_cnty) %>%
-  mutate(actor2 = lead(actor1, default = first(actor1))) %>%
-  ungroup() %>%
-  mutate(
-    actor2 = replace_na(as.character(actor2), "Unknown"),
-    fatalities = replace_na(fatalities, 0)
-  )
-
-# Pivot-Wider Transformation
-data_wide <- data_paired %>%
-  pivot_wider(
-    names_from = actor2, 
-    values_from = fatalities, 
-    values_fill = list(fatalities = 0) # Fehlende Werte mit 0 füllen
-  )
