@@ -72,7 +72,11 @@ sub_event_type_labels <- c("NULL", "Abduction/forced disappearance", "Agreement"
                            "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
 
 nigeria.clean <- nigeria %>% 
-  mutate(event_date = mdy(event_date),
+  mutate(event_id_cnty = event_id_cnty %>%
+           str_trim() %>% 
+           str_remove_all("[[:alpha:][:space:][:punct:]]") %>% 
+           as.integer(),
+         event_date = mdy(event_date),
          time_precision = factor(time_precision,
                                  levels = c("1", "2", "3"),
                                  labels = c("most precise", "precise", "least precise")),
@@ -133,10 +137,16 @@ nigeria.no.nas  <- nigeria.clean %>%
   filter(actor_group == "State Security Forces")
 unique(überprüfen_actor_groups)
 
-sum(nigeria.no.nas$source_scale == "NULL")
+
 ###bei event_type, sub_event_type und source scale gibt es keine NAs,
 ### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
 ### für bessere lesbarkeit und identifikation
+
+nigeria.wide <- nigeria.no.nas %>%
+  group_by(event_id_cnty, event_type) %>%   
+  mutate(row = row_number()) %>%      
+  pivot_wider(names_from = row, values_from = actor1, names_prefix = "actor") %>%
+  ungroup()
 
 
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
