@@ -20,7 +20,7 @@ library(lubridate)
 library(tidyr)
 
 #loading in the data set
-nigeria <- read.csv("C:/Users/Bob/Documents/Praxisprojekt2/1997-01-01-2025-01-01-Nigeria.csv")
+nigeria <- read.csv("C:/Users/bkmma/Desktop/Uni/GrundPrak/praxisprojekt/1997-01-01-2025-01-01-Nigeria.csv")
 
 
 #code convention: Use lowerCamelCase for functions, 
@@ -186,4 +186,30 @@ sum(nigeria.no.nas$source_scale == "NULL")
 ###solange nur diese variable fehlt
 ### doppelte zeilen müssen noch überprüft und evtl gelöscht werden
 
+nigeria_paired <- nigeria.clean %>%
+  group_by(event_id_cnty) %>%
+  mutate(actor2 = lead(actor1, default = first(actor1))) %>%
+  ungroup()
 
+nigeria_wide <- nigeria_paired %>%
+  pivot_wider(
+    names_from = actor2, 
+    values_from = actor2
+  )
+
+data_paired <- nigeria.clean %>%
+  group_by(event_id_cnty) %>%
+  mutate(actor2 = lead(actor1, default = first(actor1))) %>%
+  ungroup() %>%
+  mutate(
+    actor2 = replace_na(as.character(actor2), "Unknown"),
+    fatalities = replace_na(fatalities, 0)
+  )
+
+# Pivot-Wider Transformation
+data_wide <- data_paired %>%
+  pivot_wider(
+    names_from = actor2, 
+    values_from = fatalities, 
+    values_fill = list(fatalities = 0) # Fehlende Werte mit 0 füllen
+  )
