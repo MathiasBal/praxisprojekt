@@ -19,57 +19,39 @@ library(scales)
 library(lubridate)
 library(tidyr)
 
-#loading in the data set
-nigeria <- read.csv("C:/Users/bkmma/Desktop/Uni/GrundPrak/praxisprojekt/1997-01-01-2025-01-01-Nigeria.csv")
+#Load the data set (file needs to be in the directory)
+nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
 
-
-#code convention: Use lowerCamelCase for functions, 
-#dotted.case for variables, 
-#and UpperCamelCase for classes
-
-#data cleansing
-
+#Data Cleansing
 source_scale_levels <- c("International", "National", "National-International",
-                  "National-Regional", "Regional", "Regional-International",
-                  "Subnational", "Subnational-International", "Subnational-National",
-                  "Subnational-Regional", "Local partner-International", "Local partner-Other",
-                  "New media", "New media-International", "New media-National",
-                  "New media-Regional", "New media-Subnational", "Other", "Other-International",
-                  "Other-National", "Other-New media", "Other-Regional", "Other-Subnational", "")
+                    "National-Regional", "Regional", "Regional-International",
+                    "Subnational", "Subnational-International", "Subnational-National",
+                    "Subnational-Regional", "Local partner-International",
+                    "Local partner-Other", "New media", "New media-International",
+                    "New media-National", "New media-Regional", "New media-Subnational",
+                    "Other", "Other-International", "Other-National", "Other-New media",
+                    "Other-Regional", "Other-Subnational", "")
 
-source_scale_labels <- c("International", "National", "National-International",
-                         "National-Regional", "Regional", "Regional-International",
-                         "Subnational", "Subnational-International", "Subnational-National",
-                         "Subnational-Regional", "Local partner-International", "Local partner-Other",
-                         "New media", "New media-International", "New media-National",
-                         "New media-Regional", "New media-Subnational", "Other", "Other-International",
-                         "Other-National", "Other-New media", "Other-Regional", "Other-Subnational", "NULL")
+source_scale_labels <- source_scale_levels
+source_scale_labels[length(source_scale_labels1)] <- "NULL"
 
+event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians",
+                 "Battles", "Explosions/Remote violence", "Protests", "")
 
-event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians", "Battles",
-                       "Explosions/Remote violence", "Protests", "")
-
-event_type_labels <- c("Strategic developments", "Riots", "Violence against civilians", "Battles",
-                       "Explosions/Remote violence", "Protests", "NULL")
-
+event_type_labels <- event_type_levels
+event_type_labels[length(event_type_labels)] <- "NULL"
 
 sub_event_type_levels <- c("", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
-                           "Armed clash", "Arrests", "Attack", "Change to group/activity",
-                           "Disrupted weapons use", "Excessive force against protesters",
-                           "Government regains territory", "Grenade", "Headquarters or base established",
-                           "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
-                           "Non-violent transfer of territory", "Other", "Peaceful protest", 
-                           "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
-                           "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
+                     "Armed clash", "Arrests", "Attack", "Change to group/activity",
+                     "Disrupted weapons use", "Excessive force against protesters",
+                     "Government regains territory", "Grenade", "Headquarters or base established",
+                     "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
+                     "Non-violent transfer of territory", "Other", "Peaceful protest", 
+                     "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
+                     "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
 
-sub_event_type_labels <- c("NULL", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
-                           "Armed clash", "Arrests", "Attack", "Change to group/activity",
-                           "Disrupted weapons use", "Excessive force against protesters",
-                           "Government regains territory", "Grenade", "Headquarters or base established",
-                           "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
-                           "Non-violent transfer of territory", "Other", "Peaceful protest", 
-                           "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
-                           "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
+sub_event_type_labels <- sub_event_type_levels
+sub_event_type_labels[1] <- "NULL"
 
 nigeria.clean <- nigeria %>% 
   mutate(event_id_cnty = event_id_cnty %>%
@@ -121,9 +103,11 @@ nigeria.clean <- nigeria %>%
            str_detect(actor1, "confraternity|cult") ~ "Cult Groups",
            TRUE ~ "Other")) %>%
   relocate(actor_group, .after = actor1) %>% 
-  filter(year >= 1997 & year <= 2025 | is.na(year),
-         latitude >= -90 & latitude <= 90 | is.na(latitude),
-         longitude >= -180 & longitude <= 180 | is.na(longitude)) %>%
+  filter(
+    between(year, 1997, 2025) | is.na(year),
+    between(latitude, -90, 90) | is.na(latitude),
+    between(longitude, -180, 180) | is.na(longitude)
+  ) %>%
   select(-c(notes, region, timestamp))
 
 nigeria.clean.nodupes <- nigeria.clean %>%
@@ -137,21 +121,14 @@ nigeria.no.nas  <- nigeria.clean %>%
   filter(actor_group == "State Security Forces")
 unique(überprüfen_actor_groups)
 
+## Attempt pivot
 
-###bei event_type, sub_event_type und source scale gibt es keine NAs,
-### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
-### für bessere lesbarkeit und identifikation
+## nigeria.wide <- nigeria.clean %>%
+##   group_by(event_id_cnty, event_type) %>%   
+##   mutate(row = row_number()) %>%      
+##   pivot_wider(names_from = row, values_from = actor1, names_prefix = "actor") %>%
+##   ungroup()
 
-
-# nigeria.wide <- nigeria.clean %>%
-#   group_by(event_id_cnty, event_type) %>%   
-#   mutate(row = row_number()) %>%      
-#   pivot_wider(names_from = row, values_from = actor1, names_prefix = "actor") %>%
-#   ungroup()
-
-# nigeria.wide
-
-# Attempt pivot
 nigeria.clean <- nigeria.clean %>%
   mutate(
     actor1 = replace_na(actor1, "Unknown"),
@@ -169,6 +146,11 @@ nigeria.wide <- nigeria.clean %>%
     names_prefix = "actor"
   ) %>%
   ungroup()
+
+
+###bei event_type, sub_event_type und source scale gibt es keine NAs,
+### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
+### für bessere lesbarkeit und identifikation
 
 #zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
 
