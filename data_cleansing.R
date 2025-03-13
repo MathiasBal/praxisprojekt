@@ -33,7 +33,7 @@ source_scale_levels <- c("International", "National", "National-International",
                     "Other-Regional", "Other-Subnational", "")
 
 source_scale_labels <- source_scale_levels
-source_scale_labels[length(source_scale_labels1)] <- "NULL"
+source_scale_labels[length(source_scale_labels)] <- "NULL"
 
 event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians",
                  "Battles", "Explosions/Remote violence", "Protests", "")
