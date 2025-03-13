@@ -138,16 +138,29 @@ nigeria.clean <- nigeria.clean %>%
   drop_na(event_id_cnty, event_type, actor1)
 
 nigeria.wide <- nigeria.clean %>%
-  group_by(event_id_cnty, event_type) %>%   
+  group_by(event_id_cnty, event_type) %>%
   mutate(row = dense_rank(actor1)) %>%
   pivot_wider(
-    names_from = row, 
-    values_from = actor1, 
-    names_prefix = "actor"
+    names_from = row,
+    values_from = actor1,
+    names_prefix = "actor",
+    values_fn = first 
   ) %>%
   ungroup()
 
+nigeria.wide <- nigeria.wide %>%
+  mutate(across(starts_with("actor"), as.character),  
+         across(starts_with("actor"), ~ replace_na(., "Unknown")))  
 
+nigeria.merged <- nigeria.wide %>%
+  group_by(across(-starts_with("actor"))) %>%
+  summarise(
+    actor1 = first(na.omit(actor1)),
+    actor2 = first(na.omit(actor2)),
+    .groups = "drop"
+  )
+
+nigeria.merged
 ###bei event_type, sub_event_type und source scale gibt es keine NAs,
 ### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
 ### für bessere lesbarkeit und identifikation
