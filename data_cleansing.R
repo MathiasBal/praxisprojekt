@@ -20,35 +20,35 @@ library(lubridate)
 library(tidyr)
 
 #Load the data set (file needs to be in the directory)
-nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
+nigeria <- read.csv("~/Downloads/dataset_nigeria.csv")
 
 #Data Cleansing
 source_scale_levels <- c("International", "National", "National-International",
-                    "National-Regional", "Regional", "Regional-International",
-                    "Subnational", "Subnational-International", "Subnational-National",
-                    "Subnational-Regional", "Local partner-International",
-                    "Local partner-Other", "New media", "New media-International",
-                    "New media-National", "New media-Regional", "New media-Subnational",
-                    "Other", "Other-International", "Other-National", "Other-New media",
-                    "Other-Regional", "Other-Subnational", "")
+                         "National-Regional", "Regional", "Regional-International",
+                         "Subnational", "Subnational-International", "Subnational-National",
+                         "Subnational-Regional", "Local partner-International",
+                         "Local partner-Other", "New media", "New media-International",
+                         "New media-National", "New media-Regional", "New media-Subnational",
+                         "Other", "Other-International", "Other-National", "Other-New media",
+                         "Other-Regional", "Other-Subnational", "")
 
 source_scale_labels <- source_scale_levels
 source_scale_labels[length(source_scale_labels)] <- "NULL"
 
 event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians",
-                 "Battles", "Explosions/Remote violence", "Protests", "")
+                       "Battles", "Explosions/Remote violence", "Protests", "")
 
 event_type_labels <- event_type_levels
 event_type_labels[length(event_type_labels)] <- "NULL"
 
 sub_event_type_levels <- c("", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
-                     "Armed clash", "Arrests", "Attack", "Change to group/activity",
-                     "Disrupted weapons use", "Excessive force against protesters",
-                     "Government regains territory", "Grenade", "Headquarters or base established",
-                     "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
-                     "Non-violent transfer of territory", "Other", "Peaceful protest", 
-                     "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
-                     "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
+                           "Armed clash", "Arrests", "Attack", "Change to group/activity",
+                           "Disrupted weapons use", "Excessive force against protesters",
+                           "Government regains territory", "Grenade", "Headquarters or base established",
+                           "Looting/property destruction", "Mob violence", "Non-state actor overtakes territory",
+                           "Non-violent transfer of territory", "Other", "Peaceful protest", 
+                           "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
+                           "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
 
 sub_event_type_labels <- sub_event_type_levels
 sub_event_type_labels[1] <- "NULL"
@@ -93,16 +93,9 @@ nigeria.clean <- nigeria %>%
            replace_na(0),
          actor1 = actor1 %>% 
            str_trim() %>% 
-           str_to_lower(),
-         actor_group = case_when(
-           str_detect(actor1, "military forces of nigeria|police forces of nigeria") ~ "State Security Forces",
-           str_detect(actor1, "communal militia|ethnic militia") ~ "Militia",
-           str_detect(actor1, "unidentified armed group") ~ "Unidentified Armed Groups",
-           str_detect(actor1, "islamic state west africa province|boko haram") ~ "Terrorist Groups",
-           str_detect(actor1, "civilians|protesters|rioters") ~ "Civilians/Protesters",
-           str_detect(actor1, "confraternity|cult") ~ "Cult Groups",
-           TRUE ~ "Other")) %>%
-  relocate(actor_group, .after = actor1) %>% 
+           str_to_lower()
+         ) %>%
+ 
   filter(
     between(year, 1997, 2025) | is.na(year),
     between(latitude, -90, 90) | is.na(latitude),
@@ -116,10 +109,10 @@ nigeria.clean.nodupes <- nigeria.clean %>%
 nigeria.no.nas  <- nigeria.clean %>%
   filter(if_all(everything(), ~ !is.na(.)))
 
-überprüfen_actor_groups <- nigeria.no.nas %>%
-  select(actor_group, actor1) %>% 
-  filter(actor_group == "State Security Forces")
-unique(überprüfen_actor_groups)
+#überprüfen_actor_groups <- nigeria.no.nas %>%
+#  select(actor_group1, actor1) %>% 
+ # filter(actor_group1 == "State Security Forces")
+#unique(überprüfen_actor_groups)
 
 ## Attempt pivot
 
@@ -158,7 +151,28 @@ nigeria.merged <- nigeria.wide %>%
     actor1 = first(na.omit(actor1)),
     actor2 = first(na.omit(actor2)),
     .groups = "drop"
-  )
+  ) %>% mutate(
+    actor_group1 = case_when(
+      str_detect(actor1, "military forces of nigeria|police forces of nigeria|government of nigeria|nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|national drug law enforcement agency|nigeria immigration service|multinational joint task force|military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
+      str_detect(actor1, "boko haram|islamic state west africa province|ansaru|islamic state sahel province") ~ "Rebel Groups",
+      str_detect(actor1, "unidentified armed group|indigenous peoples of biafra|OPC: Oodua Peoples Congress|ijaw freedom fighters|yoruba nation agitators|NDLM: Niger Delta Liberation Movement") ~ "Political Militias",
+      str_detect(actor1, "communal militia|ethnic militia|fulani ethnic militia|tiv ethnic militia|jukun ethnic militia|irigwe ethnic militia|alago ethnic militia|gbagyi ethnic militia|yoruba ethnic militia|ambu ethnic militia|eki ethnic militia") ~ "Identity Militias",
+      str_detect(actor1, "rioters") ~ "Rioters",
+      str_detect(actor1, "protesters|nigeria labour congress") ~ "Protesters",
+      str_detect(actor1, "civilians") ~ "Civilians",
+      str_detect(actor1, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
+      TRUE ~ "Other"),
+    actor_group2 = case_when(
+      str_detect(actor2, "military forces of nigeria|police forces of nigeria|government of nigeria|nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|national drug law enforcement agency|nigeria immigration service|multinational joint task force|military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
+      str_detect(actor2, "boko haram|islamic state west africa province|ansaru|islamic state sahel province") ~ "Rebel Groups",
+      str_detect(actor2, "unidentified armed group|indigenous peoples of biafra|OPC: Oodua Peoples Congress|ijaw freedom fighters|yoruba nation agitators|NDLM: Niger Delta Liberation Movement") ~ "Political Militias",
+      str_detect(actor2, "communal militia|ethnic militia|fulani ethnic militia|tiv ethnic militia|jukun ethnic militia|irigwe ethnic militia|alago ethnic militia|gbagyi ethnic militia|yoruba ethnic militia|ambu ethnic militia|eki ethnic militia") ~ "Identity Militias",
+      str_detect(actor2, "rioters") ~ "Rioters",
+      str_detect(actor2, "protesters|nigeria labour congress") ~ "Protesters",
+      str_detect(actor2, "civilians") ~ "Civilians",
+      str_detect(actor2, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
+      TRUE ~ "Other"))
+    
 
 nigeria.merged
 ###bei event_type, sub_event_type und source scale gibt es keine NAs,
