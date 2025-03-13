@@ -43,13 +43,13 @@ ggplot() +
                    size = 6, fontface = "bold", fill = "white", color = "black",
                    box.padding = 0.5, point.padding = 0.2, max.overlaps = 10) +
   scale_color_manual(values = c(
-    "Zivilisten/Protestierende" = "red",
-    "Milizen" = "green",
-    "Staatliche Sicherheitskräfte" = "blue",
-    "gewalttätige Sekten" = "purple",
-    "Andere" = "yellow",
-    "Terrorgruppen" = "cyan",
-    "Unbekannte bewaffnete Gruppen" = "sienna"
+    "Zivilisten/Protestierende" = "blue",
+    "Milizen" = "cyan",
+    "Staatliche Sicherheitskräfte" = "green",
+    "gewalttätige Sekten" = "gold",
+    "Andere" = "brown",
+    "Terrorgruppen" = "red",
+    "Unbekannte bewaffnete Gruppen" = "purple"
   ), guide = guide_legend(override.aes = list(size = 5))) +
   labs(
     title = "Konflikte in Nigeria",
