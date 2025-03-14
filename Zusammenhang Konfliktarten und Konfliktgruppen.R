@@ -3,24 +3,30 @@
 # graph 
 
 # count numbers
-data_counts <- nigeria.wide %>%
-  count(event_type, actor_group) %>%
-  filter(!is.na(event_type) & !is.na(actor_group))
+
+data_counts <- nigeria.merged %>%
+  pivot_longer(cols = c(actor_group1, actor_group2), 
+               names_to = "actor_group", 
+               values_to = "actor") %>% 
+  group_by(event_type, actor) %>%
+  summarise(n = n(), .groups = "drop")
 
 
 # facet wrap
   ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     geom_col(position = "dodge") +  
-    facet_wrap(~ factor(actor_group, levels = c(
-      "Civilians/Protesters", "Cult Groups", "Militia", 
-      "State Security Forces", "Terrorist Groups", "Unidentified Armed Groups", "Other"
+    facet_wrap(~ factor(actor, levels = c(
+      "Civilians", "Protesters", "Rebel Groups", "State Forces", 
+      "Identity Militias", "Political Militias", "Rioters", "External/Other Forces", "Other"
     )), labeller = as_labeller(c(
-      "Civilians/Protesters" = "Zivilisten/Protestierende",
-      "Cult Groups" = "Gewalttätige Sekten",
-      "Militia" = "Milizen",
-      "State Security Forces" = "Staatliche Sicherheitskräfte",
-      "Terrorist Groups" = "Terrorgruppen",
-      "Unidentified Armed Groups" = "Unbekannte bewaffnete Gruppen",
+      "Civilians" = "Zivilisten",
+      "Protesters" = "Protestierende",
+      "Rebel Groups" = "Rebellengruppen",
+      "State Forces" = "Staatliche Sicherheitskräfte",
+      "Identity Militias" = "Identitätsmilizen",
+      "Political Militias" = "Politische Milizen",
+      "Rioters" = "Randalierer",
+      "External/Other Forces" = "Sonstige Akteure",
       "Other" = "Andere"
     ))) +
     labs(
@@ -37,12 +43,12 @@ data_counts <- nigeria.wide %>%
       "Strategic developments" = "#FF7F00",
       "Violence against civilians" = "#FFFF33"
     ), labels = c(
-      "Battles" = "Kämpfe",
+      "Battles" = "bewaffnete Kämpfe",
       "Explosions/Remote violence" = "Explosionen/Ferngewalt",
       "Protests" = "Proteste",
       "Riots" = "Randalierungen",
       "Strategic developments" = "Strategische Entwicklungen",
-      "Violence against civilians" = "Gewalt gegen Zivilisten"
+      "Violence against civilians" = "Angriffe"
     )) +
     theme_minimal() +
     theme(
@@ -56,4 +62,3 @@ data_counts <- nigeria.wide %>%
       panel.grid.minor = element_blank(),
       legend.position = "bottom"
     )
-  
