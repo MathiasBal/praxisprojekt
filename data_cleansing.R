@@ -95,7 +95,6 @@ nigeria.clean <- nigeria %>%
            str_trim() %>% 
            str_to_lower()
          ) %>%
- 
   filter(
     between(year, 1997, 2025) | is.na(year),
     between(latitude, -90, 90) | is.na(latitude),
@@ -113,14 +112,6 @@ nigeria.no.nas  <- nigeria.clean %>%
 #  select(actor_group1, actor1) %>% 
  # filter(actor_group1 == "State Security Forces")
 #unique(überprüfen_actor_groups)
-
-## Attempt pivot
-
-## nigeria.wide <- nigeria.clean %>%
-##   group_by(event_id_cnty, event_type) %>%   
-##   mutate(row = row_number()) %>%      
-##   pivot_wider(names_from = row, values_from = actor1, names_prefix = "actor") %>%
-##   ungroup()
 
 nigeria.clean <- nigeria.clean %>%
   mutate(
