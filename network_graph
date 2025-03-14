@@ -1,0 +1,33 @@
+library(igraph)  # Paket für Netzwerk-Analyse und -Visualisierung
+library(dplyr)   
+
+
+# Daten laden
+data <- nigeria.merged
+
+# Relevante Spalten auswählen
+data_network <- data %>% 
+  select(actor_group1, actor_group2)
+
+# Netzwerk-Kanten erstellen (Verbindungen zwischen Akteursgruppen)
+edges <- as.data.frame(table(data_network))  # table() zählt die Häufigkeit der Kombinationen als Kantenmatrix,erstellt eine Kontingenztabelle
+names(edges) <- c("from", "to", "weight")  
+
+# Sicherstellen, dass alle Gewichte positiv sind, da sonst error (Fruchterman-Reingold-Algorithmus verarbeitet nur positiive)
+edges <- edges %>% filter(weight > 0)
+
+# Graph-Objekt aus den Kanten erstellen
+network <- graph_from_data_frame(edges, directed = FALSE)  # Ungerichtetes Netzwerk, also bidirektional (A->B = B->A)
+
+# Layout für die Netzwerkgrafik definieren
+set.seed(123)  # Zufallswert setzen für konsistente Darstellung, das Layout bleibt dann immmer gleich
+layout <- layout_with_fr(network, weights=E(g)$weight)  # Fruchterman-Reingold-Algorithmus fürs Layout
+
+# Netzwerkdiagramm zeichnen
+plot(network, 
+     layout = layout,  
+     vertex.size = 10,  # Knotengröße festlegen
+     vertex.label.cex = 0.9,  # Schriftgröße der Knotenbeschriftung
+     vertex.label.color = "black",  # Schriftfarbe für bessere Lesbarkeit
+     edge.width = (E(g)$weight / max(E(g)$weight)) * 5 + 1,  # Kantenbreite skalieren
+     main = "Interaction between different actour groups")  # Titel für das Diagramm setzen
