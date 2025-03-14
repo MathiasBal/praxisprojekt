@@ -21,7 +21,7 @@ network <- graph_from_data_frame(edges, directed = FALSE)  # Ungerichtetes Netzw
 
 # Layout für die Netzwerkgrafik definieren
 set.seed(123)  # Zufallswert setzen für konsistente Darstellung, das Layout bleibt dann immmer gleich
-layout <- layout_with_fr(network, weights=E(g)$weight)  # Fruchterman-Reingold-Algorithmus fürs Layout
+layout <- layout_with_fr(network, weights=E(network)$weight)  # Fruchterman-Reingold-Algorithmus fürs Layout
 
 # Netzwerkdiagramm zeichnen
 plot(network, 
