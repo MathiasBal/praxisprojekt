@@ -14,3 +14,8 @@
 * Functions: camelCase 
 * Variables: dot.case 
 * Classes: PascalCase
+
+### Mögliche Fragestellung
+* Stacked Bar Chart - Civilians Targeted (Mathias)
+* Line Chart - Peak years in reporting (Mathias)
+*
