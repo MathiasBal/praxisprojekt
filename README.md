@@ -18,4 +18,6 @@
 ### Mögliche Fragestellung
 * Stacked Bar Chart - Civilians Targeted (Mathias)
 * Line Chart - Peak years in reporting (Mathias)
-*
+* Zusammenhang zwischen Bevölkerungsdichte und Gewaltintensität (Adrian)
+→ Gibt es eine Korrelation zwischen „population_best“ (Bevölkerungszahl) und „fatalities“ (Anzahl der Todesopfer)? Tritt Gewalt eher in dicht besiedelten oder ländlichen Regionen auf?
+→ Visualisierung: Scatterplot mit Regressionslinie.
