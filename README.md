@@ -18,4 +18,6 @@
 ### Mögliche Fragestellung
 * Stacked Bar Chart - Civilians Targeted (Mathias)
 * Line Chart - Peak years in reporting (Mathias)
-*
+* Facet Wrap - Association between type of conflict and conflict groups (Louis)
+* Nigeria Map - Conflicts Hot-spots in Nigeria (Louis)
+* Bar Chart - Number of Deaths over the years (Louis)
