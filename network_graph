@@ -29,5 +29,5 @@ plot(network,
      vertex.size = 10,  # Knotengröße festlegen
      vertex.label.cex = 0.9,  # Schriftgröße der Knotenbeschriftung
      vertex.label.color = "black",  # Schriftfarbe für bessere Lesbarkeit
-     edge.width = (E(g)$weight / max(E(g)$weight)) * 5 + 1,  # Kantenbreite skalieren
+     edge.width = (E(network)$weight / max(E(network)$weight)) * 5 + 1,  # Kantenbreite skalieren
      main = "Interaction between different actour groups")  # Titel für das Diagramm setzen
