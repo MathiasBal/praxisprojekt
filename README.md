@@ -22,6 +22,7 @@
 * Facet Wrap - Association between type of conflict and conflict groups (Louis)
 * Nigeria Map - Conflicts Hot-spots in Nigeria (Louis)
 * Bar Chart - Number of Deaths over the years (Louis)
+* Line Chart - type of conflicts over the years
 =======
 * Zusammenhang zwischen Bevölkerungsdichte und Gewaltintensität (Adrian)
 → Gibt es eine Korrelation zwischen „population_best“ (Bevölkerungszahl) und „fatalities“ (Anzahl der Todesopfer)? Tritt Gewalt eher in dicht besiedelten oder ländlichen Regionen auf?
