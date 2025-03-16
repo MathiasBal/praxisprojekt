@@ -26,5 +26,4 @@
 =======
 * Zusammenhang zwischen Bevölkerungsdichte und Gewaltintensität (Adrian)
 → Gibt es eine Korrelation zwischen „population_best“ (Bevölkerungszahl) und „fatalities“ (Anzahl der Todesopfer)? Tritt Gewalt eher in dicht besiedelten oder ländlichen Regionen auf?
-→ Visualisierung: Scatterplot mit Regressionslinie.
->>>>>>> 3fc6f20e2eebd0271227396141a0c5b578a7d89b
+→ Visualisierung: Scatterplot mit Regressionslinie
