@@ -43,3 +43,32 @@ nigeria.merged %>%
   geom_line() +
   geom_point() +
   theme_minimal()
+
+### International
+
+international_sources <- nigeria.merged %>% 
+  filter(source_scale == "International") %>% 
+  count(source) %>% 
+  top_n(5, n) %>% 
+  pull(source)
+
+nigeria.merged %>%
+  filter(source %in% international_sources) %>% 
+  count(year, source) %>% 
+  ggplot(
+    aes(
+      x = year, 
+      y = n,
+      color = source,
+      group = source
+    )
+  ) +
+  labs(
+    title = "Top Internatoinal Reports Over Time by News Source", 
+    x = "Year", 
+    y = "Number of reports",
+    color = "News Source"
+  ) +
+  geom_line() +
+  geom_point() +
+  theme_minimal()
