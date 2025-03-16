@@ -28,3 +28,4 @@
 → Visualisierung: Scatterplot (mit Regressionslinie)
 
 * Netwerkdiagramm actour_group1 vs 2 (Adrian)
+* Bevölerungsverteilung nach Akteursgruppen (Adrian)
