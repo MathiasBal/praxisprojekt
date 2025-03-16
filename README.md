@@ -25,5 +25,6 @@
 * Line Chart - type of conflicts over the years
 =======
 * Zusammenhang zwischen Bevölkerungsdichte und Gewaltintensität (Adrian)
-→ Gibt es eine Korrelation zwischen „population_best“ (Bevölkerungszahl) und „fatalities“ (Anzahl der Todesopfer)? Tritt Gewalt eher in dicht besiedelten oder ländlichen Regionen auf?
-→ Visualisierung: Scatterplot mit Regressionslinie
+→ Visualisierung: Scatterplot (mit Regressionslinie)
+
+* Netwerkdiagramm actour_group1 vs 2 (Adrian)
