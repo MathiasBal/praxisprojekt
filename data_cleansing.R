@@ -20,7 +20,7 @@ library(lubridate)
 library(tidyr)
 
 #Load the data set (file needs to be in the directory)
-nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
+nigeria <- read.csv("~/Downloads/dataset_nigeria.csv")
 
 #Data Cleansing
 source_scale_levels <- c("International", "National", "National-International",
@@ -59,7 +59,6 @@ nigeria.clean <- nigeria %>%
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>% 
            as.integer(),
          event_date = mdy(event_date),
-         year = as.integer(year),
          time_precision = factor(time_precision,
                                  levels = c("1", "2", "3"),
                                  labels = c("most precise", "precise", "least precise")),
@@ -96,6 +95,7 @@ nigeria.clean <- nigeria %>%
            str_trim() %>% 
            str_to_lower()
   ) %>%
+  
   filter(
     between(year, 1997, 2025) | is.na(year),
     between(latitude, -90, 90) | is.na(latitude),
@@ -103,16 +103,7 @@ nigeria.clean <- nigeria %>%
   ) %>%
   select(-c(notes, region, timestamp))
 
-nigeria.clean.nodupes <- nigeria.clean %>%
-  distinct()
 
-nigeria.no.nas  <- nigeria.clean %>%
-  filter(if_all(everything(), ~ !is.na(.)))
-
-#überprüfen_actor_groups <- nigeria.no.nas %>%
-#  select(actor_group1, actor1) %>% 
- # filter(actor_group1 == "State Security Forces")
-#unique(überprüfen_actor_groups)
 
 nigeria.clean <- nigeria.clean %>%
   mutate(
@@ -153,7 +144,7 @@ nigeria.merged <- nigeria.wide %>%
       str_detect(actor1, "protesters|nigeria labour congress") ~ "Protesters",
       str_detect(actor1, "civilians") ~ "Civilians",
       str_detect(actor1, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
-      TRUE ~ "Other"),
+      TRUE ~ "External/Other Forces"),
     actor_group2 = case_when(
       str_detect(actor2, "military forces of nigeria|police forces of nigeria|government of nigeria|nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|national drug law enforcement agency|nigeria immigration service|multinational joint task force|military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
       str_detect(actor2, "boko haram|islamic state west africa province|ansaru|islamic state sahel province") ~ "Rebel Groups",
@@ -163,57 +154,8 @@ nigeria.merged <- nigeria.wide %>%
       str_detect(actor2, "protesters|nigeria labour congress") ~ "Protesters",
       str_detect(actor2, "civilians") ~ "Civilians",
       str_detect(actor2, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
-      TRUE ~ "Other"))
-    
+      TRUE ~ "External/Other Forces"
+      ))
+
 
 nigeria.merged
-###bei event_type, sub_event_type und source scale gibt es keine NAs,
-### sondern sind als "" gespeichert, wurden zu "NULL" umgeschrieben
-### für bessere lesbarkeit und identifikation
-
-#zum überprüfen der nas pro variable: sum(is.na(nigeria.clean$variable))
-
-##> sum(is.na(nigeria$event_id_cnty))
-##[1] 0
-##> sum(is.na(nigeria$event_date))
-##[1] 0
-##> sum(is.na(nigeria$year))
-##[1] 62792
-##> sum(is.na(nigeria$time_precision))
-##[1] 62793
-##> sum(is.na(nigeria$event_type))
-##[1] 0
-###nas sind als " " gespeichert
-##> sum(is.na(nigeria$sub_event_type))
-##[1] 0
-
-##> sum(is.na(nigeria$actor1))
-##[1] 0
-##> sum(is.na(nigeria$civilian_targeting))
-##[1] 0
-##> sum(is.na(nigeria$region))
-##[1] 0
-##> sum(is.na(nigeria$location))
-##[1] 0
-##> sum(is.na(nigeria$latitude))
-##[1] 62794
-##> sum(is.na(nigeria$longitude))
-##[1] 62794
-##> sum(is.na(nigeria$geo_precision))
-##[1] 62794
-##> sum(is.na(nigeria$source))
-##[1] 0
-##> sum(is.na(nigeria$source_scale))
-##[1] 0
-##> sum(is.na(nigeria$fatalities))
-##[1] 0
-##> sum(is.na(nigeria$timestamp))
-##[1] 0
-##> sum(is.na(nigeria$population_best))
-##[1] 29987
-
-###Sehr viele NAs bei year, 
-###mit 1997 <= year <= 2025 nimmt man auch alle NAs von longitude latitude raus
-###population_best NAs zu 0 umgewandelt, da diese weniger wichtig sind wenn sie fehlen, 
-###solange nur diese variable fehlt
-### doppelte zeilen müssen noch überprüft und evtl gelöscht werden
