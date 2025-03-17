@@ -20,7 +20,7 @@ library(lubridate)
 library(tidyr)
 
 #Load the data set (file needs to be in the directory)
-nigeria <- read.csv("~/Downloads/dataset_nigeria.csv")
+nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
 
 #Data Cleansing
 source_scale_levels <- c("International", "National", "National-International",
@@ -59,6 +59,7 @@ nigeria.clean <- nigeria %>%
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>% 
            as.integer(),
          event_date = mdy(event_date),
+         year = as.integer(year),
          time_precision = factor(time_precision,
                                  levels = c("1", "2", "3"),
                                  labels = c("most precise", "precise", "least precise")),
@@ -94,7 +95,7 @@ nigeria.clean <- nigeria %>%
          actor1 = actor1 %>% 
            str_trim() %>% 
            str_to_lower()
-         ) %>%
+  ) %>%
   filter(
     between(year, 1997, 2025) | is.na(year),
     between(latitude, -90, 90) | is.na(latitude),
