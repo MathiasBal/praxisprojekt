@@ -52,6 +52,25 @@ td {
   text-align: center;
 }
 
+.wide-table {
+    width: 150%;  /* Makes the table take the full width */
+}
+
+.wide-table img {
+    width: 150%;  /* Ensures images scale properly */
+    max-width: 700px;  /* Adjust max size if needed */
+}
+
+.left-aligned-table {
+    text-align: left;  /* Aligns the table to the left */
+    width: auto;  /* Prevents full-width centering */
+}
+
+.left-aligned-table table {
+    margin-left: 0;  /* Ensures the table is left-aligned */
+    width: auto;  /* Keeps it from stretching */
+}
+
 /* ========== Slide Number Styling ========== */
 .slide-number, .reveal.has-logo .slide-number {
   bottom: 14px !important;

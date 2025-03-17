@@ -39,11 +39,26 @@ editor: visual
 
 ## Betrachtete Merkmale
 
-| Col1 | Col2 | Col3 | Col4 | Col5 | Col6 | Col7 | Col8 | Col9 | Col10 | Col11 | Col12 | Col13 | Col14 | Col15 | Col16 | Col17 | Col18 |
-|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+-   event_id_cnty
+-   event_type
+-   actor1
+-   location
+-   latitude
+-   longitude
+-   source
+-   source_scale
+
+## Reports Over Time
+
+::: {.wide-table .left-aligned-table}
+|  |  |
+|------------------------------------|------------------------------------|
+| ![Top Reports Over Time](presentation/Reports_TopReports.png) | ![International Reports Over Time](presentation/Reports_InternationalReports.png) |
+:::
+
+## New Media Reports Over Time
+
+![](presentation/Reports_NewMediaReports.png)
 
 ## Limitationen
 
