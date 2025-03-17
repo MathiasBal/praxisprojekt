@@ -72,3 +72,32 @@ nigeria.merged %>%
   geom_line() +
   geom_point() +
   theme_minimal()
+
+### New Media 
+
+new_media_sources <- nigeria.merged %>% 
+  filter(source_scale == "New media" | source_scale == "New media-National") %>% 
+  count(source) %>% 
+  top_n(5, n) %>% 
+  pull(source)
+
+nigeria.merged %>%
+  filter(source %in% new_media_sources) %>% 
+  count(year, source) %>% 
+  ggplot(
+    aes(
+      x = year, 
+      y = n,
+      color = source,
+      group = source
+    )
+  ) +
+  labs(
+    title = "Top New Media Reports Over Time by News Source", 
+    x = "Year", 
+    y = "Number of reports",
+    color = "News Source"
+  ) +
+  geom_line() +
+  geom_point() +
+  theme_minimal()
