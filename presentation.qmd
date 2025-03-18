@@ -1,7 +1,7 @@
 ---
 title: "Armed conflicts - Armed conflict between different groups in Nigeria over time"
 institute: 
-  - "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Dr. Michael Windmann, Helen Alber"
+  - "Dr. Fabian Scheipl, Dr. Sabine Hoffmann, Helen Alber"
 author: 
   - "Bob Faber, Adrian Schneider, Louis Trierweiler, Karan Bal"
 
@@ -20,7 +20,7 @@ editor: visual
 -   Datensatz - Überblick
 -   Betrachtete Merkmale
 -   Grafiken zur Veranschaulichung
--   Graphiken zur Fragestellung
+-   Grafiken zur Fragestellung
 -   Fazit
 
 ## Fragestellung
@@ -31,18 +31,22 @@ editor: visual
 
 ## Überblick
 
--   Datenerhebung: 
+-   **`Datenerhebung:`**
 
--   Art der Erhebung:
-    -   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
-    -   sekundäre Datenerhebungsart
-    -   manuelle Codierung durch Gruppe von Analysten
--   Quellenbasis:
-    -   öffentlich verfügbare Information
-    -   Zeitungsberichte -Regierungsdokumente
-    -   NGO- und UN-Berichte
-    -   soziale Medien
-    -   lokale Partner
+    -   Art der Erhebung:
+
+        -   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
+        -   sekundäre Datenerhebungsart
+        -   manuelle Codierung durch Gruppe von Analysten
+
+    -   Quellenbasis:
+
+        -   öffentlich verfügbare Information
+        -   Zeitungsberichte
+        -   Regierungsdokumente
+        -   NGO- und UN-Berichte
+        -   soziale Medien
+        -   lokale Partner
 
 ## Betrachtete Merkmale
 
@@ -54,6 +58,16 @@ editor: visual
 -   longitude
 -   source
 -   source_scale
+
+## Todesfälle pro Jahr
+
+## Geographische Darstellung der Haupt-Akteurtupel
+
+## Bevölkerungsverteilung der Akteure
+
+## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
+
+## Angriffe auf Zivilisten
 
 ## Reports Over Time
 
@@ -67,7 +81,11 @@ editor: visual
 
 ![](presentation/Reports_NewMediaReports.png)
 
-## Limitationen
+## Zusammenhang Konfliktgruppen und Konflikttypen
+
+## Konflikttypen über die Jahre
+
+## Netzwerkgraph
 
 ## Fazit
 
