@@ -23,7 +23,7 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     "State Forces" = "Staatliche Sicherheitskräfte",
     "Identity Militias" = "Identitätsmilizen",
     "Political Militias" = "Politische Milizen",
-    "Rioters" = "Randalierer",
+    "Rioters" = "Aufständische",
     "External/Other Forces" = "Externe/Sonstige Akteure"
   ))) +
   labs(
@@ -35,7 +35,7 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
   scale_fill_manual(values = c(
     "Battles" = "red",
     "Explosions/Remote violence" = "blue",
-    "Protests" = "green",
+    "Protests" = "pink",
     "Riots" = "purple",
     "Strategic developments" = "orange",
     "Violence against civilians" = "yellow"
@@ -43,7 +43,7 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     "Battles" = "bewaffnete Kämpfe",
     "Explosions/Remote violence" = "Explosionen/Ferngewalt",
     "Protests" = "Proteste",
-    "Riots" = "Randale",
+    "Riots" = "Aufstand",
     "Strategic developments" = "Strategische Entwicklungen",
     "Violence against civilians" = "Gewalt gegen Zivilisten"
   )) +

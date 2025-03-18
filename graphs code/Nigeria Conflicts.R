@@ -57,7 +57,7 @@ ggplot() +
                    size = 6, fontface = "bold", fill = "white", color = "black",
                    box.padding = 0.5, point.padding = 0.2, max.overlaps = 10) +
   scale_color_manual(values = c(
-    "Externe/Sonstige Akteure vs Protestierende" = "green",
+    "Externe/Sonstige Akteure vs Protestierende" = "brown",
     "Zivilisten vs Identitätsmilizen" = "blue",
     "Identitätsmilizen vs Staatliche Sicherheitskräfte" = "cyan",
     "Zivilisten vs Politische Milizen" = "red",
