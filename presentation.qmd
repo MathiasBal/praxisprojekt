@@ -69,6 +69,8 @@ editor: visual
 
 ## Konflikte in Nigeria
 
+![](presentation graphs/Nigeria Karte.png)
+
 ## Bevölkerungsverteilung der Akteure
 
 ![](presentation graphs/Adrian Bevölkerungsverteilung.png)
@@ -78,6 +80,8 @@ editor: visual
 ![](presentation graphs/Adrian Zusammenhang bevölkerung tode.png)
 
 ## Angriffe auf Zivilisten
+
+![](presentation graphs/Civ_Targ.png)
 
 ## Reports Over Time
 
