@@ -22,7 +22,7 @@ library(tidyr)
 library(viridis)
 
 #Load the data set (file needs to be in the directory)
-nigeria <- read.csv("~/Downloads/dataset_nigeria.csv")
+nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
 
 #Data Cleansing
 source_scale_levels <- c("International", "National", "National-International",
@@ -59,6 +59,8 @@ nigeria.clean <- nigeria %>%
   mutate(event_id_cnty = event_id_cnty %>%
            str_trim() %>% 
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>% 
+           as.integer(),
+         year = year %>% 
            as.integer(),
          event_date = mdy(event_date),
          time_precision = factor(time_precision,
@@ -160,4 +162,4 @@ nigeria.merged <- nigeria.wide %>%
       ))
 
 
-nigeria.merged
+str(nigeria.merged)
