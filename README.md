@@ -30,3 +30,28 @@
 -   Zusammenhang zwischen Bevölkerungsdichte und Gewaltintensität (Adrian) → Visualisierung: Scatterplot (mit Regressionslinie)
 -   Netwerkdiagramm actour_group1 vs 2 (Adrian)
 -   Bevölerungsverteilung nach Akteursgruppen (Adrian)
+
+### Präsentation
+
+Anfang:
+Guten Tag, Gruppenvorstellung, Thema sagen, überblick
+
+vorstellung datensatz:
+datenerhebung, variablen, wie viele observationen am anfang
+sagen dass es von 1997-2025 nicht -2012 geht
+
+fragestellung hier oder beim anfang?
+
+graphen:
+
+welche reihenfolge
+
+letztes netzwerkgraph adrian
+
+
+fazit:
+zusammenhang akteure und event types
+veränderung konfliktart über zeit
+
+
+
