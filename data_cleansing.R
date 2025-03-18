@@ -22,6 +22,10 @@ library(lubridate)
 library(tidyr)
 library(viridis)
 library(igraph)
+library(ggthemes)
+library(rnaturalearth)
+library(ggrepel)
+
 
 #Load the data set (file needs to be in the directory)
 nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
