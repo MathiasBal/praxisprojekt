@@ -42,7 +42,7 @@ editor: visual
 
 -   Quellenbasis:
 
-```
+```         
 
     -   öffentlich verfügbare Information
     -   Zeitungsberichte
@@ -50,7 +50,6 @@ editor: visual
     -   NGO- und UN-Berichte
     -   soziale Medien
     -   lokale Partner
-
 ```
 
 ## Betrachtete Merkmale
@@ -66,11 +65,17 @@ editor: visual
 
 ## Todesfälle pro Jahr
 
+![](presentation graphs/louis todesfälle.png)
+
 ## Konflikte in Nigeria
 
 ## Bevölkerungsverteilung der Akteure
 
+![](presentation graphs/Adrian Bevölkerungsverteilung.png)
+
 ## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
+
+![](presentation graphs/Adrian Zusammenhang bevölkerung tode.png)
 
 ## Angriffe auf Zivilisten
 
@@ -88,9 +93,15 @@ editor: visual
 
 ## Zusammenhang Konfliktgruppen und Konflikttypen
 
+![](presentation graphs/Louis Zusammenhang Typen und Gruppen.png){width="416"}
+
 ## Konflikttypen über die Jahre
 
+![](presentation graphs/Bob Konflikttypen über Zeit.png)
+
 ## Netzwerkgraph
+
+![](presentation graphs/Adrian Netzwerke.png)
 
 ## Fazit
 
