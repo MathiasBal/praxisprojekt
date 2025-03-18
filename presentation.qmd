@@ -58,6 +58,16 @@ editor: visual
 -   source
 -   source_scale
 
+## Todesfälle pro Jahr
+
+## Geographische Darstellung der Haupt Akteurtupeln
+
+## Bevölkerungsverteilung der Akteure
+
+## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
+
+## Angriffe auf Zivilisten
+
 ## Reports Over Time
 
 ::: {.wide-table .left-aligned-table}
@@ -69,6 +79,12 @@ editor: visual
 ## New Media Reports Over Time
 
 ![](presentation/Reports_NewMediaReports.png)
+
+## Zusammenhang Konfliktgruppen und Konflikttypen
+
+## Konflikttypen über die Jahre
+
+## Netzwerkgraph
 
 ## Fazit
 
