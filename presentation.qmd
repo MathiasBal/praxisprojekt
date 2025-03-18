@@ -20,7 +20,7 @@ editor: visual
 -   Datensatz - Überblick
 -   Betrachtete Merkmale
 -   Grafiken zur Veranschaulichung
--   Graphiken zur Fragestellung
+-   Grafiken zur Fragestellung
 -   Fazit
 
 ## Fragestellung
@@ -31,13 +31,16 @@ editor: visual
 
 ## Überblick
 
--   Datenerhebung: 
+-   Datenerhebung:
 
 -   Art der Erhebung:
+
     -   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
     -   sekundäre Datenerhebungsart
     -   manuelle Codierung durch Gruppe von Analysten
+
 -   Quellenbasis:
+
     -   öffentlich verfügbare Information
     -   Zeitungsberichte -Regierungsdokumente
     -   NGO- und UN-Berichte
@@ -66,7 +69,6 @@ editor: visual
 ## New Media Reports Over Time
 
 ![](presentation/Reports_NewMediaReports.png)
-
 
 ## Fazit
 
