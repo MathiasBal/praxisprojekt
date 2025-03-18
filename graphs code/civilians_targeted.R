@@ -15,13 +15,13 @@ nigeria.merged %>%
   geom_bar() +
   scale_fill_manual(
     values = c("gray", "red"), 
-    labels = c("No Targeting", "Civilian Targeting")
+    labels = c("nicht angegriffen", "angegriffen")
   ) +
   labs(
-    title = "Event Types and Civilian Targeting",
-    x = "Event Type",
-    y = "Count of Events",
-    fill = "Civilian Targeting"
+    title = "Konflikttypen und Angriffe auf Zivilisten",
+    x = "Konflikttyp",
+    y = "Anzahl der Konflikte",
+    fill = "Angriffe auf Zivilisten"
   ) +
   theme_minimal()
 
