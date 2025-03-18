@@ -44,9 +44,21 @@ fragestellung hier oder beim anfang?
 
 graphen:
 
-welche reihenfolge
+Karte Nigeria Conflicts (Louis)
+Todesfälle pro Jahr (Louis)
 
-letztes netzwerkgraph adrian
+Bevölkerungsverteilung der Akteure (Adrian)
+Zusammenhang Bevölkerungsanzahl und Todesopfer (Adrian)
+
+civilians targeted (Mathias)
+reports (Mathias)
+
+Zusammenhang Konflikttyp und Konfliktgruppe (Louis)
+
+Konflikttypen über Jahre (Bob)
+
+Netzwerkgraph (Adrian)
+
 
 
 fazit:
