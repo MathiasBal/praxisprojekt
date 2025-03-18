@@ -1,6 +1,4 @@
 # load package
-library(ggplot2)
-library(dplyr)
 library(viridis)
 
 
@@ -9,9 +7,9 @@ event_translation <- c(
   "Battles" = "bewaffnete Kämpfe",
   "Explosions/Remote violence" = "Explosionen/Ferngewalt",
   "Protests" = "Proteste",
-  "Riots" = "Randalierungen",
+  "Riots" = "Randale",
   "Strategic developments" = "Strategische Entwicklungen",
-  "Violence against civilians" = "Angriffe"
+  "Violence against civilians" = "Gewalt gegen Zivilisten"
 )
 
 
@@ -26,7 +24,14 @@ conflict_trends <- nigeria.merged %>%
 # line plot
 ggplot(conflict_trends, aes(x = year, y = conflict_count, color = event_type_de, group = event_type_de)) +
   geom_line(size = 1.5, linewidth = 1.5) + 
-  scale_color_viridis_d(option = "plasma") + 
+  scale_color_manual(values = c(
+    "Gewalt gegen Zivilisten" = "yellow",
+    "Explosionen/Ferngewalt" = "blue",
+    "Proteste" = "green",
+    "Strategische Entwicklungen" = "orange",
+    "Randale" = "purple",
+    "bewaffnete Kämpfe" = "red"
+  )) + 
   labs(
     title = "Konflikttypen in Nigeria",
     x = "Jahr",
