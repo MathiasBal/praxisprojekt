@@ -38,6 +38,10 @@ editor: visual
         -   sekundäre Datenerhebungsart
         -   manuelle Codierung durch Gruppe von Analysten
 
+## Überblick
+
+-   **`Datenerhebung:`**
+
     -   Quellenbasis:
 
         -   öffentlich verfügbare Information
