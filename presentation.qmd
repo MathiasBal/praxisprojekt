@@ -30,15 +30,19 @@ editor: visual
 
 ## Überblick
 
-  -   Art der Erhebung:
+-   Art der Erhebung:
 
-    -   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
-    -   sekundäre Datenerhebungsart
-    -   manuelle Codierung durch Gruppe von Analysten
+```         
+-   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
+-   sekundäre Datenerhebungsart
+-   manuelle Codierung durch Gruppe von Analysten
+```
 
 ## Datenerhebung
 
 -   Quellenbasis:
+
+```
 
     -   öffentlich verfügbare Information
     -   Zeitungsberichte
@@ -46,6 +50,8 @@ editor: visual
     -   NGO- und UN-Berichte
     -   soziale Medien
     -   lokale Partner
+
+```
 
 ## Betrachtete Merkmale
 
