@@ -10,7 +10,7 @@ plot <- ggplot(df_filtered, aes(x = population_best, y = fatalities)) +
   geom_point(alpha = 0.5, color = "blue") +  # Scatterplot ohne Linie
   scale_x_continuous(labels = scales::comma) +
   labs(
-    title = "Zusammenhang zwischen Bevölkerungszahl und Gewaltintensität",
+    title = "Zusammenhang zwischen Bevölkerungszahl und Todesfälle",
     x = "Bevölkerungszahl",
     y = "Anzahl der Todesopfer"
   ) +
