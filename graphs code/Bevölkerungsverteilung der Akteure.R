@@ -11,7 +11,7 @@ df <- df %>% filter(!is.na(population_best))
 boxplot <- ggplot(df, aes(x = actor_group1, y = population_best)) +
   geom_boxplot(outlier.shape = NA, fill = "steelblue", alpha = 0.6) +
   scale_y_continuous(labels = scales::comma, limits = c(0, 125000)) + 
-  labs(title = "Bevölkerungsverteilung nach Akteuren",
+  labs(title = "Bevölkerungsanzahl an Ereignisorten der Akteursgruppen",
        x = "Akteure",
        y = "Bevölkerung am Ereignisort") +
   theme_minimal() +
