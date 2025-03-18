@@ -16,7 +16,7 @@ editor: visual
 
 ## Gliederung
 
--   Einführung
+-   Fragestellung
 -   Überblick
 -   Betrachtete Merkmale
 -   Forschungsfragen
@@ -24,7 +24,9 @@ editor: visual
 
 ## Einführung
 
--   Zentrale Frage: Wie haben sich die Konflikte in Nigeria über die Zeit verändert?
+-   Zentrale Fragen: 
+    -Wie haben sich die Konflikttypen in Nigeria über die Zeit verändert?
+    -Gibt es einen Zusammenhang zwischen Konfliktgruppen und Konflikttypen?
 -   Zusätzliche Fragen:
     -   Wie hängen die Akteure in Konflikten zusammen?
     -   Ist es zu einem Anstieg an Konflikten gekommen?
@@ -34,8 +36,19 @@ editor: visual
 
 ## Überblick
 
--   Datenerhebung:
+-   Datenerhebung: 
+    -Längsschnittdaten
 -   Art der Erhebung:
+    -Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
+    -sekundäre Datenerhebungsart
+    -manuelle Codierung durch Gruppe von Analysten
+-   Quellenbasis: 
+    -öffentlich verfügbare Information
+    -Zeitungsberichte
+    -Regierungsdokumente
+    -NGO- und UN-Berichte
+    -soziale Medien
+    -lokale Partner
 
 ## Betrachtete Merkmale
 
