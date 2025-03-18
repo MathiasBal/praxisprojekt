@@ -17,17 +17,16 @@ editor: visual
 ## Gliederung
 
 -   Fragestellung
--   Datensatz - Überblick
+-   Datenerhebung
 -   Betrachtete Merkmale
--   Grafiken zur Veranschaulichung
--   Grafiken zur Fragestellung
+-   Grafiken
 -   Fazit
 
 ## Fragestellung
 
 -   Zentrale Fragen:
-    -   Wie haben sich die Konflikttypen in Nigeria über die Zeit verändert?
-    -   Gibt es einen Zusammenhang zwischen Konfliktgruppen und Konflikttypen?
+    -   Entwicklung der Konflikttypen in Nigeria über die Zeit
+    -   Zusammenhang Konfliktgruppen und Konflikttypen
 
 ## Überblick
 
