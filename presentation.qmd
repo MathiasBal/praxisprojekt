@@ -31,21 +31,22 @@ editor: visual
 
 ## Überblick
 
--   Datenerhebung:
+-   **`Datenerhebung:`**
 
--   Art der Erhebung:
+    -   Art der Erhebung:
 
-    -   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
-    -   sekundäre Datenerhebungsart
-    -   manuelle Codierung durch Gruppe von Analysten
+        -   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
+        -   sekundäre Datenerhebungsart
+        -   manuelle Codierung durch Gruppe von Analysten
 
--   Quellenbasis:
+    -   Quellenbasis:
 
-    -   öffentlich verfügbare Information
-    -   Zeitungsberichte -Regierungsdokumente
-    -   NGO- und UN-Berichte
-    -   soziale Medien
-    -   lokale Partner
+        -   öffentlich verfügbare Information
+        -   Zeitungsberichte
+        -   Regierungsdokumente
+        -   NGO- und UN-Berichte
+        -   soziale Medien
+        -   lokale Partner
 
 ## Betrachtete Merkmale
 
@@ -60,7 +61,7 @@ editor: visual
 
 ## Todesfälle pro Jahr
 
-## Geographische Darstellung der Haupt Akteurtupeln
+## Geographische Darstellung der Haupt-Akteurtupel
 
 ## Bevölkerungsverteilung der Akteure
 
