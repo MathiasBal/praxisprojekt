@@ -15,7 +15,8 @@ event_translation <- c(
 
 # filtering
 conflict_trends <- nigeria.merged %>%
-  filter(!is.na(event_type) & event_type != "NULL") %>%
+  filter(!is.na(event_type) & event_type != "NULL",
+         year < 2025) %>%
   group_by(year = year(event_date), event_type) %>%
   summarise(conflict_count = n(), .groups = "drop") %>%
   mutate(event_type_de = recode(event_type, !!!event_translation))
@@ -48,3 +49,4 @@ ggplot(conflict_trends, aes(x = year, y = conflict_count, color = event_type_de,
     legend.box = "horizontal",
     panel.grid.minor = element_blank()  
   )
+
