@@ -42,7 +42,7 @@ nigeria_top_conflicts <- nigeria.merged %>%
                                  "Identity Militias vs State Forces" = "Identitätsmilizen vs Staatliche Sicherheitskräfte",
                                  "Civilians vs Political Militias" = "Zivilisten vs Politische Milizen",
                                  "Political Militias vs State Forces" = "Politische Milizen vs Staatliche Sicherheitskräfte",
-                                 "Rebel Groups vs State Forces" = "Rebellgruppen vs Staatliche Sicherheitskräfte"))
+                                 "Rebel Groups vs State Forces" = "Rebellengruppen vs Staatliche Sicherheitskräfte"))
 
 
 # Graph
@@ -62,7 +62,7 @@ ggplot() +
     "Identitätsmilizen vs Staatliche Sicherheitskräfte" = "cyan",
     "Zivilisten vs Politische Milizen" = "red",
     "Politische Milizen vs Staatliche Sicherheitskräfte" = "purple",
-    "Rebellgruppen vs Staatliche Sicherheitskräfte" = "gold"), guide = guide_legend(override.aes = list(size = 5), title.hjust = 0.5)) +
+    "Rebellengruppen vs Staatliche Sicherheitskräfte" = "gold"), guide = guide_legend(override.aes = list(size = 5), title.hjust = 0.5)) +
   labs(
     title = "Konflikte in Nigeria",
     x = "Längengrad",

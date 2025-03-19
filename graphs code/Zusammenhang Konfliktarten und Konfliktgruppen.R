@@ -41,11 +41,11 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     "Strategic developments" = "orange",
     "Violence against civilians" = "yellow"
   ), labels = c(
-    "Battles" = "bewaffnete Kämpfe",
-    "Explosions/Remote violence" = "Explosionen/Ferngewalt",
+    "Battles" = "Kämpfe",
+    "Explosions/Remote violence" = "Explosionen",
     "Protests" = "Proteste",
     "Riots" = "Aufstände",
-    "Strategic developments" = "Strategische Entwicklungen",
+    "Strategic developments" = "Strategische Angriffe",
     "Violence against civilians" = "Gewalt gegen Zivilisten"
   )) +
   theme_minimal() +
