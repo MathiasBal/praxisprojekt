@@ -5,7 +5,8 @@
 data_counts <- nigeria.merged %>%
   pivot_longer(cols = c(actor_group1, actor_group2), 
                names_to = "actor_group", 
-               values_to = "actor") %>% 
+               values_to = "actor") %>%
+  filter(event_type != "NULL") %>% 
   group_by(event_type, actor) %>%
   summarise(n = n(), .groups = "drop")
 
@@ -40,11 +41,11 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     "Strategic developments" = "orange",
     "Violence against civilians" = "yellow"
   ), labels = c(
-    "Battles" = "bewaffnete Kämpfe",
-    "Explosions/Remote violence" = "Explosionen/Ferngewalt",
+    "Battles" = "Kämpfe",
+    "Explosions/Remote violence" = "Explosionen",
     "Protests" = "Proteste",
     "Riots" = "Aufstände",
-    "Strategic developments" = "Strategische Entwicklungen",
+    "Strategic developments" = "Strategische Angriffe",
     "Violence against civilians" = "Gewalt gegen Zivilisten"
   )) +
   theme_minimal() +
@@ -59,4 +60,3 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     panel.grid.minor = element_blank(),
     legend.position = "bottom"
   )
-

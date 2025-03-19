@@ -2,7 +2,7 @@
 
 # count deaths by year
 fatalities_summary <- nigeria.merged %>%
-  filter(!is.na(year)) %>% 
+  filter(!is.na(year) & year != 2025) %>% 
   group_by(year) %>% 
   summarise(total_fatalities = sum(fatalities, na.rm = TRUE))
 
