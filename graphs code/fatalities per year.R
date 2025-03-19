@@ -16,4 +16,6 @@ ggplot(fatalities_summary, aes(x = as.factor(year), y = total_fatalities)) +
        y = "Anzahl der Todesfälle") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-        axis.text.x = element_text(hjust = 0.5, size = 10))
+        axis.text.x = element_text(hjust = 0.5, size = 10)) +
+  scale_x_discrete(breaks = c(1997, 2000, 2005, 2010, 2015, 2020, 2024))
+

@@ -60,3 +60,4 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     panel.grid.minor = element_blank(),
     legend.position = "bottom"
   )
+
