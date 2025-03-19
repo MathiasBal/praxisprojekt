@@ -34,7 +34,10 @@
 ### Präsentation
 
 Anfang:
-Guten Tag, Gruppenvorstellung, Thema sagen, überblick
+Guten Tag, 
+Gruppenvorstellung, 
+Thema sagen, 
+Gliederung
 
 vorstellung datensatz:
 datenerhebung, variablen, wie viele observationen am anfang
@@ -44,20 +47,22 @@ fragestellung hier oder beim anfang?
 
 graphen:
 
+Netzwerkgraph (Adrian)
+
+reports (Mathias)
+civilians targeted (Mathias)
+
 Karte Nigeria Conflicts (Louis)
 Todesfälle pro Jahr (Louis)
 
-Bevölkerungsverteilung der Akteure (Adrian)
 Zusammenhang Bevölkerungsanzahl und Todesopfer (Adrian)
-
-civilians targeted (Mathias)
-reports (Mathias)
+Bevölkerungsverteilung der Akteure (Adrian)
 
 Zusammenhang Konflikttyp und Konfliktgruppe (Louis)
 
 Konflikttypen über Jahre (Bob)
 
-Netzwerkgraph (Adrian)
+
 
 
 
