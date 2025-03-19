@@ -35,7 +35,7 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
   scale_fill_manual(values = c(
     "Battles" = "red",
     "Explosions/Remote violence" = "blue",
-    "Protests" = "pink",
+    "Protests" = "brown",
     "Riots" = "purple",
     "Strategic developments" = "orange",
     "Violence against civilians" = "yellow"
@@ -43,7 +43,7 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     "Battles" = "bewaffnete Kämpfe",
     "Explosions/Remote violence" = "Explosionen/Ferngewalt",
     "Protests" = "Proteste",
-    "Riots" = "Aufstand",
+    "Riots" = "Aufstände",
     "Strategic developments" = "Strategische Entwicklungen",
     "Violence against civilians" = "Gewalt gegen Zivilisten"
   )) +
