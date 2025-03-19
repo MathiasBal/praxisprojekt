@@ -4,11 +4,11 @@ library(viridis)
 
 # translation
 event_translation <- c(
-  "Battles" = "bewaffnete Kämpfe",
-  "Explosions/Remote violence" = "Explosionen/Ferngewalt",
+  "Battles" = "Kämpfe",
+  "Explosions/Remote violence" = "Explosionen",
   "Protests" = "Proteste",
-  "Riots" = "Randale",
-  "Strategic developments" = "Strategische Entwicklungen",
+  "Riots" = "Aufstände",
+  "Strategic developments" = "Strategische Angriffe",
   "Violence against civilians" = "Gewalt gegen Zivilisten"
 )
 
@@ -27,11 +27,11 @@ ggplot(conflict_trends, aes(x = year, y = conflict_count, color = event_type_de,
   geom_line(size = 1.5, linewidth = 1.5) + 
   scale_color_manual(values = c(
     "Gewalt gegen Zivilisten" = "yellow",
-    "Explosionen/Ferngewalt" = "blue",
-    "Proteste" = "green",
-    "Strategische Entwicklungen" = "orange",
-    "Randale" = "purple",
-    "bewaffnete Kämpfe" = "red"
+    "Explosionen" = "blue",
+    "Proteste" = "brown",
+    "Strategische Angriffe" = "orange",
+    "Aufstände" = "purple",
+    "Kämpfe" = "red"
   )) + 
   labs(
     title = "Konflikttypen in Nigeria",
@@ -49,4 +49,3 @@ ggplot(conflict_trends, aes(x = year, y = conflict_count, color = event_type_de,
     legend.box = "horizontal",
     panel.grid.minor = element_blank()  
   )
-
