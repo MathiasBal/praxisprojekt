@@ -6,6 +6,17 @@ civilians_targeted <- nigeria.merged %>%
 nigeria.merged %>%
   filter(event_type != "NULL") %>%
   filter(!is.na(civilian_targeting)) %>% 
+  mutate(
+    event_type = case_when(
+      event_type == "Battles" ~ "Kämpfe",
+      event_type == "Explosions/Remote violence" ~ "Explosionen",
+      event_type == "Protests" ~ "Proteste",
+      event_type == "Riots" ~ "Aufstände",
+      event_type == "Strategic development" ~ "Strategische Angriffe",
+      event_type == "Violence against civilians" ~ "Gewalt gegen Zivilisten",
+      TRUE ~ event_type
+    )
+  ) %>% 
   ggplot(
     aes(
       x = event_type, 
@@ -15,7 +26,7 @@ nigeria.merged %>%
   geom_bar() +
   scale_fill_manual(
     values = c("gray", "red"), 
-    labels = c("nicht angegriffen", "angegriffen")
+    labels = c("Nicht angegriffen", "Angegriffen")
   ) +
   labs(
     title = "Konflikttypen und Angriffe auf Zivilisten",
@@ -24,4 +35,3 @@ nigeria.merged %>%
     fill = "Angriffe auf Zivilisten"
   ) +
   theme_minimal()
-
