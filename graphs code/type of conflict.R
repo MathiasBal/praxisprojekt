@@ -1,7 +1,3 @@
-# load package
-library(viridis)
-
-
 # translation
 event_translation <- c(
   "Battles" = "Kämpfe",
