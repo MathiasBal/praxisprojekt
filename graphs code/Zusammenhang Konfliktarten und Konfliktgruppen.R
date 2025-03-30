@@ -1,7 +1,7 @@
 # association type of conflict and conflict groups
 
-# count numbers
 
+# count numbers
 data_counts <- nigeria.merged %>%
   pivot_longer(cols = c(actor_group1, actor_group2), 
                names_to = "actor_group", 

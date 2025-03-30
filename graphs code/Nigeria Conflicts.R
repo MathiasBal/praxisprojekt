@@ -1,16 +1,13 @@
 # graph Nigeria Conflicts
 
-# load packages
-library(ggthemes)
-install.packages("rnaturalearth")
-library(rnaturalearth)
+
+# load package
 install.packages("rnaturalearthdata")
 library(rnaturalearthdata)
-library(ggrepel)
+
 
 # Nigeria Map
 Nigeria <- ne_countries(scale = "medium", country = "Nigeria", returnclass = "sf")
-
 
 
 # top conflicts
@@ -45,7 +42,7 @@ nigeria_top_conflicts <- nigeria.merged %>%
                                  "Rebel Groups vs State Forces" = "Rebellengruppen vs Staatliche Sicherheitskräfte"))
 
 
-# Graph
+# graph
 ggplot() +
   geom_sf(data = Nigeria, fill = "gray90", color = "black", linewidth = 0.4) +
   geom_point(data = nigeria_top_conflicts, 
