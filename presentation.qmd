@@ -17,19 +17,24 @@ editor: visual
 ## Gliederung
 
 -   Fragestellung
+-   Datenüberblick
 -   Datenerhebung
 -   Betrachtete Merkmale
--   Grafiken
+-   Kontext
+-   Deskriptive Analyse und Datenübersicht
+-   Limitationen
 -   Fazit
+-   Q&A
 
 ## Fragestellung
 
 -   Zentrale Fragen:
     -   Entwicklung der Konflikttypen in Nigeria über die Zeit
-    -   Zusammenhang Konfliktgruppen und Konflikttypen
+    -   Zusammenhang zwischen Konfliktgruppen und Konflikttypen
 
-## Überblick
+## Datenüberblick
 
+-   130000 Observationen, 19 Merkmale
 -   Art der Erhebung:
 
 ```         
@@ -65,29 +70,29 @@ editor: visual
 
 ## Todesfälle pro Jahr
 
-![](presentation graphs/louis todesfälle.png)
+![](presentation%20graphs/louis%20todesfälle.png)
 
 ## Konflikte in Nigeria
 
-![](presentation graphs/Nigeria Karte.png)
+![](presentation%20graphs/Nigeria%20Karte.png)
 
 ## Bevölkerungsverteilung der Akteure
 
-![](presentation graphs/Adrian Bevölkerungsverteilung.png)
+![](presentation%20graphs/Adrian%20Bevölkerungsverteilung.png)
 
 ## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
 
-![](presentation graphs/Adrian Zusammenhang bevölkerung tode.png)
+![](presentation%20graphs/Adrian%20Zusammenhang%20bevölkerung%20tode.png)
 
 ## Angriffe auf Zivilisten
 
-![](presentation graphs/Civ_Targ.png)
+![](presentation%20graphs/Civ_Targ.png)
 
 ## Reports Over Time
 
 ::: {.wide-table .left-aligned-table}
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | ![Top Reports Over Time](presentation/Reports_TopReports.png) | ![International Reports Over Time](presentation/Reports_InternationalReports.png) |
 :::
 
@@ -97,16 +102,22 @@ editor: visual
 
 ## Zusammenhang Konfliktgruppen und Konflikttypen
 
-![](presentation graphs/Louis Zusammenhang Typen und Gruppen.png){width="416"}
+![](presentation%20graphs/Louis%20Zusammenhang%20Typen%20und%20Gruppen.png){width="416"}
 
 ## Konflikttypen über die Jahre
 
-![](presentation graphs/Bob Konflikttypen über Zeit.png)
+![](presentation%20graphs/Bob%20Konflikttypen%20über%20Zeit.png)
 
 ## Netzwerkgraph
 
-![](presentation graphs/Adrian Netzwerke.png)
+![](presentation%20graphs/Adrian%20Netzwerke.png)
+
+## Limitationen
+
+sehr wenig beobachtungen zu anfang, viele später keine ahnung was helen meinte tbh
 
 ## Fazit
+
+bliblablub
 
 ## Q&A

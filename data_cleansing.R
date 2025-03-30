@@ -61,7 +61,7 @@ sub_event_type_levels <- c("", "Abduction/forced disappearance", "Agreement", "A
 sub_event_type_labels <- sub_event_type_levels
 sub_event_type_labels[1] <- "NULL"
 
-nigeria.clean <- nigeria %>% 
+nigeria.restructured <- nigeria %>% 
   mutate(event_id_cnty = event_id_cnty %>%
            str_trim() %>% 
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>% 
@@ -69,9 +69,6 @@ nigeria.clean <- nigeria %>%
          year = year %>% 
            as.integer(),
          event_date = mdy(event_date),
-         time_precision = factor(time_precision,
-                                 levels = c("1", "2", "3"),
-                                 labels = c("most precise", "precise", "least precise")),
          event_type = event_type %>% 
            str_remove_all("[[:digit:]]") %>% 
            factor(levels = event_type_levels,
@@ -84,13 +81,8 @@ nigeria.clean <- nigeria %>%
            str_remove_all("[[:punct:]]") %>%
            factor(levels = c("", "Civilian targeting"),
                   labels = c("no targeting", "civilian targeting")),
-         region = region %>% 
-           str_remove_all("\""),
          location = location %>% 
            str_remove_all("\""),
-         geo_precision = geo_precision %>%
-           factor(levels = c("1", "2", "3"),
-                  labels = c("most precise", "precise", "least precise")),
          source_scale = source_scale %>% 
            str_remove_all("\"") %>% 
            factor(levels = source_scale_levels,
@@ -105,17 +97,16 @@ nigeria.clean <- nigeria %>%
            str_trim() %>% 
            str_to_lower()
   ) %>%
-  
   filter(
     between(year, 1997, 2025) | is.na(year),
     between(latitude, -90, 90) | is.na(latitude),
     between(longitude, -180, 180) | is.na(longitude)
   ) %>%
-  select(-c(notes, region, timestamp))
+  select(-c(notes, region, timestamp, time_precision, geo_precision))
 
 
 
-nigeria.clean <- nigeria.clean %>%
+nigeria.restructured <- nigeria.restructured %>%
   mutate(
     actor1 = replace_na(actor1, "Unknown"),
     event_id_cnty = as.character(event_id_cnty),
@@ -123,7 +114,9 @@ nigeria.clean <- nigeria.clean %>%
   ) %>%
   drop_na(event_id_cnty, event_type, actor1)
 
-nigeria.wide <- nigeria.clean %>%
+
+
+nigeria.wide <- nigeria.restructured %>%
   group_by(event_id_cnty, event_type) %>%
   mutate(row = dense_rank(actor1)) %>%
   pivot_wider(
@@ -137,6 +130,8 @@ nigeria.wide <- nigeria.clean %>%
 nigeria.wide <- nigeria.wide %>%
   mutate(across(starts_with("actor"), as.character),  
          across(starts_with("actor"), ~ replace_na(., "Unknown")))  
+
+
 
 nigeria.merged <- nigeria.wide %>%
   group_by(across(-starts_with("actor"))) %>%
@@ -166,6 +161,3 @@ nigeria.merged <- nigeria.wide %>%
       str_detect(actor2, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
       TRUE ~ "External/Other Forces"
       ))
-
-
-str(nigeria.merged)
