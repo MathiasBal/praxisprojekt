@@ -10,6 +10,7 @@ if (!require("lubridate")) install.packages("lubridate")
 if (!require("tidyr")) install.packages("tidyr")
 if (!require("viridis")) install.packages("viridis")
 if (!require("igraph")) install.packages("igraph")
+if (!require("rnaturalearthdata")) install.packages("rnaturalearthdata")
 
 library(osmdata)
 library(sf)
@@ -25,6 +26,7 @@ library(igraph)
 library(ggthemes)
 library(rnaturalearth)
 library(ggrepel)
+library(rnaturalearthdata)
 
 
 #Load the data set (file needs to be in the directory)

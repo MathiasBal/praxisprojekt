@@ -1,11 +1,6 @@
 # graph Nigeria Conflicts
 
 
-# load package
-install.packages("rnaturalearthdata")
-library(rnaturalearthdata)
-
-
 # Nigeria Map
 Nigeria <- ne_countries(scale = "medium", country = "Nigeria", returnclass = "sf")
 
