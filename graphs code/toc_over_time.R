@@ -1,4 +1,4 @@
-# translation
+# translation event types
 event_translation <- c(
   "Battles" = "Kämpfe",
   "Explosions/Remote violence" = "Explosionen",
