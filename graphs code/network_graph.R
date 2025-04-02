@@ -1,6 +1,3 @@
-library(igraph)    
-library(dplyr)      
-
 data_network <- nigeria.merged %>%   
   select(actor_group1, actor_group2)  
 
@@ -15,18 +12,18 @@ edges <- data_network %>%
 
 # Netzwerk erstellen  
 network <- graph_from_data_frame(edges, directed = FALSE)    
-set.seed(123)    
+set.seed(123)    #Verhindert dass sich die Position bei jedem Neuladen ändert
 layout <- layout_with_fr(network, weights = E(network)$weight)    
 
- 
+
 colors <- c("#E41A1C",    
-                     "lightblue",    
-                     "#4DAF4A",    
-                     "blue",    
-                     "#FF7F00",    
-                     "#FFFF33",    
-                     "#A65628",    
-                     "#F781BF")    
+            "lightblue",    
+            "#4DAF4A",    
+            "blue",    
+            "#FF7F00",    
+            "#FFFF33",    
+            "#A65628",    
+            "#F781BF")    
 
 # Farben den Akteuren zuweisen  
 actor_types <- unique(c(edges$from, edges$to))  
