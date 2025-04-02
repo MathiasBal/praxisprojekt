@@ -1,5 +1,26 @@
 dataframe_network <- nigeria.merged %>%   
-  select(actor_group1, actor_group2)  
+  select(actor_group1, actor_group2)  %>%
+  mutate(
+    actor_group1 = case_when(
+      str_detect(actor_group1, "State Forces") ~ "Staatliche Sicherheitskräfte",
+      str_detect(actor_group1, "Rebel Groups") ~ "Rebellengruppen",
+      str_detect(actor_group1, "Political Militias") ~ "Politische Milizen",
+      str_detect(actor_group1,"Identity Militias" ) ~ "Identitätsmilizen",
+      str_detect(actor_group1, "Rioters") ~ "Aufständische",
+      str_detect(actor_group1, "Protesters") ~ "Protestierende",
+      str_detect(actor_group1, "Civilians") ~ "Zivilsten",
+      str_detect(actor_group1, "External/Other Forces") ~"Externe/Sontsige Akteure")) %>%
+  mutate(
+    actor_group2 = case_when(
+      str_detect(actor_group2, "State Forces") ~ "Staatliche Sicherheitskräfte",
+      str_detect(actor_group2, "Rebel Groups") ~ "Rebellengruppen",
+      str_detect(actor_group2, "Political Militias") ~ "Politische Milizen",
+      str_detect(actor_group2,"Identity Militias" ) ~ "Identitätsmilizen",
+      str_detect(actor_group2, "Rioters") ~ "Aufständische",
+      str_detect(actor_group2, "Protesters") ~ "Protestierende",
+      str_detect(actor_group2, "Civilians") ~ "Zivilsten",
+      str_detect(actor_group2, "External/Other Forces") ~"Externe/Sontsige Akteure")
+  )
 
 # Netzwerk-Daten 
 edges <- dataframe_network %>%  
@@ -38,12 +59,12 @@ V(network)$color <- actor_colors[V(network)$name]
 
 # Netzwerk plotten  
 plot_network <- plot(network,   
-     layout = layout,    
-     vertex.size = V(network)$size,    
-     vertex.color = V(network)$color,    
-     vertex.label = NA,   # Keine Labels direkt an den Knoten  
-     edge.width = (E(network)$weight / max(E(network)$weight)) * 5 + 1,     
-     main = "Gewaltinteraktion zwischen den Akteuren")    
+                     layout = layout,    
+                     vertex.size = V(network)$size,    
+                     vertex.color = V(network)$color,    
+                     vertex.label = NA,   # Keine Labels direkt an den Knoten  
+                     edge.width = (E(network)$weight / max(E(network)$weight)) * 5 + 1,     
+                     main = "Gewaltinteraktion zwischen den Akteuren")    
 
 # Legende  
 legend("topright",   
