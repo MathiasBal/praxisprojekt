@@ -2,14 +2,14 @@
 
 
 # count deaths by year
-fatalities_summary <- nigeria.merged %>%
+fatalities.summary <- nigeria.merged %>%
   filter(!is.na(year) & year != 2025) %>% 
   group_by(year) %>% 
   summarise(total_fatalities = sum(fatalities, na.rm = TRUE))
 
 
 # graph
-ggplot(fatalities_summary, aes(x = as.factor(year), y = total_fatalities)) +
+ggplot(fatalities.summary, aes(x = as.factor(year), y = total_fatalities)) +
   geom_bar(stat = "identity", fill = "steelblue") +
   labs(title = "Todesfälle pro Jahr in Nigeria",
        x = "Jahr",

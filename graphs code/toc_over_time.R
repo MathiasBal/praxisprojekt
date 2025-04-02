@@ -1,5 +1,5 @@
 # translation event types
-event_translation <- c(
+event.translation <- c(
   "Battles" = "Kämpfe",
   "Explosions/Remote violence" = "Explosionen",
   "Protests" = "Proteste",
@@ -10,16 +10,16 @@ event_translation <- c(
 
 
 # filtering
-conflict_trends <- nigeria.merged %>%
+conflict.trends <- nigeria.merged %>%
   filter(!is.na(event_type) & event_type != "NULL",
          year < 2025) %>%
   group_by(year = year(event_date), event_type) %>%
   summarise(conflict_count = n(), .groups = "drop") %>%
-  mutate(event_type_de = recode(event_type, !!!event_translation))
+  mutate(event_type_de = recode(event_type, !!!event.translation))
 
 
 # line plot
-ggplot(conflict_trends, aes(x = year, y = conflict_count, color = event_type_de, group = event_type_de)) +
+ggplot(conflict.trends, aes(x = year, y = conflict_count, color = event_type_de, group = event_type_de)) +
   geom_line(size = 1.5, linewidth = 1.5) + 
   scale_color_manual(values = c(
     "Gewalt gegen Zivilisten" = "yellow",

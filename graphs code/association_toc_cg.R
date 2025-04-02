@@ -2,7 +2,7 @@
 
 
 # count numbers
-data_counts <- nigeria.merged %>%
+data.counts <- nigeria.merged %>%
   pivot_longer(cols = c(actor_group1, actor_group2), 
                names_to = "actor_group", 
                values_to = "actor") %>%
@@ -12,7 +12,7 @@ data_counts <- nigeria.merged %>%
 
 
 # facet wrap
-ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
+ggplot(data.counts, aes(x = event_type, y = n, fill = event_type)) +
   geom_col(position = "dodge") +  
   facet_wrap(~ factor(actor, levels = c(
     "Civilians", "Protesters", "Rebel Groups", "State Forces", 
@@ -60,4 +60,3 @@ ggplot(data_counts, aes(x = event_type, y = n, fill = event_type)) +
     panel.grid.minor = element_blank(),
     legend.position = "bottom"
   )
-
