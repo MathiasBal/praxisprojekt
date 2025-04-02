@@ -1,8 +1,8 @@
-data_network <- nigeria.merged %>%   
+dataframe_network <- nigeria.merged %>%   
   select(actor_group1, actor_group2)  
 
 # Netzwerk-Daten 
-edges <- data_network %>%  
+edges <- dataframe_network %>%  
   mutate(  
     from = pmin(actor_group1, actor_group2),    
     to = pmax(actor_group1, actor_group2)        
@@ -12,7 +12,7 @@ edges <- data_network %>%
 
 # Netzwerk erstellen  
 network <- graph_from_data_frame(edges, directed = FALSE)    
-set.seed(123)    #Verhindert dass sich die Position bei jedem Neuladen ändert
+set.seed(123)    #Verhindert, dass sich die Position bei jedem Neuladen ändert
 layout <- layout_with_fr(network, weights = E(network)$weight)    
 
 
@@ -29,7 +29,7 @@ colors <- c("#E41A1C",
 actor_types <- unique(c(edges$from, edges$to))  
 actor_colors <- setNames(rep_len(colors, length(actor_types)), actor_types)  
 
-# Knotengröße anhand der Summe der Gewichtungen (node strength)  
+# Knotengröße anhand der Summe der Gewichtungen 
 node_strength <- strength(network, mode = "all")  
 V(network)$size <- (node_strength / max(node_strength)) * 30 + 5   # Skalierung  
 
@@ -37,7 +37,7 @@ V(network)$size <- (node_strength / max(node_strength)) * 30 + 5   # Skalierung
 V(network)$color <- actor_colors[V(network)$name]  
 
 # Netzwerk plotten  
-plot(network,   
+plot_network <- plot(network,   
      layout = layout,    
      vertex.size = V(network)$size,    
      vertex.color = V(network)$color,    
