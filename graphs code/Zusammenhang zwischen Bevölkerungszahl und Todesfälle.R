@@ -1,12 +1,8 @@
-library(ggplot2)
 
-df <- nigeria.merged
-
-
-df_filtered <- subset(df, population_best > 0 & fatalities >= 0)
+df_population <- subset(nigeria_merged, population_best > 0 & fatalities >= 0) #Nur Datensätze wo die untersuchten Daten vorhanden sind
 
 # Scatterplot
-plot <- ggplot(df_filtered, aes(x = population_best, y = fatalities)) +
+plot <- ggplot(df_population, aes(x = population_best, y = fatalities)) +
   geom_point(alpha = 0.5, color = "blue") + 
   scale_x_continuous(labels = scales::comma) +
   labs(
