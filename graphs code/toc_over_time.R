@@ -20,7 +20,7 @@ conflict.trends <- nigeria.merged %>%
 
 # line plot
 ggplot(conflict.trends, aes(x = year, y = conflict_count, color = event_type_de, group = event_type_de)) +
-  geom_line(size = 1.5, linewidth = 1.5) + 
+  geom_line(linewidth = 1.5) + 
   scale_color_manual(values = c(
     "Gewalt gegen Zivilisten" = "yellow",
     "Explosionen" = "blue",
@@ -45,3 +45,4 @@ ggplot(conflict.trends, aes(x = year, y = conflict_count, color = event_type_de,
     legend.box = "horizontal",
     panel.grid.minor = element_blank()  
   )
+
