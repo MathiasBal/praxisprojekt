@@ -1,3 +1,5 @@
+#network graph actors
+
 dataframe_network <- nigeria.merged %>%   
   select(actor_group1, actor_group2)  %>%
   mutate(
@@ -22,7 +24,7 @@ dataframe_network <- nigeria.merged %>%
       str_detect(actor_group2, "External/Other Forces") ~"Externe/Sontsige Akteure")
   )
 
-# Netzwerk-Daten 
+# Network data
 edges <- dataframe_network %>%  
   mutate(  
     from = pmin(actor_group1, actor_group2),    
@@ -31,12 +33,13 @@ edges <- dataframe_network %>%
   group_by(from, to) %>%  
   summarise(weight = n(), .groups = 'drop')    
 
-# Netzwerk erstellen  
+# create network 
+#set seed so it doesnt change with reloads
 network <- graph_from_data_frame(edges, directed = FALSE)    
-set.seed(123)    #Verhindert, dass sich die Position bei jedem Neuladen ändert
+set.seed(123)
 layout <- layout_with_fr(network, weights = E(network)$weight)    
 
-
+# actor colors
 colors <- c("#E41A1C",    
             "lightblue",    
             "#4DAF4A",    
@@ -46,18 +49,18 @@ colors <- c("#E41A1C",
             "#A65628",    
             "#F781BF")    
 
-# Farben den Akteuren zuweisen  
+  
 actor_types <- unique(c(edges$from, edges$to))  
 actor_colors <- setNames(rep_len(colors, length(actor_types)), actor_types)  
 
-# Knotengröße anhand der Summe der Gewichtungen 
+# node size with scaling
 node_strength <- strength(network, mode = "all")  
-V(network)$size <- (node_strength / max(node_strength)) * 30 + 5   # Skalierung  
+V(network)$size <- (node_strength / max(node_strength)) * 30 + 5    
 
-# Knotenfarben zuweisen  
+# node colors  
 V(network)$color <- actor_colors[V(network)$name]  
 
-# Netzwerk plotten  
+# plotting network
 plot_network <- plot(network,   
                      layout = layout,    
                      vertex.size = V(network)$size,    
@@ -66,7 +69,7 @@ plot_network <- plot(network,
                      edge.width = (E(network)$weight / max(E(network)$weight)) * 5 + 1,     
                      main = "Gewaltinteraktion zwischen den Akteuren")    
 
-# Legende  
+# graph legend  
 legend("topright",   
        legend = names(actor_colors),   
        col = actor_colors,   

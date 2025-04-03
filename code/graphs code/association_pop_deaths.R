@@ -1,4 +1,6 @@
-#Nur Datensätze wo die untersuchten Daten vorhanden sind
+#association between deaths and population size at event location
+
+# filter for population and fatalities exist
 dataframe.population.deaths.correlation <- subset(nigeria.merged, population_best > 0 & fatalities >= 0) 
 
 # Scatterplot

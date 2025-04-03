@@ -1,74 +1,69 @@
-# Anfänger Praktikum WS 2024/25
+# Grundlegendes Praxisprojekt WS 2024/25
 
 ## Armed conflicts - Armed conflict between different groups in Nigeria over time
 
-### Betreuerin:
+### Advisor:
 
 -   Helen Alber
 
-### Mitglieder
+### Authors:
 
 -   Adrian Schneider
 -   Bob Faber
 -   Louis Trierweiler
 -   Karan Bal
 
-### Code Convention
+### General Instructions
 
--   Functions: camelCase
--   Variables: dot.case
--   Classes: PascalCase
+This is the repository for the project Armed conflicts - Armed conflict between different groups in Nigeria over time,
+please read these instructions before running the code.
 
-### Mögliche Fragestellung
+Here you will find information on the structure of the repository.
 
--   Grouped Bar Chart - Civilians Targeted (Mathias)
--   Line Chart - Peak years in reporting (Mathias)
--   Facet Wrap - Association between type of conflict and conflict groups (Louis)
--   Nigeria Map - Conflicts Hot-spots in Nigeria (Louis)
--   Bar Chart - Number of Deaths over the years (Louis)
--   Line Chart - type of conflicts over the years
--   Zusammenhang zwischen Bevölkerungsdichte und Gewaltintensität (Adrian) → Visualisierung: Scatterplot (mit Regressionslinie)
--   Netwerkdiagramm actour_group1 vs 2 (Adrian)
--   Bevölerungsverteilung nach Akteursgruppen (Adrian)
-
-### Präsentation
-
-Anfang:
-Guten Tag, 
-Gruppenvorstellung, 
-Thema sagen, 
-Gliederung
-
-vorstellung datensatz:
-datenerhebung, variablen, wie viele observationen am anfang
-sagen dass es von 1997-2025 nicht -2012 geht
-
-fragestellung hier oder beim anfang?
-
-graphen:
-
-Netzwerkgraph (Adrian)
-
-reports (Mathias)
-civilians targeted (Mathias)
-
-Karte Nigeria Conflicts (Louis)
-Todesfälle pro Jahr (Louis)
-
-Zusammenhang Bevölkerungsanzahl und Todesopfer (Adrian)
-Bevölkerungsverteilung der Akteure (Adrian)
-
-Zusammenhang Konflikttyp und Konfliktgruppe (Louis)
-
-Konflikttypen über Jahre (Bob)
+We use R version 4.4.2, if you use other versions, you may encounter problems with the packages.
 
 
+### How to start:
+
+First of, please source the data_cleansing.R file, and run the library setup.
+This is important, as every other code is based on this file.
+
+After this, you can source all the different code files for the graphs in the subfolder graphs code in the code folder
+in any order you want, they are independent.
+
+To load the final report, simply source the correctedPresentation.qmd in the presentation folder.
 
 
+### Directory Structure:
 
-fazit:
-zusammenhang akteure und event types
-veränderung konfliktart über zeit
+#### Root Directory
 
+The root directory contains the README file, our final report and the different folders.
 
+-   README.md
+-   ... .pdf
 
+##### Data
+
+This directory contains the original data set for the Armed conflicts project.
+
+##### Code
+
+This directory contains the initial data cleansing and restructuring document, as well as all the code files for the graphs 
+in a subfolder.
+
+###### Graphs Code
+
+This directory contains the code files for the graphs.
+The file names refer to the graphs they produce, they also have a written explanation on the top of the files
+as a comment.
+
+##### Presentation
+
+This directory contains the initial presentation used and the corrected version, 
+as well as all the graphs as .png files in the images subfolder.
+
+###### Images
+
+This directory contains the corrected graphs of our presentation, which are saved as .png files.
+The file names reflect their slides in the presentation.

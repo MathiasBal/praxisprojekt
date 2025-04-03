@@ -143,13 +143,13 @@ editor: visual
 ## Fazit
 
 -   Gibt es eine Veränderung der Konflikttypen über die Zeit?
--   Gibt es einen Zusammenhang zwischen Konflikttypen und Konlfiktgruppen?
+-   Gibt es einen Zusammenhang zwischen Konflikttypen und Konfliktgruppen?
 -   Gab es einen Anstieg von Gewalt und Konflikten in Nigeria?
 
 ## Limitationen & Diskussion
-
 
 -   sehr wenige Berichte von 1997-2010
 
 -   ACLED ist angewiesen auf Informationen von Dritten
 
+-   sehr viele NAs, 60.000 von 130.000 Observationen
