@@ -21,9 +21,8 @@ editor: visual
 -   Betrachtete Merkmale
 -   Kontext
 -   Deskriptive Analyse und Datenübersicht
--   Limitationen
 -   Fazit
--   Diskussionen & Q&A
+-   Limitationen & Diskussion
 
 ## Fragestellung
 
@@ -140,18 +139,16 @@ editor: visual
 
 ![](images/toc_over_time.png){fig-align="center"}
 
-## Limitationen
-
--   zu Anfang sehr wenige Observationen von 1997 - 2010
--   angewiesen auf Informationen von Dritten
-
 ## Fazit
 
 -   Gibt es eine Veränderung der Konflikttypen über die Zeit?
 -   Gibt es einen Zusammenhang zwischen Konflikttypen und Konlfiktgruppen?
 -   Gab es einen Anstieg von Gewalt und Konflikten in Nigeria?
 
-## Diskussion & Q&A
+## Limitationen & Diskussion
 
--   Steigt die Gewalt wirklich so stark an oder wird nur vermehrt berichtet?
--   Was kann man gegen die steigende Gewalt tuen, wer muss was ändern?
+
+-   sehr wenige Berichte von 1997-2010
+
+-   ACLED ist angewiesen auf Informationen von Dritten
+
