@@ -1,6 +1,6 @@
 #loading required packages
 used.packages <- c("stringr","sf","ggplot2","dplyr","osmdata","forcats",
-                   "scales","lubridate","tidyr","viridis","igraph","rnaturalearthdata")
+                   "scales","lubridate","tidyr","viridis","igraph","rnaturalearthdata", "rnaturalearth", "ggrepel")
 
 for (pkg in used.packages) {
   if (!require(pkg, character.only = TRUE)) {
