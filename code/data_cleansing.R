@@ -10,7 +10,7 @@ for (pkg in used.packages) {
 }
 
 #Load the data set (file needs to be in the directory)
-nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
+nigeria <- read.csv("data/1997-01-01-2025-01-01-Nigeria.csv")
 
 #Data Cleansing
 ##labels and levels for factors
