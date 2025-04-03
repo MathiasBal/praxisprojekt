@@ -97,7 +97,8 @@ editor: visual
 ![](images/network_graph.png){fig-align="center"}
 
 ## Verlauf der klassischen Berichtsarten
-::: {.columns}
+
+::::: columns
 ::: {.column width="50%"}
 ![](images/top_reports.png)
 :::
@@ -105,7 +106,7 @@ editor: visual
 ::: {.column width="50%"}
 ![](images/top_reports_international.png)
 :::
-:::
+:::::
 
 ## Verlauf der "New Media" Berichte
 

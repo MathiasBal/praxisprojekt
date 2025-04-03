@@ -33,7 +33,7 @@ library(rnaturalearthdata)
 nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
 
 #Data Cleansing
-source_scale_levels <- c("International", "National", "National-International",
+source.scale.levels <- c("International", "National", "National-International",
                          "National-Regional", "Regional", "Regional-International",
                          "Subnational", "Subnational-International", "Subnational-National",
                          "Subnational-Regional", "Local partner-International",
@@ -42,16 +42,16 @@ source_scale_levels <- c("International", "National", "National-International",
                          "Other", "Other-International", "Other-National", "Other-New media",
                          "Other-Regional", "Other-Subnational", "")
 
-source_scale_labels <- source_scale_levels
-source_scale_labels[length(source_scale_labels)] <- "NULL"
+source.scale.labels <- source.scale.levels
+source.scale.labels[length(source.scale.labels)] <- "NULL"
 
-event_type_levels <- c("Strategic developments", "Riots", "Violence against civilians",
+event.type.levels <- c("Strategic developments", "Riots", "Violence against civilians",
                        "Battles", "Explosions/Remote violence", "Protests", "")
 
-event_type_labels <- event_type_levels
-event_type_labels[length(event_type_labels)] <- "NULL"
+event.type.labels <- event.type.levels
+event.type.labels[length(event.type.labels)] <- "NULL"
 
-sub_event_type_levels <- c("", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
+sub.event.type.levels <- c("", "Abduction/forced disappearance", "Agreement", "Air/drone strike",
                            "Armed clash", "Arrests", "Attack", "Change to group/activity",
                            "Disrupted weapons use", "Excessive force against protesters",
                            "Government regains territory", "Grenade", "Headquarters or base established",
@@ -60,8 +60,8 @@ sub_event_type_levels <- c("", "Abduction/forced disappearance", "Agreement", "A
                            "Protest with intervention", "Remote explosive/landmine/IED", "Sexual violence",
                            "Shelling/artillery/missile attack", "Suicide bomb", "Violent demonstration")
 
-sub_event_type_labels <- sub_event_type_levels
-sub_event_type_labels[1] <- "NULL"
+sub.event.type.labels <- sub.event.type.levels
+sub.event.type.labels[1] <- "NULL"
 
 nigeria.restructured <- nigeria %>% 
   mutate(event_id_cnty = event_id_cnty %>%
@@ -73,12 +73,12 @@ nigeria.restructured <- nigeria %>%
          event_date = mdy(event_date),
          event_type = event_type %>% 
            str_remove_all("[[:digit:]]") %>% 
-           factor(levels = event_type_levels,
-                  labels = event_type_labels),
+           factor(levels = event.type.levels,
+                  labels = event.type.labels),
          sub_event_type = sub_event_type %>% 
            str_remove_all("\"") %>% 
-           factor(levels = sub_event_type_levels,
-                  labels = sub_event_type_labels),
+           factor(levels = sub.event.type.levels,
+                  labels = sub.event.type.labels),
          civilian_targeting = civilian_targeting %>%
            str_remove_all("[[:punct:]]") %>%
            factor(levels = c("", "Civilian targeting"),
@@ -87,8 +87,8 @@ nigeria.restructured <- nigeria %>%
            str_remove_all("\""),
          source_scale = source_scale %>% 
            str_remove_all("\"") %>% 
-           factor(levels = source_scale_levels,
-                  labels = source_scale_labels),
+           factor(levels = source.scale.levels,
+                  labels = source.scale.labels),
          fatalities = fatalities %>% 
            str_remove_all("[[:alpha:][:space:][:punct:]]") %>%
            as.integer(),
