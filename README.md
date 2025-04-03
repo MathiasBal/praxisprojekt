@@ -38,7 +38,10 @@ To load the final report, simply source the correctedPresentation.qmd in the pre
 
 #### Root Directory
 
+The root directory contains the README file, our final report and the different folders.
+
 -   README.md
+-   ... .pdf
 
 ##### Data
 
