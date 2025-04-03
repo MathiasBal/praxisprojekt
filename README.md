@@ -28,7 +28,8 @@ We use R version 4.4.2, if you use other versions, you may encounter problems wi
 First of, please source the data_cleansing.R file, and run the library setup.
 This is important, as every other code is based on this file.
 
-After this, you can source all the different code files for the graphs in the subfolder graphs code in the code folder.
+After this, you can source all the different code files for the graphs in the subfolder graphs code in the code folder
+in any order you want, they are independent.
 
 To load the final report, simply source the correctedPresentation.qmd in the presentation folder.
 
