@@ -142,7 +142,7 @@ editor: visual
 ## Fazit
 
 -   Gibt es eine Veränderung der Konflikttypen über die Zeit?
--   Gibt es einen Zusammenhang zwischen Konflikttypen und Konlfiktgruppen?
+-   Gibt es einen Zusammenhang zwischen Konflikttypen und Konfliktgruppen?
 -   Gab es einen Anstieg von Gewalt und Konflikten in Nigeria?
 
 ## Limitationen & Diskussion
