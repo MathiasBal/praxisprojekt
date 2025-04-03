@@ -147,8 +147,8 @@ editor: visual
 
 ## Limitationen & Diskussion
 
-
 -   sehr wenige Berichte von 1997-2010
 
 -   ACLED ist angewiesen auf Informationen von Dritten
 
+-   sehr viele NAs, 60.000 von 130.000 Observationen
