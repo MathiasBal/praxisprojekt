@@ -36,27 +36,27 @@ To load the final report, simply source the correctedPresentation.qmd in the pre
 
 ### Directory Structure:
 
-## Root Directory
+#### Root Directory
 
 -   README.md
 
-## Data
+##### Data
 
 This directory contains the original data set for the Armed conflicts project.
 
-## Code
+##### Code
 
 This directory contains the initial data cleansing and restructuring document, as well as all the code files for the graphs 
 in a subfolder.
 The file names refer to the graphs they produce, they also have a written explanation on the top of the files
 as a comment.
 
-## Presentation
+##### Presentation
 
 This directory contains the initial presentation used and the corrected version, 
 as well as all the graphs as .png files in the images subfolder.
 
-### Images
+##### Images
 
 This directory contains the corrected graphs of our presentation, which are saved as .png files.
 The file names reflect their slides in the presentation.
