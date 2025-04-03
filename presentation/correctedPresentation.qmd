@@ -17,13 +17,12 @@ editor: visual
 ## Gliederung
 
 -   Fragestellung
--   Datenüberblick
--   Datenerhebung
+-   Datenüberblick & Datenerhebung
 -   Betrachtete Merkmale
 -   Kontext
 -   Deskriptive Analyse und Datenübersicht
 -   Limitationen
--   Fazit
+-   Fazit & Diskussion
 -   Q&A
 
 ## Fragestellung
@@ -32,24 +31,24 @@ editor: visual
     -   Entwicklung der Konflikttypen in Nigeria über die Zeit
     -   Zusammenhang zwischen Konfliktgruppen und Konflikttypen
 
-## Datenüberblick
+## Datenüberblick & Datenerhebung
 
--   130000 Observationen, 19 Merkmale
+-   19 Merkmale mit 130.000 Observationen
 -   Art der Erhebung:
 
 ```         
--   Keine klassische Erhebung, Daten werden nicht von ACLED erhoben
+-   Längsschnitt
 -   sekundäre Datenerhebungsart
 -   manuelle Codierung durch Gruppe von Analysten
 ```
 
-## Datenerhebung
+## Datenüberblick & Datenerhebung
 
--   Quellenbasis:
+-   Quellenbasis der Datenerhebung:
 
 ```         
 
-    -   öffentlich verfügbare Information
+    -   öffentlich verfügbare Informationen
     -   Zeitungsberichte
     -   Regierungsdokumente
     -   NGO- und UN-Berichte
@@ -59,56 +58,70 @@ editor: visual
 
 ## Betrachtete Merkmale
 
--   event_id_cnty
--   event_type
--   actor1
--   location
--   latitude
--   longitude
--   source
--   source_scale
+-   Konfliktnummer
+-   Konlfiktart
+-   Konfliktbeteiligte
+-   Standort
+-   Nachrichtenquelle
+-   Art der Nachrichtenquelle
+-   Einwohneranzahl
+-   Angriffe auf Zivilisten
 
-## Todesfälle pro Jahr
+## Kontext
+
+-   Ethnische und religiöse Spannungen
+
+    -    Boko Haram (seit 2010)
+
+-   Interessenkonflikte um Öl im Niger-Delta
+
+-   Korruption in der Regierung und Streitkräften
+
+-   Klimawandel / Wüstenbildung im Norden
+
+-   Radikalisierung während der Covid-Pandemie
+
+## Netzwerkgraph
 
 ![](presentation%20graphs/louis%20todesfälle.png)
 
-## Konflikte in Nigeria
+## Verlauf der klassischen Berichtsarten
 
 ![](presentation%20graphs/Nigeria%20Karte.png)
 
-## Bevölkerungsverteilung der Akteure
+## Verlauf der "New Media" Berichte
 
 ![](presentation%20graphs/Adrian%20Bevölkerungsverteilung.png)
 
-## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
+## Angriffe auf Zivilisten
 
 ![](presentation%20graphs/Adrian%20Zusammenhang%20bevölkerung%20tode.png)
 
-## Angriffe auf Zivilisten
+## Konflikte verteilt in Nigeria
 
 ![](presentation%20graphs/Civ_Targ.png)
 
-## Reports Over Time
+## Todesfälle pro Jahr
 
 ::: {.wide-table .left-aligned-table}
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | ![Top Reports Over Time](presentation/Reports_TopReports.png) | ![International Reports Over Time](presentation/Reports_InternationalReports.png) |
 :::
 
-## New Media Reports Over Time
+## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
 
 ![](presentation/Reports_NewMediaReports.png)
 
-## Zusammenhang Konfliktgruppen und Konflikttypen
+## Zusammenhang Akteurgruppen und Bevölkerungsanzahl
 
 ![](presentation%20graphs/Louis%20Zusammenhang%20Typen%20und%20Gruppen.png){width="416"}
 
-## Konflikttypen über die Jahre
+## Zusammenhang Konfliktgruppen und Konflikttypen
 
 ![](presentation%20graphs/Bob%20Konflikttypen%20über%20Zeit.png)
 
-## Netzwerkgraph
+## Konflikttypen über die Zeit
 
 ![](presentation%20graphs/Adrian%20Netzwerke.png)
 
@@ -116,7 +129,7 @@ editor: visual
 
 sehr wenig beobachtungen zu anfang, viele später keine ahnung was helen meinte tbh
 
-## Fazit
+## Fazit & Diskussion
 
 bliblablub
 
