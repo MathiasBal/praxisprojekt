@@ -31,7 +31,7 @@ This is important, as every other code is based on this file.
 After this, you can source all the different code files for the graphs in the subfolder graphs code in the code folder
 in any order you want, they are independent.
 
-To load the final report, simply source the correctedPresentation.qmd in the presentation folder.
+To load the original and final presentations, simply source the originalPresentation.pptx and correctedPresentation.qmd in the presentation folder.
 
 
 ### Directory Structure:
