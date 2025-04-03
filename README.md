@@ -41,7 +41,7 @@ To load the final report, simply source the correctedPresentation.qmd in the pre
 The root directory contains the README file, our final report and the different folders.
 
 -   README.md
--   ... .pdf
+-   Executive summary- Armed conflicts.pdf
 
 ##### Data
 
