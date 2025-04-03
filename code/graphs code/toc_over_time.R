@@ -1,3 +1,5 @@
+#type of conflicts over time
+
 # translation event types
 event.translation <- c(
   "Battles" = "Kämpfe",
