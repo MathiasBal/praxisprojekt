@@ -7,7 +7,7 @@ author:
 
 format:
   revealjs:
-    css: presentation/customstyle.css
+    css: customstyle.css
     embed-resources: true
     slide-number: c
     theme: simple
