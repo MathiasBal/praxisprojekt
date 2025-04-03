@@ -1,24 +1,18 @@
-/* ======================================
-   Custom Styles for Reveal.js Presentation
-   ====================================== */
-
-/* ========== Global Logo Styling ========== */
 .reveal:before {
   content: '';
   position: fixed;
   top: 2%;
   right: 2%;
-  height: 15%; /* Adjust height */
-  width: 15%; /* Adjust width or auto for aspect ratio */
+  height: 15%; 
+  width: 15%;
   background-image: url('LMU_Logo.svg');
-  background-size: contain; /* Ensure logo scales proportionally */
-  background-repeat: no-repeat; /* Prevent tiling */
+  background-size: contain;
+  background-repeat: no-repeat; 
   z-index: 1000;
 }
 
-/* ========== Footer Styling ========== */
 .reveal .footer {
-  font-size: 0.25em !important; /* Small footer text */
+  font-size: 0.25em !important;
   text-align: left !important;
   display: block;
   position: fixed;
@@ -26,26 +20,24 @@
   right: 90px;
 }
 
-/* ========== Slide Content Alignment ========== */
 .reveal .slides {
-  justify-content: flex-start !important; /* Align all slides to the left */
-  text-align: left !important; /* Left-align slide content */
-  padding-left: 20px !important; /* Add left padding */
+  justify-content: flex-start !important; 
+  text-align: left !important; 
+  padding-left: 20px !important;
   display: block;
 }
 
 .reveal .slides section {
-  padding-left: 0 !important; /* Adjust padding for individual slides */
+  padding-left: 0 !important; 
   padding-right: 10px !important;
   text-align: left !important;
 }
 
-/* ========== Table Styling ========== */
 .reveal .slides table {
-  margin-left: 0 !important; /* Align table to the left */
-  margin-right: auto !important; /* Prevent centering */
-  text-align: left !important; /* Left-align table text */
-  width: auto !important; /* Prevent table from stretching */
+  margin-left: 0 !important; 
+  margin-right: auto !important; 
+  text-align: left !important;
+  width: auto !important; 
 }
 
 td {
@@ -53,25 +45,25 @@ td {
 }
 
 .wide-table {
-    width: 150%;  /* Makes the table take the full width */
+    width: 150%;  
 }
 
 .wide-table img {
-    width: 150%;  /* Ensures images scale properly */
-    max-width: 700px;  /* Adjust max size if needed */
+    width: 150%;
+    max-width: 700px;  
 }
 
 .left-aligned-table {
-    text-align: left;  /* Aligns the table to the left */
-    width: auto;  /* Prevents full-width centering */
+    text-align: left; 
+    width: auto;  
 }
 
 .left-aligned-table table {
-    margin-left: 0;  /* Ensures the table is left-aligned */
-    width: auto;  /* Keeps it from stretching */
+    margin-left: 0; 
+    width: auto; 
 }
 
-/* ========== Slide Number Styling ========== */
+
 .slide-number, .reveal.has-logo .slide-number {
   bottom: 14px !important;
   right: 50px !important;
@@ -79,7 +71,7 @@ td {
   color: #777777 !important;
 }
 
-/* ========== Fragments Styling ========== */
+
 .reveal .slides section .fragment.semi-fade-out {
   opacity: 1;
   visibility: inherit;
@@ -90,32 +82,36 @@ td {
   visibility: inherit;
 }
 
-/* ========== Text and Title Styling ========== */
 .reveal .slides h1 {
-  text-align: left; /* Align title to the left */
+  text-align: left; 
   margin-left: 0;
   padding-left: 0;
 }
 
 .quarto-title-author-name {
-  font-size: 30px; /* Adjust author name size */
+  font-size: 30px; 
   text-align: left !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
-  max-width: 80%; /* Optional: Restrict the width for better alignment */
-  display: block !important; /* Ensure block-level display */
+  max-width: 80%; 
+  display: block !important; 
 }
 
 .quarto-title-institute-name {
-  font-size: 10px; /* Adjust author name size */
+  font-size: 10px; 
   text-align: left !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
-  max-width: 80%; /* Optional: Restrict the width for better alignment */
-  display: block !important; /* Ensure block-level display */
+  max-width: 80%; 
+  display: block !important; 
 }
 
-/* ========== Utility Classes ========== */
+.quarto-title-subtitle-name {
+  font-size: 30px; 
+  text-align: center !important;
+  max-width: 80%;
+}
+
 .no-padding {
   padding: 0 !important;
 }
@@ -124,7 +120,6 @@ td {
   margin: 0 !important;
 }
 
-/* ========== Optional Smaller Text Classes ========== */
 .custom-smaller {
   font-size: 0.5em;
 }
@@ -133,12 +128,11 @@ td {
   font-size: 0.75em;
 }
 
-/* ========== Optional: Logo Class for Inline Images ========== */
 .logo {
   position: fixed;
   top: 2%;
   right: 2%;
-  height: 5%; /* Adjust logo size */
-  width: auto; /* Maintain aspect ratio */
+  height: 5%; 
+  width: auto;
   z-index: 1000;
 }
