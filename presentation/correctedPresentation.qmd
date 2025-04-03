@@ -103,7 +103,7 @@ editor: visual
 :::
 
 ::: {.column width="50%"}
-![](images/top_reports_international-01.png)
+![](images/top_reports_international.png)
 :::
 :::
 
