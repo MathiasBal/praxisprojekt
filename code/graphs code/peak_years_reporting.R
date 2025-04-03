@@ -1,6 +1,7 @@
 # During what years were the most reports of violence in Nigeria?
 
 ## Total reports
+
 nigeria.merged %>%
   count(year) %>% 
   ggplot(
@@ -18,13 +19,13 @@ nigeria.merged %>%
 
 ### Total
 
-start_year <- nigeria.merged %>%
-  filter(!is.na(year)) %>%
-  summarise(min_year = min(year)) %>%
-  pull(min_year)
+top.sources <- nigeria.merged %>% 
+  count(source) %>% 
+  top_n(5, n) %>% 
+  pull(source)
 
 nigeria.merged %>%
-  filter(source %in% top_sources) %>%
+  filter(source %in% top.sources) %>%
   mutate(
     source = case_when(
       source == "Risk and Strategic Management, Corporation" ~ "RSM Corp.",
@@ -50,21 +51,21 @@ nigeria.merged %>%
   geom_point() +
   scale_x_continuous(
     limits = c(2015, 2024),
-    breaks = seq(2015, 2024, 5) # Zeigt nur 2015, 2020 und evtl. 2025, falls erlaubt
+    breaks = seq(2015, 2024, 5) 
   ) +
   theme_minimal()
 
 
 ### International
 
-international_sources <- nigeria.merged %>% 
+international.sources <- nigeria.merged %>% 
   filter(source_scale == "International") %>% 
   count(source) %>% 
   top_n(5, n) %>% 
   pull(source)
 
 nigeria.merged %>%
-  filter(source %in% international_sources) %>% 
+  filter(source %in% international.sources) %>% 
   filter(year <= 2024) %>% 
   count(year, source) %>% 
   ggplot(
@@ -83,11 +84,12 @@ nigeria.merged %>%
   ) +
   geom_line() +
   geom_point() +
+  scale_color_manual(values = c("#ff6361", "burlywood4", "cadetblue4", "darkorchid4", "cornsilk4")) +
   theme_minimal()
 
 ### New Media 
 
-new_media_sources <- nigeria.merged %>%
+new.media.sources <- nigeria.merged %>%
   filter(source_scale == "New media" | source_scale == "New media-National") %>%
   mutate(source = case_when(
     grepl("Twitter", source, ignore.case = TRUE) ~ "Twitter",
@@ -105,7 +107,7 @@ nigeria.merged %>%
     grepl("Telegram", source, ignore.case = TRUE) ~ "Telegram",
     TRUE ~ source
   )) %>%
-  filter(source %in% new_media_sources) %>%
+  filter(source %in% new.media.sources) %>%
   count(year, source) %>%
   ggplot(
     aes(
@@ -123,5 +125,6 @@ nigeria.merged %>%
   ) +
   geom_line() +
   geom_point() +
+  scale_color_manual(values = c("darkgrey", "deepskyblue", "chartreuse4", "darkorange")) +
   theme_minimal()
 
