@@ -125,23 +125,37 @@ nigeria.merged <- nigeria.wide %>%
     .groups = "drop"
   ) %>% mutate(
     actor_group1 = case_when(
-      str_detect(actor1, "military forces of nigeria|police forces of nigeria|government of nigeria|nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|national drug law enforcement agency|nigeria immigration service|multinational joint task force|military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
+      str_detect(actor1, "military forces of nigeria|police forces of nigeria|government of nigeria|
+                 nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|
+                 national drug law enforcement agency|nigeria immigration service|multinational joint task force|
+                 military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
       str_detect(actor1, "boko haram|islamic state west africa province|ansaru|islamic state sahel province") ~ "Rebel Groups",
-      str_detect(actor1, "unidentified armed group|indigenous peoples of biafra|OPC: Oodua Peoples Congress|ijaw freedom fighters|yoruba nation agitators|NDLM: Niger Delta Liberation Movement") ~ "Political Militias",
-      str_detect(actor1, "communal militia|ethnic militia|fulani ethnic militia|tiv ethnic militia|jukun ethnic militia|irigwe ethnic militia|alago ethnic militia|gbagyi ethnic militia|yoruba ethnic militia|ambu ethnic militia|eki ethnic militia") ~ "Identity Militias",
+      str_detect(actor1, "unidentified armed group|indigenous peoples of biafra|OPC: Oodua Peoples Congress|
+                 ijaw freedom fighters|yoruba nation agitators|NDLM: Niger Delta Liberation Movement") ~ "Political Militias",
+      str_detect(actor1, "communal militia|ethnic militia|fulani ethnic militia|tiv ethnic militia|
+                 jukun ethnic militia|irigwe ethnic militia|alago ethnic militia|gbagyi ethnic militia|
+                 yoruba ethnic militia|ambu ethnic militia|eki ethnic militia") ~ "Identity Militias",
       str_detect(actor1, "rioters") ~ "Rioters",
       str_detect(actor1, "protesters|nigeria labour congress") ~ "Protesters",
       str_detect(actor1, "civilians") ~ "Civilians",
-      str_detect(actor1, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
+      str_detect(actor1, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|
+                 ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
       TRUE ~ "External/Other Forces"),
     actor_group2 = case_when(
-      str_detect(actor2, "military forces of nigeria|police forces of nigeria|government of nigeria|nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|national drug law enforcement agency|nigeria immigration service|multinational joint task force|military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
+      str_detect(actor2, "military forces of nigeria|police forces of nigeria|government of nigeria|
+                 nigeria customs service|NSCDC: Nigeria Security and Civil Defence Corps|
+                 national drug law enforcement agency|nigeria immigration service|multinational joint task force|
+                 military forces of chad|military forces of niger|military forces of cameroon") ~ "State Forces",
       str_detect(actor2, "boko haram|islamic state west africa province|ansaru|islamic state sahel province") ~ "Rebel Groups",
-      str_detect(actor2, "unidentified armed group|indigenous peoples of biafra|OPC: Oodua Peoples Congress|ijaw freedom fighters|yoruba nation agitators|NDLM: Niger Delta Liberation Movement") ~ "Political Militias",
-      str_detect(actor2, "communal militia|ethnic militia|fulani ethnic militia|tiv ethnic militia|jukun ethnic militia|irigwe ethnic militia|alago ethnic militia|gbagyi ethnic militia|yoruba ethnic militia|ambu ethnic militia|eki ethnic militia") ~ "Identity Militias",
+      str_detect(actor2, "unidentified armed group|indigenous peoples of biafra|OPC: Oodua Peoples Congress|
+                 ijaw freedom fighters|yoruba nation agitators|NDLM: Niger Delta Liberation Movement") ~ "Political Militias",
+      str_detect(actor2, "communal militia|ethnic militia|fulani ethnic militia|tiv ethnic militia|jukun ethnic militia|
+                 irigwe ethnic militia|alago ethnic militia|gbagyi ethnic militia|yoruba ethnic militia|
+                 ambu ethnic militia|eki ethnic militia") ~ "Identity Militias",
       str_detect(actor2, "rioters") ~ "Rioters",
       str_detect(actor2, "protesters|nigeria labour congress") ~ "Protesters",
       str_detect(actor2, "civilians") ~ "Civilians",
-      str_detect(actor2, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
+      str_detect(actor2, "private security forces|african nature investors|KSVG: Katsina State Vigilance Group|
+                 ebube agu corps|amotekun corps|zamfara state community protection guards") ~ "External/Other Forces",
       TRUE ~ "External/Other Forces"
       ))
