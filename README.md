@@ -48,6 +48,10 @@ This directory contains the original data set for the Armed conflicts project.
 
 This directory contains the initial data cleansing and restructuring document, as well as all the code files for the graphs 
 in a subfolder.
+
+###### Graphs Code
+
+This directory contains the code files for the graphs.
 The file names refer to the graphs they produce, they also have a written explanation on the top of the files
 as a comment.
 
@@ -56,7 +60,7 @@ as a comment.
 This directory contains the initial presentation used and the corrected version, 
 as well as all the graphs as .png files in the images subfolder.
 
-##### Images
+###### Images
 
 This directory contains the corrected graphs of our presentation, which are saved as .png files.
 The file names reflect their slides in the presentation.
