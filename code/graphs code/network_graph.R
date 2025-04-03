@@ -1,6 +1,6 @@
 #network graph actors
 
-dataframe_network <- nigeria.merged %>%   
+dataframe.network <- nigeria.merged %>%   
   select(actor_group1, actor_group2)  %>%
   mutate(
     actor_group1 = case_when(
@@ -25,7 +25,7 @@ dataframe_network <- nigeria.merged %>%
   )
 
 # Network data
-edges <- dataframe_network %>%  
+edges <- dataframe.network %>%  
   mutate(  
     from = pmin(actor_group1, actor_group2),    
     to = pmax(actor_group1, actor_group2)        
@@ -50,29 +50,29 @@ colors <- c("#E41A1C",
             "#F781BF")    
 
   
-actor_types <- unique(c(edges$from, edges$to))  
-actor_colors <- setNames(rep_len(colors, length(actor_types)), actor_types)  
+actor.types <- unique(c(edges$from, edges$to))  
+actor.colors <- setNames(rep_len(colors, length(actor.types)), actor.types)  
 
 # node size with scaling
-node_strength <- strength(network, mode = "all")  
-V(network)$size <- (node_strength / max(node_strength)) * 30 + 5    
+node.strength <- strength(network, mode = "all")  
+V(network)$size <- (node.strength / max(node.strength)) * 30 + 5    
 
 # node colors  
-V(network)$color <- actor_colors[V(network)$name]  
+V(network)$color <- actor.colors[V(network)$name]  
 
 # plotting network
-plot_network <- plot(network,   
+plot.network <- plot(network,   
                      layout = layout,    
                      vertex.size = V(network)$size,    
                      vertex.color = V(network)$color,    
-                     vertex.label = NA,   # Keine Labels direkt an den Knoten  
+                     vertex.label = NA,     
                      edge.width = (E(network)$weight / max(E(network)$weight)) * 5 + 1,     
                      main = "Gewaltinteraktion zwischen den Akteuren")    
 
 # graph legend  
 legend("topright",   
-       legend = names(actor_colors),   
-       col = actor_colors,   
-       pch = 19,   # Kreissymbol für die Legende  
+       legend = names(actor.colors),   
+       col = actor.colors,   
+       pch = 19,     
        cex = 0.8,   
        title = "Akteure")  
