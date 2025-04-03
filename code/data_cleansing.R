@@ -1,38 +1,19 @@
-#loading required libraries
-if (!require("stringr")) install.packages("stringr")
-if (!require("sf")) install.packages("sf")
-if (!require("ggplot2")) install.packages("ggplot2")
-if (!require("dplyr")) install.packages("dplyr")
-if (!require("osmdata")) install.packages("osmdata")
-if (!require("forcats")) install.packages("forcats")
-if (!require("scales")) install.packages("scales")
-if (!require("lubridate")) install.packages("lubridate")
-if (!require("tidyr")) install.packages("tidyr")
-if (!require("viridis")) install.packages("viridis")
-if (!require("igraph")) install.packages("igraph")
-if (!require("rnaturalearthdata")) install.packages("rnaturalearthdata")
+#loading required packages
+used.packages <- c("stringr","sf","ggplot2","dplyr","osmdata","forcats",
+                   "scales","lubridate","tidyr","viridis","igraph","rnaturalearthdata")
 
-library(osmdata)
-library(sf)
-library(ggplot2)
-library(dplyr)
-library(stringr)
-library(forcats)
-library(scales)
-library(lubridate)
-library(tidyr)
-library(viridis)
-library(igraph)
-library(ggthemes)
-library(rnaturalearth)
-library(ggrepel)
-library(rnaturalearthdata)
-
+for (pkg in used.packages) {
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg)
+    library(pkg, character.only = TRUE)
+  }
+}
 
 #Load the data set (file needs to be in the directory)
 nigeria <- read.csv("1997-01-01-2025-01-01-Nigeria.csv")
 
 #Data Cleansing
+##labels and levels for factors
 source.scale.levels <- c("International", "National", "National-International",
                          "National-Regional", "Regional", "Regional-International",
                          "Subnational", "Subnational-International", "Subnational-National",
@@ -63,6 +44,7 @@ sub.event.type.levels <- c("", "Abduction/forced disappearance", "Agreement", "A
 sub.event.type.labels <- sub.event.type.levels
 sub.event.type.labels[1] <- "NULL"
 
+##recoding variables
 nigeria.restructured <- nigeria %>% 
   mutate(event_id_cnty = event_id_cnty %>%
            str_trim() %>% 
@@ -107,7 +89,7 @@ nigeria.restructured <- nigeria %>%
   select(-c(notes, region, timestamp, time_precision, geo_precision))
 
 
-
+#removing rows with NAs in event_id_cnty
 nigeria.restructured <- nigeria.restructured %>%
   mutate(
     actor1 = replace_na(actor1, "Unknown"),
@@ -117,7 +99,7 @@ nigeria.restructured <- nigeria.restructured %>%
   drop_na(event_id_cnty, event_type, actor1)
 
 
-
+##pivot wider to get conflict tuples and not just one actor
 nigeria.wide <- nigeria.restructured %>%
   group_by(event_id_cnty, event_type) %>%
   mutate(row = dense_rank(actor1)) %>%
@@ -134,7 +116,7 @@ nigeria.wide <- nigeria.wide %>%
          across(starts_with("actor"), ~ replace_na(., "Unknown")))  
 
 
-
+##put different actors into different actor groups, code convention by ACLED
 nigeria.merged <- nigeria.wide %>%
   group_by(across(-starts_with("actor"))) %>%
   summarise(
