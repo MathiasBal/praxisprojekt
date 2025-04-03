@@ -22,8 +22,8 @@ editor: visual
 -   Kontext
 -   Deskriptive Analyse und Datenübersicht
 -   Limitationen
--   Fazit & Diskussion
--   Q&A
+-   Fazit
+-   Diskussionen & Q&A
 
 ## Fragestellung
 
@@ -33,18 +33,27 @@ editor: visual
 
 ## Datenüberblick & Datenerhebung
 
+-   ACLED - Armed Conflict Location & Event Data
+    
+```     
+-   non-profit Organisation
+-   sammeln Daten zu politischen Konflikten und Protestereignissen
+-   Ziel: Daten bereitstellen um Konflikte zu vermeiden
+``` 
 -   19 Merkmale mit 130.000 Observationen
--   Art der Erhebung:
-
-```         
--   Längsschnitt
--   sekundäre Datenerhebungsart
--   manuelle Codierung durch Gruppe von Analysten
-```
 
 ## Datenüberblick & Datenerhebung
 
--   Quellenbasis der Datenerhebung:
+-   Art der Erhebung:
+
+```         
+    -   Längsschnitt
+    -   Daten werden nicht von ACLED erhoben
+    -   sekundäre Datenerhebungsart
+    -   manuelle Codierung durch Gruppe von Analysten
+```
+
+-   Quellenbasis der Erhebung:
 
 ```         
 
@@ -59,7 +68,7 @@ editor: visual
 ## Betrachtete Merkmale
 
 -   Konfliktnummer
--   Konlfiktart
+-   Konfliktart
 -   Konfliktbeteiligte
 -   Standort
 -   Nachrichtenquelle
@@ -71,7 +80,7 @@ editor: visual
 
 -   Ethnische und religiöse Spannungen
 
-    -    Boko Haram (seit 2010)
+    -   Boko Haram (seit 2010)
 
 -   Interessenkonflikte um Öl im Niger-Delta
 
@@ -83,54 +92,55 @@ editor: visual
 
 ## Netzwerkgraph
 
-![](presentation%20graphs/louis%20todesfälle.png)
+
 
 ## Verlauf der klassischen Berichtsarten
 
-![](presentation%20graphs/Nigeria%20Karte.png)
+
 
 ## Verlauf der "New Media" Berichte
 
-![](presentation%20graphs/Adrian%20Bevölkerungsverteilung.png)
+
 
 ## Angriffe auf Zivilisten
 
-![](presentation%20graphs/Adrian%20Zusammenhang%20bevölkerung%20tode.png)
+
 
 ## Konflikte verteilt in Nigeria
 
-![](presentation%20graphs/Civ_Targ.png)
+
 
 ## Todesfälle pro Jahr
 
-::: {.wide-table .left-aligned-table}
-|  |  |
-|------------------------------------|------------------------------------|
-| ![Top Reports Over Time](presentation/Reports_TopReports.png) | ![International Reports Over Time](presentation/Reports_InternationalReports.png) |
-:::
 
 ## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
 
-![](presentation/Reports_NewMediaReports.png)
+
 
 ## Zusammenhang Akteurgruppen und Bevölkerungsanzahl
 
-![](presentation%20graphs/Louis%20Zusammenhang%20Typen%20und%20Gruppen.png){width="416"}
+
 
 ## Zusammenhang Konfliktgruppen und Konflikttypen
 
-![](presentation%20graphs/Bob%20Konflikttypen%20über%20Zeit.png)
+
 
 ## Konflikttypen über die Zeit
 
-![](presentation%20graphs/Adrian%20Netzwerke.png)
+
 
 ## Limitationen
 
-sehr wenig beobachtungen zu anfang, viele später keine ahnung was helen meinte tbh
+-   zu Anfang sehr wenige Observationen um das Jahr 2000
+-   
 
-## Fazit & Diskussion
+## Fazit
 
-bliblablub
+-   Gibt es eine Veränderung der Konflikttypen über die Zeit?
+-   Gibt es einen Zusammenhang zwischen Konflikttypen und Konlfiktgruppen?
+-   Gab es einen Anstieg von Gewalt und Konflikten in Nigeria?
 
-## Q&A
+## Diskussion & Q&A
+
+-   Gibt es mehr gemeldete Konflikte durch den vereinfachten Medienzugang?
+-   Was kann man gegen die steigende Gewalt tuen, wer muss was ändern?
