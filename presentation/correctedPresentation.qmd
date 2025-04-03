@@ -34,13 +34,15 @@ editor: visual
 ## Datenüberblick & Datenerhebung
 
 -   ACLED - Armed Conflict Location & Event Data
-    
-```     
+
+```         
 -   non-profit Organisation
 -   sammeln Daten zu politischen Konflikten und Protestereignissen
 -   Ziel: Daten bereitstellen um Konflikte zu vermeiden
-``` 
+```
+
 -   19 Merkmale mit 130.000 Observationen
+-   von 1997 - 2025
 
 ## Datenüberblick & Datenerhebung
 
@@ -92,42 +94,51 @@ editor: visual
 
 ## Netzwerkgraph
 
-
+![](images/network_graph.png){fig-align="center"}
 
 ## Verlauf der klassischen Berichtsarten
 
+::: {.columns}
+::: {.column width="50%"}
+![](images/top_reports.png)
+:::
 
+::: {.column width="50%"}
+![](images/clipboard-875752554.png)
+:::
+:::
 
 ## Verlauf der "New Media" Berichte
 
-
+![](images/top_reports_new_media.png){fig-align="center"}
 
 ## Angriffe auf Zivilisten
 
-
+![](images/civilians_targeted.png){fig-align="center"}
 
 ## Konflikte verteilt in Nigeria
 
-
+![](images/conflicts_map.png){fig-align="center"}
 
 ## Todesfälle pro Jahr
 
+![](images/fatalities_per_year.png){fig-align="center"}
 
 ## Zusammenhang Bevölkerungsanzahl und Anzahl der Todesopfer
 
-
+![](images/association_pop_deaths.png){fig-align="center"}
 
 ## Zusammenhang Akteurgruppen und Bevölkerungsanzahl
 
-
+![](images/association_actors_pop.png){fig-align="center"}
 
 ## Zusammenhang Konfliktgruppen und Konflikttypen
 
-
+![](images/association_toc_cg.png){fig-align="center"}
 
 ## Konflikttypen über die Zeit
 
-
+![](images/toc_over_time.png){fig-align="center"}
 
 ## Limitationen
 
