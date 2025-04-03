@@ -1,8 +1,5 @@
 # Civilian Targeting by Event Type
 
-civilians_targeted <- nigeria.merged %>% 
-  filter(civilian_targeting == 2)
-
 nigeria.merged %>%
   filter(event_type != "NULL") %>%
   filter(!is.na(civilian_targeting)) %>% 
@@ -12,7 +9,7 @@ nigeria.merged %>%
       event_type == "Explosions/Remote violence" ~ "Explosionen",
       event_type == "Protests" ~ "Proteste",
       event_type == "Riots" ~ "Aufstände",
-      event_type == "Strategic development" ~ "Strategische Angriffe",
+      event_type == "Strategic developments" ~ "Strategische Angriffe",
       event_type == "Violence against civilians" ~ "Gewalt gegen Zivilisten",
       TRUE ~ event_type
     )
