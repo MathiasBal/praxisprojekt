@@ -92,19 +92,18 @@ editor: visual
 
 -   Radikalisierung während der Covid-Pandemie
 
-## Netzwerkgraph
+## Netzwerkgrap
 
 ![](images/network_graph.png){fig-align="center"}
 
 ## Verlauf der klassischen Berichtsarten
-
 ::: {.columns}
 ::: {.column width="50%"}
 ![](images/top_reports.png)
 :::
 
 ::: {.column width="50%"}
-![](images/clipboard-875752554.png)
+![](images/top_reports_international-01.png)
 :::
 :::
 
@@ -142,8 +141,8 @@ editor: visual
 
 ## Limitationen
 
--   zu Anfang sehr wenige Observationen um das Jahr 2000
--   
+-   zu Anfang sehr wenige Observationen von 1997 - 2010
+-   angewiesen auf Informationen von Dritten
 
 ## Fazit
 
@@ -153,5 +152,5 @@ editor: visual
 
 ## Diskussion & Q&A
 
--   Gibt es mehr gemeldete Konflikte durch den vereinfachten Medienzugang?
+-   Steigt die Gewalt wirklich so stark an oder wird nur vermehrt berichtet?
 -   Was kann man gegen die steigende Gewalt tuen, wer muss was ändern?
